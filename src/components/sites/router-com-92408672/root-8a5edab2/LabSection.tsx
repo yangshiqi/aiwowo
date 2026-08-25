@@ -164,7 +164,7 @@ export function LabSection() {
     <section className="pt-[60px] pb-16 sm:pt-0 sm:pb-24 lg:pb-32">
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-16">
         <div className="flex flex-col">
-          <h2 className="text-[28px] leading-7 tracking-[-0.14px] text-ink sm:text-[40px] sm:leading-10 sm:tracking-[-0.2px]">
+          <h2 className="text-[28px] leading-7 tracking-[0.03em] text-ink sm:text-[40px] sm:leading-10 sm:tracking-[0.03em]">
             社区活动
           </h2>
           <section

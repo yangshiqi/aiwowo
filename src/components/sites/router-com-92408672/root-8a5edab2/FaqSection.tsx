@@ -114,7 +114,7 @@ export function FaqSection() {
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-16">
         <h2
           id="faq-heading"
-          className="mb-9 text-[28px] leading-7 tracking-[-0.14px] text-ink lg:mb-[58px] lg:text-[40px] lg:leading-[40px] lg:tracking-[-0.2px]"
+          className="mb-9 text-[28px] leading-7 tracking-[0.03em] text-ink lg:mb-[58px] lg:text-[40px] lg:leading-[40px] lg:tracking-[0.04em]"
         >
           FAQ
         </h2>

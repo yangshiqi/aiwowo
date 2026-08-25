@@ -10,7 +10,7 @@ export function FinalCtaSection() {
         className="pointer-events-none absolute top-[-1px] left-[-86px] z-0 h-[495px] w-[508px] max-w-none select-none text-solar opacity-80 blur-[46px] sm:top-[-181px] sm:left-1/2 sm:h-[1029px] sm:w-[1029px] sm:-translate-x-1/2"
       />
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-16 relative z-10 flex flex-col items-center gap-[26.4px] text-center sm:gap-[47px]">
-        <h2 className="text-[2.5rem] leading-[1] tracking-[-0.64px] sm:text-[64px]">
+        <h2 className="text-[2.5rem] leading-[1] tracking-[0.03em] sm:text-[64px]">
           准备好，
           <br />
           入窝了吗？

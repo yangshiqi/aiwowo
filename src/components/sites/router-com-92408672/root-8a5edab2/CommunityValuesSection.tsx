@@ -60,7 +60,7 @@ export function CommunityValuesSection() {
         <div className="flex flex-col gap-[19.5px] pb-8 lg:pb-[58px]">
           <h2
             id="values-heading"
-            className="max-w-[520px] text-[34px] leading-9 tracking-[-0.4px] text-ink lg:text-[48px] lg:leading-[48px] lg:tracking-[-0.64px]"
+            className="max-w-[520px] text-[34px] leading-9 tracking-[0.03em] text-ink lg:text-[48px] lg:leading-[48px] lg:tracking-[0.04em]"
           >
             社群六大价值。
           </h2>

@@ -124,7 +124,7 @@ export function SavingsSection() {
           <div>
             <h2
               id="automatic-savings-heading"
-              className="max-w-[450px] text-[34px] leading-9 tracking-[-0.4px] text-ink lg:text-[48px] lg:leading-[48px] lg:tracking-[-0.64px]"
+              className="max-w-[450px] text-[34px] leading-9 tracking-[0.03em] text-ink lg:text-[48px] lg:leading-[48px] lg:tracking-[0.04em]"
             >
               从注册孵化，<br />
               到AI落地。

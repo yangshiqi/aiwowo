@@ -13,7 +13,7 @@ export function ProofSection() {
           <div className="flex max-w-[450px] flex-col gap-4 sm:gap-5">
             <h2
               id="proof-heading"
-              className="leading-trim text-[34px] leading-9 tracking-[-0.4px] text-ink sm:text-[40px] sm:leading-[40px] sm:tracking-[-0.2px] lg:text-[48px] lg:leading-[48px] lg:tracking-[-0.64px]"
+              className="leading-trim text-[34px] leading-9 tracking-[0.03em] text-ink sm:text-[40px] sm:leading-[40px] sm:tracking-[0.03em] lg:text-[48px] lg:leading-[48px] lg:tracking-[0.04em]"
             >
               不只是一个工位，是一个生态。
             </h2>

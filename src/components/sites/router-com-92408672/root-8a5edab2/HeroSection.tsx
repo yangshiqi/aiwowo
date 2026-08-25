@@ -116,15 +116,15 @@ export function HeroSection() {
 
         {/* Hero copy + CTAs */}
         <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-center px-4 pt-[66px] text-center lg:px-16 lg:pt-[117.5px] lg:pb-0">
-          <p className="font-medium font-mono text-[10px] text-ink leading-5 uppercase lg:text-[14px]">
+          <p className="font-medium font-mono text-[12px] tracking-[0.12em] text-ink leading-5 uppercase lg:text-[15px]">
             北京市OPC认证社区 · CERTIFIED OPC COMMUNITY
           </p>
-          <h1 className="mt-[12.58px] max-w-[530px] text-[2.5rem] leading-[1] tracking-[-0.4px] lg:mt-[19.04px] lg:text-[4rem] lg:tracking-[-0.64px]">
+          <h1 className="mt-[14px] max-w-[640px] text-[2.75rem] leading-[1.12] tracking-[0.04em] lg:mt-[21px] lg:text-[4.75rem] lg:tracking-[0.05em]">
             给每个AI的梦想
             <br />
             一个窝
           </h1>
-          <p className="mt-[11.71px] max-w-[536px] text-base leading-6 lg:mt-[16.21px]">
+          <p className="mt-[14px] max-w-[600px] text-[17px] leading-7 tracking-[0.01em] lg:mt-[18px] lg:text-lg">
             孵化中外OPC（一人公司），以AI赋能企业服务生态，
             <br className="hidden lg:inline" />
             让超级个体从这里起飞。
