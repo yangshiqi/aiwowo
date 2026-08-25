@@ -6,7 +6,7 @@
 import Link from "next/link";
 import { Fragment, type CSSProperties } from "react";
 
-import { AiwowoWordmark, MenuIcon24 } from "../shared/icons";
+import { AiwowoWordmark, GitHubIcon, MenuIcon24 } from "../shared/icons";
 
 const ASSETS = "/sites/router-com-92408672/root-8a5edab2/images";
 
@@ -100,6 +100,15 @@ export function HeroSection() {
               >
                 联系我们
               </a>
+              <a
+                href="https://github.com/yangshiqi"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="flex size-8 items-center justify-center text-ink-black transition-opacity hover:opacity-70"
+              >
+                <GitHubIcon className="size-5" />
+              </a>
               <div className="contents lg:hidden">
                 <button
                   type="button"
@@ -122,7 +131,11 @@ export function HeroSection() {
           <h1 className="mt-[14px] max-w-[640px] text-[2.75rem] leading-[1.12] tracking-[0.04em] lg:mt-[21px] lg:text-[4.75rem] lg:tracking-[0.05em]">
             给每个AI的梦想
             <br />
-            一个窝
+            一个
+            <span className="relative mx-[0.04em] inline-block px-[0.05em]">
+              <span aria-hidden="true" className="absolute inset-x-[0.02em] bottom-[0.04em] h-[0.16em] bg-solar" />
+              <span className="relative">窝</span>
+            </span>
           </h1>
           <p className="mt-[14px] max-w-[600px] text-[17px] leading-7 tracking-[0.01em] lg:mt-[18px] lg:text-lg">
             孵化中外OPC（一人公司），以AI赋能企业服务生态，

@@ -17,15 +17,23 @@ const FEATURES = [
 
 interface Partner {
   name: string;
+  /** logo file under images/partners/; text mark when absent */
+  logo?: string;
+  /** rendered logo height in px at lg (mobile = 0.72x) */
+  height?: number;
+  /** darken low-contrast marks so the grayscale row reads evenly */
+  boost?: boolean;
+  /** render the name next to the mark (for glyph-only logos) */
+  showName?: boolean;
   sub?: string;
 }
 
 const PARTNERS: Partner[] = [
-  { name: "腾讯云", sub: "WorkBuddy二级代理" },
-  { name: "中国移动·移动云" },
-  { name: "清华继续教育学院" },
-  { name: "中国社科院城竞中心" },
-  { name: "金网络" },
+  { name: "腾讯云", logo: "tencent-cloud.svg", height: 26, sub: "WorkBuddy二级代理" },
+  { name: "中国移动·移动云", logo: "china-mobile.svg", height: 30 },
+  { name: "清华继续教育学院", logo: "tsinghua-sce.png", height: 30 },
+  { name: "中国社科院城竞中心", logo: "cass.png", height: 30, showName: true },
+  { name: "金网络", logo: "goldnet.svg", height: 30, boost: true },
   { name: "歌华有线" },
   { name: "谋信传媒" },
 ];
@@ -91,8 +99,27 @@ function ProviderList({ hidden = false }: { hidden?: boolean }) {
           key={partner.name}
           className="flex shrink-0 flex-col items-center gap-[4.9px] lg:gap-[7px]"
         >
-          <span className="flex h-[22.4px] items-center whitespace-nowrap text-[15px] font-medium tracking-[0.5px] text-gray-dark lg:h-8 lg:text-[21px]">
-            {partner.name}
+          <span className="flex h-[23px] items-center lg:h-8">
+            {partner.logo ? (
+              <span className="flex items-center gap-2 lg:gap-2.5">
+                <img
+                  alt={partner.name}
+                  loading="lazy"
+                  className={`h-[calc(var(--logo-h)*0.72)] w-auto max-w-none shrink-0 grayscale lg:h-[var(--logo-h)] ${partner.boost ? "opacity-75 brightness-[0.55] contrast-[1.1]" : "opacity-60 contrast-[0.92]"}`}
+                  style={{ "--logo-h": `${partner.height ?? 28}px` } as CSSProperties}
+                  src={`${ASSET_PREFIX}/images/partners/${partner.logo}`}
+                />
+                {partner.showName ? (
+                  <span className="whitespace-nowrap text-[13px] font-medium tracking-[0.5px] text-gray-dark lg:text-[17px]">
+                    {partner.name}
+                  </span>
+                ) : null}
+              </span>
+            ) : (
+              <span className="whitespace-nowrap text-[15px] font-medium tracking-[0.5px] text-gray-dark lg:text-[21px]">
+                {partner.name}
+              </span>
+            )}
           </span>
           {partner.sub ? (
             <span className="text-[7px] text-gray-4 leading-[8.4px] lg:text-[10px] lg:leading-3">
