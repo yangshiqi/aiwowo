@@ -31,57 +31,6 @@ function TickerRow() {
     </span>
   );
 }
-
-function Tick({ style }: { style: CSSProperties }) {
-  return (
-    <span
-      aria-hidden="true"
-      className="pointer-events-none absolute bg-gray-6"
-      style={style}
-    />
-  );
-}
-
-/** Corner tick marks on all four corners of the bordered steps strip. */
-function CornerTicks8() {
-  return (
-    <span aria-hidden="true" className="pointer-events-none absolute -inset-px z-20">
-      <Tick style={{ width: "10.87px", height: "1px", top: 0, left: 0 }} />
-      <Tick style={{ width: "1px", height: "10.87px", top: 0, left: 0 }} />
-      <Tick style={{ width: "10.87px", height: "1px", top: 0, right: 0 }} />
-      <Tick style={{ width: "1px", height: "10.87px", top: 0, right: 0 }} />
-      <Tick style={{ width: "10.87px", height: "1px", bottom: 0, left: 0 }} />
-      <Tick style={{ width: "1px", height: "10.87px", bottom: 0, left: 0 }} />
-      <Tick style={{ width: "10.87px", height: "1px", bottom: 0, right: 0 }} />
-      <Tick style={{ width: "1px", height: "10.87px", bottom: 0, right: 0 }} />
-    </span>
-  );
-}
-
-/** Tick marks straddling a step cell's divider (top border on mobile, left border on lg). */
-function DividerTicks() {
-  return (
-    <>
-      <span className="contents lg:hidden">
-        <span aria-hidden="true" className="pointer-events-none absolute -inset-px z-20">
-          <Tick style={{ width: "1px", height: "21.74px", marginTop: "-10.87px", top: 0, left: 0 }} />
-          <Tick style={{ width: "10.87px", height: "1px", top: 0, left: 0 }} />
-          <Tick style={{ width: "1px", height: "21.74px", marginTop: "-10.87px", top: 0, right: 0 }} />
-          <Tick style={{ width: "10.87px", height: "1px", top: 0, right: 0 }} />
-        </span>
-      </span>
-      <span className="hidden lg:contents">
-        <span aria-hidden="true" className="pointer-events-none absolute -inset-px z-20">
-          <Tick style={{ width: "21.74px", height: "1px", marginLeft: "-10.87px", top: 0, left: 0 }} />
-          <Tick style={{ width: "1px", height: "10.87px", top: 0, left: 0 }} />
-          <Tick style={{ width: "21.74px", height: "1px", marginLeft: "-10.87px", bottom: 0, left: 0 }} />
-          <Tick style={{ width: "1px", height: "10.87px", bottom: 0, left: 0 }} />
-        </span>
-      </span>
-    </>
-  );
-}
-
 export function HeroSection() {
   return (
     <>
@@ -194,43 +143,6 @@ export function HeroSection() {
           </div>
         </div>
       </section>
-
-      {/* Numbered steps strip 01/02/03 — in the source page this row is the top of the
-          bordered card that opens `<section id="implement">`; rendered here per the
-          hero spec. Wrapper mirrors that card's container (px/pt) and keeps the
-          border visible at lg (the source row relies on the parent card's border). */}
-      <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-16 pt-16 lg:pt-32">
-        <div className="relative border border-gray-3 bg-white">
-          <span className="contents lg:hidden">
-            <CornerTicks8 />
-          </span>
-          <span className="hidden lg:contents">
-            <CornerTicks8 />
-          </span>
-          <div className="flex flex-col lg:h-[72px] lg:flex-row lg:items-stretch">
-            <div className="relative flex h-14 items-center px-4 lg:h-auto lg:px-12 lg:py-6 lg:w-[438px]">
-              <div className="flex items-center gap-3 text-ink">
-                <span className="font-mono text-[14px] leading-[23.296px] tracking-[0.4px]">01</span>
-                <span className="text-base leading-6">Every model behind one key</span>
-              </div>
-            </div>
-            <div className="relative flex h-14 items-center px-4 lg:h-auto lg:px-12 lg:py-6 lg:w-[437px] border-gray-3 border-t lg:border-t-0 lg:border-l">
-              <DividerTicks />
-              <div className="flex items-center gap-3 text-ink">
-                <span className="font-mono text-[14px] leading-[23.296px] tracking-[0.4px]">02</span>
-                <span className="text-base leading-6">Cut inference costs by 40%</span>
-              </div>
-            </div>
-            <div className="relative flex h-14 items-center px-4 lg:h-auto lg:px-12 lg:py-6 lg:w-[437px] border-gray-3 border-t lg:border-t-0 lg:border-l">
-              <DividerTicks />
-              <div className="flex items-center gap-3 text-ink">
-                <span className="font-mono text-[14px] leading-[23.296px] tracking-[0.4px]">03</span>
-                <span className="text-base leading-6">Scale to Trillions of tokens</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   );
 }

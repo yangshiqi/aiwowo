@@ -1,4 +1,8 @@
 @import "tailwindcss";
+
+/* keep Tailwind from scanning research artifacts for class candidates */
+@source not "../../docs";
+@source not "../../scripts";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
