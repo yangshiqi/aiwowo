@@ -296,3 +296,65 @@
     animation-play-state: paused;
   }
 }
+
+/* ---- router.com semantic typography (verbatim, breakpoints 768/992) ---- */
+
+.body-xl{font-size:var(--tw-font-size);line-height:var(--tw-leading);letter-spacing:var(--tw-tracking);--tw-font-size:18px;--tw-leading:22px;--tw-tracking:0px}
+@media (min-width:768px){.body-xl{--tw-font-size:19px;--tw-leading:24px;--tw-tracking:0px}}
+@media (min-width:992px){.body-xl{--tw-font-size:20px;--tw-leading:26px;--tw-tracking:0px}}
+.headline-l{font-size:var(--tw-font-size);line-height:var(--tw-leading);letter-spacing:var(--tw-tracking);--tw-font-size:34px;--tw-leading:38px;--tw-tracking:0px}
+@media (min-width:768px){.headline-l{--tw-font-size:40px;--tw-leading:42px;--tw-tracking:-.01px}}
+@media (min-width:992px){.headline-l{--tw-font-size:48px;--tw-leading:50px;--tw-tracking:-.01px}}
+.headline-m{font-size:var(--tw-font-size);line-height:var(--tw-leading);letter-spacing:var(--tw-tracking);--tw-font-size:28px;--tw-leading:32px;--tw-tracking:0px}
+@media (min-width:768px){.headline-m{--tw-font-size:32px;--tw-leading:35px;--tw-tracking:0px}}
+@media (min-width:992px){.headline-m{--tw-font-size:40px;--tw-leading:42px;--tw-tracking:-.005px}}
+.headline-s{font-size:var(--tw-font-size);line-height:var(--tw-leading);letter-spacing:var(--tw-tracking);--tw-font-size:22px;--tw-leading:26px;--tw-tracking:0px}
+@media (min-width:768px){.headline-s{--tw-font-size:25px;--tw-leading:30px;--tw-tracking:0px}}
+@media (min-width:992px){.headline-s{--tw-font-size:28px;--tw-leading:32px;--tw-tracking:0px}}
+.headline-xl{font-size:var(--tw-font-size);line-height:var(--tw-leading);letter-spacing:var(--tw-tracking);--tw-font-size:40px;--tw-leading:42px;--tw-tracking:-.01px}
+@media (min-width:768px){.headline-xl{--tw-font-size:48px;--tw-leading:50px;--tw-tracking:-.01px}}
+@media (min-width:992px){.headline-xl{--tw-font-size:64px;--tw-leading:64px;--tw-tracking:-.01px}}
+.headline-xs{font-size:var(--tw-font-size);line-height:var(--tw-leading);letter-spacing:var(--tw-tracking);--tw-font-size:20px;--tw-leading:24px;--tw-tracking:0px}
+@media (min-width:768px){.headline-xs{--tw-font-size:22px;--tw-leading:26px;--tw-tracking:0px}}
+@media (min-width:992px){.headline-xs{--tw-font-size:24px;--tw-leading:28px;--tw-tracking:0px}}
+.body-l{font-size:var(--tw-font-size);line-height:var(--tw-leading);letter-spacing:var(--tw-tracking);--tw-font-size:17px;--tw-leading:23px;--tw-tracking:0px}
+@media (min-width:992px){.body-l{--tw-font-size:18px;--tw-leading:24px;--tw-tracking:0px}}
+.body-m{font-size:var(--tw-font-size);line-height:var(--tw-leading);letter-spacing:var(--tw-tracking);--tw-font-size:15px;--tw-leading:21px;--tw-tracking:0px}
+@media (min-width:992px){.body-m{--tw-font-size:16px;--tw-leading:22px;--tw-tracking:0px}}
+.body-xs{font-size:var(--tw-font-size);line-height:var(--tw-leading);letter-spacing:var(--tw-tracking);--tw-font-size:12px;--tw-leading:18px;--tw-tracking:0px}
+@media (min-width:992px){.body-xs{--tw-font-size:13px;--tw-leading:19px;--tw-tracking:0px}}
+.body-s{font-size:var(--tw-font-size);line-height:var(--tw-leading);letter-spacing:var(--tw-tracking);--tw-font-size:14px;--tw-leading:20px;--tw-tracking:0px}
+.fade-in-80{--tw-enter-opacity:.8}
+.cascade-item{opacity:0}
+.cascade-item{animation:.5s cubic-bezier(.22,.61,.36,1) both panel-cascade;animation-delay:calc(var(--cascade-index,0) * 70ms + .18s)}
+.cascade-item,[data-js="1"] [data-shown=true] .cascade-item{opacity:1;animation:none}
+/* ---- namespace-scoped tokens mirroring router.com (text-* vs border-*) ---- */
+@theme {
+  --text-color-primary: #090909;
+  --text-color-primary-reverse: #ffffff;
+  --text-color-hushed: rgba(9, 9, 9, 0.6);
+  --text-color-hushed-reverse: rgba(255, 255, 255, 0.6);
+  --text-color-blaze: lab(59.4444% 49.7605 64.0391);
+  --border-color-primary: lab(83.0178% 1.03405 2.01975);
+  --font-ibm-plex-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+:root {
+  --font-ibm-plex-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+/* ---- cascade entrance system (verbatim from router.com) ---- */
+[data-js="1"] .cascade-item {
+  opacity: 0;
+}
+[data-js="1"] [data-shown="true"] .cascade-item {
+  animation: 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both panel-cascade;
+  animation-delay: calc(var(--cascade-index, 0) * 70ms + 0.18s);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-js="1"] .cascade-item,
+  [data-js="1"] [data-shown="true"] .cascade-item {
+    opacity: 1;
+    animation: none;
+  }
+}
