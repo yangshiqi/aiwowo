@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown21, CopyLinkIcon, ShareIcon } from "../../shared/icons";
 import { FILTER_MODELS, type BenchmarkTabId } from "./data";
 import { DistributionsPanel } from "./DistributionsPanel";
@@ -99,16 +99,35 @@ function StaticModelPill({ label }: { label: string }) {
 export function BenchmarkSection() {
   const [activeTab, setActiveTab] = useState<BenchmarkTabId>("score");
   const [shareStatus, setShareStatus] = useState("");
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [inView, setInView] = useState(false);
+
+  // Only run the auto-advance (and its progress animation) while the section
+  // is actually on screen — keeps off-screen re-renders and paints at zero.
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    if (typeof IntersectionObserver === "undefined") {
+      const frame = requestAnimationFrame(() => setInView(true));
+      return () => cancelAnimationFrame(frame);
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      setInView(entry?.isIntersecting ?? false);
+    });
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   // Auto-advance every 5s; re-arming on every tab change (click or automatic)
   // resets the timer so the progress underline and the swap stay in sync.
   useEffect(() => {
+    if (!inView) return;
     const id = window.setInterval(() => {
       if (document.hidden) return;
       setActiveTab((previous) => TAB_ORDER[(TAB_ORDER.indexOf(previous) + 1) % TAB_ORDER.length]);
     }, 5000);
     return () => window.clearInterval(id);
-  }, [activeTab]);
+  }, [activeTab, inView]);
 
   const handleCopyLink = () => {
     const url = `${window.location.origin}${window.location.pathname}#benchmark`;
@@ -119,7 +138,7 @@ export function BenchmarkSection() {
   };
 
   return (
-    <section id="benchmark" className="relative">
+    <section id="benchmark" ref={sectionRef} className="relative">
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-16 py-16 lg:pt-0 lg:pb-32">
         <div className="grid lg:grid-cols-[755fr_557fr]">
           <div className="relative min-w-0 border border-gray-3 lg:border-b">

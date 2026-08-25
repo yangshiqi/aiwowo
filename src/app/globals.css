@@ -362,3 +362,21 @@
     animation: none;
   }
 }
+
+/* ---- leading-trim: font-metric line-box trimming (TWK Lausanne metrics:
+   ascent 1866, descent -410, unitsPerEm 2048). The original computes via
+   --tw-font-size/--tw-leading vars; 1em/1lh resolve to the same values. ---- */
+.leading-trim {
+  --trim-text-height: round(calc(((1866 - 410) / 2048) * 1em), 1px);
+  --trim-space: calc((1lh - var(--trim-text-height)) / 2);
+}
+.leading-trim::before {
+  content: "";
+  display: table;
+  margin-bottom: calc(-1 * var(--trim-space));
+}
+.leading-trim::after {
+  content: "";
+  display: table;
+  margin-top: calc(-1 * var(--trim-space));
+}

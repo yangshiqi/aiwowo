@@ -11,6 +11,7 @@ import { LabSection } from "@/components/sites/router-com-92408672/root-8a5edab2
 import { FaqSection } from "@/components/sites/router-com-92408672/root-8a5edab2/FaqSection";
 import { FinalCtaSection } from "@/components/sites/router-com-92408672/root-8a5edab2/FinalCtaSection";
 import { SiteFooter } from "@/components/sites/router-com-92408672/root-8a5edab2/SiteFooter";
+import { PerfOptimizer } from "@/components/sites/router-com-92408672/root-8a5edab2/PerfOptimizer";
 import { routerJsonLd } from "@/components/sites/router-com-92408672/root-8a5edab2/jsonld";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(routerJsonLd) }}
         />
+        <PerfOptimizer />
         <FixedHeader />
         <OfferToast />
         <HeroSection />
