@@ -11,7 +11,7 @@ export function MobileBottomBar() {
 
   useEffect(() => {
     const buttons = Array.from(
-      document.querySelectorAll<HTMLButtonElement>('button[aria-label="Open menu"]'),
+      document.querySelectorAll<HTMLButtonElement>('button[aria-label="打开菜单"]'),
     );
     const toggle = () => setOpen((previous) => !previous);
     buttons.forEach((button) => button.addEventListener("click", toggle));
@@ -21,7 +21,7 @@ export function MobileBottomBar() {
 
   useEffect(() => {
     document
-      .querySelectorAll('button[aria-label="Open menu"]')
+      .querySelectorAll('button[aria-label="打开菜单"]')
       .forEach((button) => button.setAttribute("aria-expanded", String(open)));
   }, [open]);
 
@@ -33,21 +33,19 @@ export function MobileBottomBar() {
       }`}
     >
       <a
-        href="https://app.router.com"
+        href="#contact"
         onClick={() => setOpen(false)}
         className="flex h-16 items-center justify-between gap-4 border-b border-rule text-[18px] leading-6 text-ink outline-none transition-colors hover:text-ink-black focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink"
       >
-        Get the API Key
+        申请入驻
         <ChevronRight14 className="shrink-0" />
       </a>
       <a
-        href="https://docs.router.com/"
-        target="_blank"
-        rel="noopener noreferrer"
+        href="#community"
         onClick={() => setOpen(false)}
         className="flex h-16 items-center justify-between gap-4 border-b border-rule text-[18px] leading-6 text-ink outline-none transition-colors hover:text-ink-black focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink"
       >
-        Read the docs
+        加入社群
         <ChevronRight14 className="shrink-0" />
       </a>
     </div>

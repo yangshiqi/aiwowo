@@ -16,68 +16,60 @@ interface LabPost {
 
 const LAB_POSTS: LabPost[] = [
   {
-    date: "Jul 1, 2026",
-    title: "PorTAL: Portable Task Adaptation for LoRA",
-    href: "https://labs.ramp.com/research/portal-portable-task-adaptation/",
+    date: "每月常态化",
+    title: "OPC创业沙龙",
+    href: "#contact",
     description:
-      "Learn a task adaptation once in a base-agnostic form, then port it to new frozen models by refitting only a thin per-base alignment — recovering ~98% of per-task LoRA's lift on an unseen model within the same family and ~94% across families.",
+      "每月常态化产业对接会，AI落地经验分享，创业者互相碰撞——近百家企业开放真实业务场景。",
   },
   {
-    date: "May 7, 2026",
-    title: "Building Fast & Accurate Agents with Prime-RL Post Training",
-    href: "https://labs.ramp.com/research/prime-rl-post-training/",
+    date: "联合腾讯云",
+    title: "AI实战训练营",
+    href: "#contact",
     description:
-      "How Prime-RL post training improves agent speed and accuracy for production workflows.",
+      "腾讯云开发者社区、TVP、架构师技术同盟联合，AI技术专家陪跑，从产品教学到经验复制。",
   },
   {
-    date: "Apr 21, 2026",
-    title: "Coding agents ignore their own budgets",
-    href: "https://labs.ramp.com/research/coding-agents-ignore-spend/",
+    date: "面向海外市场",
+    title: "跨境电商培训",
+    href: "#contact",
     description:
-      "Agents can't be trusted to manage their own token budgets. Spend control has to live in a separate, evidence-grounded system outside the agent doing the spending.",
+      "面向俄罗斯等海外市场，从平台入驻到本地化运营一站式讲透，孵化中外OPC双向出海。",
   },
   {
-    date: "Apr 10, 2026",
-    title:
-      "Latent Briefing: Efficient Memory Sharing for Multi-Agent Systems via KV Cache Compaction",
-    href: "https://labs.ramp.com/research/latent-briefing-kv-cache/",
+    date: "政府 / 园区 / 投资机构",
+    title: "资源对接日",
+    href: "#contact",
     description:
-      "A Ramp Labs writeup on using KV cache compaction to share memory efficiently across multi-agent systems.",
+      "政府、园区、投资机构对接，路演融资、媒体曝光——把你的产品放在对的生态里，被看见、被买单。",
   },
   {
-    date: "Apr 2, 2026",
-    title: "How we built Steer, our interpretability playground",
-    href: "https://labs.ramp.com/research/how-we-built-steer/",
+    date: "创赢未来",
+    title: "OPC专场路演",
+    href: "#contact",
     description:
-      "A deep dive into building Steer - an interactive tool for exploring and understanding how language models process information internally.",
+      "\u201c创赢未来\u201dOPC专场路演，通过项目最高可获1000万元资金支持，产业对接会常态化。",
   },
   {
-    date: "Mar 23, 2026",
-    title: "How we made Ramp Sheets self-maintaining",
-    href: "https://labs.ramp.com/research/ramp-sheets-self-maintaining/",
+    date: "近百家企业",
+    title: "产业对接会",
+    href: "#contact",
     description:
-      "How we built a system that lets Ramp Sheets automatically detect and fix its own issues - reducing manual maintenance and improving reliability.",
+      "常态化产业对接，近百家企业开放真实业务场景——把你的方案直接放进真实需求里验证。",
   },
   {
-    date: "Nov 3, 2025",
-    title: "Post Training Ensemble vs. Singular Model Approaches with Tinker",
-    href: "https://labs.ramp.com/research/post-training-ensemble-tinker/",
+    date: "经信局政策包",
+    title: "政策申报辅导",
+    href: "#contact",
     description:
-      "Comparing ensemble and singular model strategies for post-training optimization, and what we learned building Tinker to explore these tradeoffs.",
+      "Token券、算力券、数据券申领全流程辅导，合计最高10万/企业；社区补贴与算力补贴申报陪跑。",
   },
   {
-    date: "Oct 2, 2025",
-    title: "We built an agent to prompt our internal finance agent",
-    href: "https://labs.ramp.com/research/agent-to-prompt-finance-agent/",
+    date: "腾讯云 TVP",
+    title: "开发者技术分享",
+    href: "#contact",
     description:
-      "What happens when you build an AI agent whose job is to figure out how to prompt another AI agent? Lessons from recursive agent architectures.",
-  },
-  {
-    date: "Aug 27, 2025",
-    title: "How we built Agent Fill",
-    href: "https://labs.ramp.com/research/how-we-built-agent-fill/",
-    description:
-      "The story behind Agent Fill - an AI agent that automatically fills out forms by understanding context, extracting data, and navigating complex workflows.",
+      "腾讯云开发者社区、TVP、架构师技术同盟联合分享：智能体开发、AIGC创制、大模型微调实践。",
   },
 ];
 
@@ -134,7 +126,7 @@ function LabPostCard({ post }: { post: LabPost }) {
         aria-hidden="true"
         className="flex items-center gap-[11px] text-base leading-6 text-ink"
       >
-        Read the post
+        了解活动
         <ArrowRight12 className="shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-1" />
       </p>
     </article>
@@ -173,12 +165,12 @@ export function LabSection() {
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-16">
         <div className="flex flex-col">
           <h2 className="text-[28px] leading-7 tracking-[-0.14px] text-ink sm:text-[40px] sm:leading-10 sm:tracking-[-0.2px]">
-            More from the Lab
+            社区活动
           </h2>
           <section
             ref={scrollerRef}
             onScroll={updateEnds}
-            aria-label="More from the Lab"
+            aria-label="社区活动"
             tabIndex={0}
             className="-mr-4 flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink motion-safe:scroll-smooth touch-pan-y select-none lg:-mr-16 mt-7 gap-4 sm:mt-[55.3px] sm:gap-6 cursor-grab"
           >
@@ -191,7 +183,7 @@ export function LabSection() {
             <button
               type="button"
               disabled={atStart}
-              aria-label="Show previous posts"
+              aria-label="上一组活动"
               onClick={() => scrollByCard(-1)}
               className="flex size-8 cursor-pointer items-center justify-center bg-ink text-white outline-none transition-[background-color,opacity] hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink disabled:pointer-events-none disabled:bg-ink-black/6 disabled:text-gray-3"
             >
@@ -200,7 +192,7 @@ export function LabSection() {
             <button
               type="button"
               disabled={atEnd}
-              aria-label="Show next posts"
+              aria-label="下一组活动"
               onClick={() => scrollByCard(1)}
               className="flex size-8 cursor-pointer items-center justify-center bg-ink text-white outline-none transition-[background-color,opacity] hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink disabled:pointer-events-none disabled:bg-ink-black/6 disabled:text-gray-3"
             >

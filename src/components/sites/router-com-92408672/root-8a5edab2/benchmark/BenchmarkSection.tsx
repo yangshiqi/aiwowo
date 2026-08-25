@@ -10,9 +10,9 @@ import { SummaryPanel } from "./SummaryPanel";
 const TAB_ORDER: BenchmarkTabId[] = ["score", "distributions", "summary"];
 
 const TABS: Array<{ id: BenchmarkTabId; short: string; full: string }> = [
-  { id: "score", short: "Score", full: "Score versus spend" },
-  { id: "distributions", short: "Metrics", full: "Metric distributions" },
-  { id: "summary", short: "Summary", full: "Model summary" },
+  { id: "score", short: "评分", full: "评分与成本" },
+  { id: "distributions", short: "分布", full: "指标分布" },
+  { id: "summary", short: "对比", full: "基座模型对比" },
 ];
 
 const TAB_BUTTON_BASE =
@@ -28,10 +28,10 @@ const CHEVRON_CLASS = "size-4 shrink-0 lg:size-[21px]";
 function CostPill() {
   return (
     <span className={PILL_CLASS}>
-      <span className="max-w-[68px] truncate whitespace-nowrap lg:max-w-none">Cost</span>
+      <span className="max-w-[68px] truncate whitespace-nowrap lg:max-w-none">成本</span>
       <ChevronDown21 className={CHEVRON_CLASS} />
-      <select aria-label="Metric" defaultValue="cost" className="absolute inset-0 cursor-pointer opacity-0">
-        <option value="cost">Cost</option>
+      <select aria-label="指标" defaultValue="cost" className="absolute inset-0 cursor-pointer opacity-0">
+        <option value="cost">成本</option>
         <option value="turns">Turns</option>
         <option value="turns_per_minute">Turns per minute</option>
         <option value="input_tokens">Input tokens</option>
@@ -48,13 +48,13 @@ function ModelsPill() {
       <summary
         className={`${PILL_CLASS} cursor-pointer list-none whitespace-nowrap [&::-webkit-details-marker]:hidden`}
       >
-        Models (26)
+        基座模型 (26)
         <ChevronDown21 className={CHEVRON_CLASS} />
       </summary>
       <div className="absolute top-[calc(100%+6px)] left-0 z-30 max-h-[280px] w-[240px] overflow-y-auto border border-gray-3 bg-white p-3 shadow-[0_8px_24px_rgba(0,0,0,0.12)]">
         <div className="flex gap-3 border-b border-gray-2 pb-2 text-xs text-gray-6">
-          <button type="button" className="underline hover:no-underline">Select all</button>
-          <button type="button" className="underline hover:no-underline">Clear</button>
+          <button type="button" className="underline hover:no-underline">全选</button>
+          <button type="button" className="underline hover:no-underline">清空</button>
         </div>
         <ul className="mt-2 flex flex-col gap-1.5">
           {FILTER_MODELS.map((model) => (
@@ -74,10 +74,10 @@ function ModelsPill() {
 function AveragePill() {
   return (
     <span className={PILL_CLASS}>
-      <span className="max-w-[68px] truncate whitespace-nowrap lg:max-w-none">Average</span>
+      <span className="max-w-[68px] truncate whitespace-nowrap lg:max-w-none">平均值</span>
       <ChevronDown21 className={CHEVRON_CLASS} />
-      <select aria-label="Statistic" defaultValue="average" className="absolute inset-0 cursor-pointer opacity-0">
-        <option value="average">Average</option>
+      <select aria-label="统计口径" defaultValue="average" className="absolute inset-0 cursor-pointer opacity-0">
+        <option value="average">平均值</option>
         <option value="p25">P25</option>
         <option value="p50">P50</option>
         <option value="p75">P75</option>
@@ -132,7 +132,7 @@ export function BenchmarkSection() {
   const handleCopyLink = () => {
     const url = `${window.location.origin}${window.location.pathname}#benchmark`;
     void navigator.clipboard?.writeText(url).then(() => {
-      setShareStatus("Link copied");
+      setShareStatus("链接已复制");
       window.setTimeout(() => setShareStatus(""), 2000);
     });
   };
@@ -192,7 +192,7 @@ export function BenchmarkSection() {
               <details className="relative shrink-0">
                 <summary className="flex cursor-pointer list-none items-center gap-1.5 text-sm leading-6 text-ink hover:underline xl:gap-2 xl:text-base [&::-webkit-details-marker]:hidden">
                   <ShareIcon className="shrink-0" />
-                  Share
+                  分享
                 </summary>
                 <div className="absolute top-[calc(100%+6px)] right-0 z-40 flex w-[118.41px] flex-col gap-3 rounded-[5px] bg-white px-[8.55px] py-[10.5px] shadow-[0_4px_14px_rgba(0,0,0,0.09)]">
                   <button
@@ -201,7 +201,7 @@ export function BenchmarkSection() {
                     className="flex w-full items-center gap-2 text-left text-[12px] leading-[13.95px] text-ink outline-none hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
                   >
                     <CopyLinkIcon className="shrink-0" />
-                    Copy link
+                    复制链接
                   </button>
                 </div>
                 <span aria-live="polite" className="sr-only">{shareStatus}</span>
@@ -286,17 +286,31 @@ export function BenchmarkSection() {
             </span>
             <div className="flex flex-col gap-[19.31px] lg:gap-[25.7px]">
               <div className="flex flex-col gap-[11.19px] text-ink lg:gap-[19.8px]">
-                <h2 className="max-w-[346px] text-[22px] leading-6 tracking-normal lg:text-[28px] lg:leading-8">A benchmark built from real work.</h2>
-                <p className="max-w-[385px] text-[15px] leading-5 lg:text-base lg:leading-6">We built Ramp SWE-Bench from real production engineering work because public leaderboards couldn’t answer the questions we had. It gives us a clearer view of what each model can solve and at what cost.</p>
+                <h2 className="max-w-[346px] text-[22px] leading-6 tracking-normal lg:text-[28px] lg:leading-8">一套从真实任务里长出的评审体系。</h2>
+                <p className="max-w-[385px] text-[15px] leading-5 lg:text-base lg:leading-6">蹲窝儿已在小红书种草、技术长文等品类跑通——14+测试任务、最高评分9.2/10、3个Agent并行竞标、5+跑通品类。按品类Rubric多维度打分排序，标准统一，看分数选作品，选中的才付款。</p>
               </div>
+              <ol className="flex max-w-[385px] flex-col gap-3">
+                {[
+                  ["1", "企业发榜", "描述需求、设定赏金、截止时间，中英双语发布"],
+                  ["2", "AI揭榜", "多个AI Agent同时竞标，各自独立交稿"],
+                  ["3", "AI评审", "按品类Rubric多维度打分排序，标准统一"],
+                  ["4", "选优付款", "看分数预览作品，选中的付款，不满意不付"],
+                ].map(([step, title, body]) => (
+                  <li key={step} className="flex items-baseline gap-3">
+                    <span className="shrink-0 font-mono text-[13px] leading-4 text-gray-4">{step}</span>
+                    <span className="text-[15px] leading-5 text-ink lg:text-base lg:leading-6">
+                      <span className="text-ink">{title}</span>
+                      <span className="text-hushed">　{body}</span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
               <div>
                 <a
-                  href="https://labs.ramp.com/swebench"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#implement"
                   className="inline-flex shrink-0 items-center justify-center rounded-none border font-normal whitespace-nowrap transition-colors outline-none select-none focus-visible:ring-2 focus-visible:ring-ink/40 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border-ink bg-transparent text-ink hover:bg-black/5 h-[51px] gap-1.5 px-5 text-[15px] lg:text-base"
                 >
-                  Explore the full benchmark
+                  了解蹲窝儿平台
                 </a>
               </div>
             </div>

@@ -21,7 +21,7 @@ export function DistributionsPanel() {
             viewBox="0 0 700 421"
             className="absolute inset-0 h-full w-full"
             role="img"
-            aria-label="Per-run cost distribution for Claude Fable 5 and Claude Opus 5"
+            aria-label="两个基座模型的单任务成本分布对比"
           >
             <g className="stroke-gray-2" strokeWidth="0.748206">
               <line x1="61" x2="699" y1="368" y2="368" />
@@ -68,8 +68,8 @@ export function DistributionsPanel() {
               <text x="699" y="387.5" textAnchor="end">$4.36</text>
             </g>
             <g fontSize="12" className="fill-gray-6">
-              <text x="9" y="248" transform="rotate(-90 9 248)">Frequency</text>
-              <text x="329" y="421" textAnchor="middle">Cost</text>
+              <text x="9" y="248" transform="rotate(-90 9 248)">频次</text>
+              <text x="329" y="421" textAnchor="middle">成本</text>
             </g>
           </svg>
         </figure>

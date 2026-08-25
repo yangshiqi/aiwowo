@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Mono, Noto_Sans_SC } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -56,28 +56,28 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
 });
 
+// CJK companion: Lausanne has no Chinese glyphs, so Chinese text falls through
+// to Noto Sans SC (weights chosen to pair with Lausanne 300/350/400/700).
+const notoSansSC = Noto_Sans_SC({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-noto-sc",
+});
+
 export const metadata: Metadata = {
-  title: "Ramp Router: The LLM Gateway That Cuts Inference Costs",
+  title: "艾窝窝OPC社区 | 给每个AI的梦想一个窝",
   description:
-    "An LLM gateway that cuts inference costs by 40% on average. One endpoint for OpenAI, Anthropic, and open models – routed automatically. Free through 2026.",
+    "孵化中外OPC（一人公司），以AI赋能企业服务生态，让超级个体从这里起飞。北京市OPC认证社区，16年企业服务沉淀，2000+服务企业。",
   icons: {
-    icon: "/sites/router-com-92408672/root-8a5edab2/seo/favicon.ico",
-    apple: "/sites/router-com-92408672/root-8a5edab2/seo/apple-icon.png",
+    icon: "/sites/router-com-92408672/root-8a5edab2/seo/aiwowo-icon.svg",
   },
   openGraph: {
-    title: "Router by Ramp",
+    title: "艾窝窝OPC社区 | AI WOWO OPC Community",
     description:
-      "One endpoint, one bill, every model — cut your AI costs by 40% on average. The missing piece to maximize ROI.",
-    siteName: "Ramp Router",
-    locale: "en_US",
+      "孵化中外OPC（一人公司），以AI赋能企业服务生态，让超级个体从这里起飞。",
+    siteName: "艾窝窝OPC社区",
+    locale: "zh_CN",
     type: "website",
-    images: [
-      {
-        url: "/sites/router-com-92408672/root-8a5edab2/seo/og-3.webp",
-        width: 1200,
-        height: 630,
-      },
-    ],
   },
 };
 
@@ -88,8 +88,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${lausanne.variable} ${plexMono.variable} h-full antialiased`}
+      lang="zh-CN"
+      className={`${lausanne.variable} ${plexMono.variable} ${notoSansSC.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-ink">
         {children}

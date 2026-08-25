@@ -17,32 +17,30 @@ interface ModelRow {
 }
 
 const MODELS: ModelRow[] = [
-  { model: "DeepSeek-V4-Flash-0731", provider: "Fireworks", released: "Jul 31, 2026", intelligence: "—", context: "1M" },
-  { model: "Kimi K3", provider: "Fireworks", released: "Jul 19, 2026", intelligence: "57.1", context: "1M" },
-  { model: "Kimi K3 Fast", provider: "Fireworks", released: "Jul 19, 2026", intelligence: "57.1", context: "1M" },
-  { model: "GPT-5.6 Luna", provider: "OpenAI", released: "Jun 23, 2026", intelligence: "51.2", context: "1.1M" },
-  { model: "GPT-5.6 Terra", provider: "OpenAI", released: "Jun 23, 2026", intelligence: "55.0", context: "1.1M" },
-  { model: "GPT-5.6 Sol", provider: "OpenAI", released: "Jun 23, 2026", intelligence: "58.9", context: "1.1M" },
-  { model: "GLM 5.2", provider: "Fireworks", released: "Jun 16, 2026", intelligence: "51.1", context: "1M" },
-  { model: "GLM 5.2 Fast", provider: "Fireworks", released: "Jun 16, 2026", intelligence: "51.1", context: "1M" },
-  { model: "Kimi K2.7 Code", provider: "Fireworks", released: "Jun 12, 2026", intelligence: "41.9", context: "262.1K" },
-  { model: "Kimi K2.7 Code Fast", provider: "Fireworks", released: "Jun 12, 2026", intelligence: "41.9", context: "262.1K" },
-  { model: "Minimax M3", provider: "Fireworks", released: "Jun 11, 2026", intelligence: "44.4", context: "512K" },
-  { model: "Qwen3.7 Plus", provider: "Fireworks", released: "Jun 9, 2026", intelligence: "39.0", context: "262.1K" },
+  { model: "一人公司注册", provider: "工商财税", released: "最快1个工作日", intelligence: "58.9", context: "¥1起" },
+  { model: "代理记账", provider: "工商财税", released: "当月起办", intelligence: "57.1", context: "面议" },
+  { model: "税务申报", provider: "工商财税", released: "按期申报", intelligence: "55.0", context: "面议" },
+  { model: "年检审计", provider: "工商财税", released: "5–10个工作日", intelligence: "51.2", context: "面议" },
+  { model: "经营许可证办理", provider: "资质许可", released: "10–20个工作日", intelligence: "51.1", context: "面议" },
+  { model: "高新技术企业认定", provider: "资质许可", released: "按认定批次", intelligence: "44.4", context: "面议" },
+  { model: "知识产权申请", provider: "资质许可", released: "7个工作日起", intelligence: "41.9", context: "面议" },
+  { model: "独立办公室", provider: "办公空间", released: "即租即用", intelligence: "57.1", context: "面议" },
+  { model: "共享工位", provider: "办公空间", released: "即租即用", intelligence: "51.1", context: "面议" },
+  { model: "会议室 / 路演厅", provider: "办公空间", released: "按小时预约", intelligence: "39.0", context: "面议" },
+  { model: "合同审查", provider: "法律咨询", released: "1–3个工作日", intelligence: "44.4", context: "面议" },
+  { model: "股权架构设计", provider: "法律咨询", released: "预约面谈", intelligence: "—", context: "面议" },
 ];
 
 type BrandKind = "deepseek" | "openai" | "glm" | "fireworks" | "kimi";
 
-function modelBrand(model: string): BrandKind {
-  return model.startsWith("DeepSeek")
-    ? "deepseek"
-    : model.startsWith("GPT")
-      ? "openai"
-      : model.startsWith("GLM")
-        ? "glm"
-        : model.startsWith("Minimax") || model.startsWith("Qwen")
-          ? "fireworks"
-          : "kimi";
+function modelBrand(category: string): BrandKind {
+  return category === "工商财税"
+    ? "openai"
+    : category === "资质许可"
+      ? "glm"
+      : category === "办公空间"
+        ? "deepseek"
+        : "fireworks";
 }
 
 function SearchGlyph() {
@@ -100,42 +98,42 @@ export function ModelMarketplaceScene() {
       <div className="rmah-mm__viewport">
         <section aria-labelledby={headingId} className="rmah-mm__panel" style={SETTLED}>
           <header style={SETTLED}>
-            <h2 id={headingId}>Models</h2>
-            <p>Find the right model for the job. Compare up to four at once.</p>
+            <h2 id={headingId}>企业基础服务目录</h2>
+            <p>16年企业服务经验，让中小企业少走弯路。</p>
           </header>
           <div aria-hidden="true" className="rmah-mm__toolbar" style={SETTLED}>
             <span className="rmah-mm__search">
               <SearchGlyph />
-              Search models
+              搜索服务
             </span>
             <span className="rmah-mm__sort">
-              Intelligence Index <ChevronGlyph />
+              热度指数 <ChevronGlyph />
             </span>
             <span className="rmah-mm__filter">
               <FilterGlyph />
-              Filters <ChevronGlyph />
+              筛选 <ChevronGlyph />
             </span>
           </div>
           <table className="rmah-mm__table">
-            <caption className="rmah-mm__visually-hidden">Available models and providers</caption>
+            <caption className="rmah-mm__visually-hidden">企业基础服务目录与类别</caption>
             <thead>
               <tr>
                 <th aria-label="Select" scope="col" />
                 <th scope="col">
-                  Model <SortGlyph />
+                  服务 <SortGlyph />
                 </th>
                 <th scope="col">
-                  Provider <SortGlyph />
+                  类别 <SortGlyph />
                 </th>
                 <th scope="col">
                   <SortGlyph descending />
-                  Released
+                  办理周期
                 </th>
                 <th scope="col">
-                  Intelligence Index <SortGlyph />
+                  热度指数 <SortGlyph />
                 </th>
                 <th scope="col">
-                  Context <SortGlyph />
+                  起价 <SortGlyph />
                 </th>
               </tr>
             </thead>
@@ -146,7 +144,7 @@ export function ModelMarketplaceScene() {
                     <span aria-hidden="true" className="rmah-mm__model-check" />
                   </td>
                   <td>
-                    <BrandMark kind={modelBrand(row.model)} />
+                    <BrandMark kind={modelBrand(row.provider)} />
                     {row.model}
                   </td>
                   <td>

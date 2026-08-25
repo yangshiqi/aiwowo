@@ -31,46 +31,46 @@ interface Turn {
 const TURNS: Turn[] = [
   {
     kind: "cached",
-    turn: "Turn 58",
-    badge: "Cache hit · 100%",
-    model: "GPT-5.6 Luna · OpenAI",
-    follows: "Follows Turn 57",
-    cost: "$0.003094",
+    turn: "认知层",
+    badge: "Foundation · 已结业",
+    model: "AI是什么、能做什么、怎么用",
+    follows: "央国企 / 园区企业 / 创业者",
+    cost: "12课时",
     progress: "cached",
     time: "1:08:05 PM",
     values: [
-      { tone: "cached", label: "Cached input", value: "269,753" },
-      { tone: "new", label: "New input", value: "405" },
-      { tone: "output", label: "Output", value: "117" },
+      { tone: "cached", label: "理论课", value: "8" },
+      { tone: "new", label: "案例课", value: "3" },
+      { tone: "output", label: "实操", value: "1" },
     ],
   },
   {
     kind: "miss",
-    turn: "Turn 59",
-    badge: "Cache miss",
-    model: "GPT-5.6 Sol · OpenAI",
-    follows: "Follows Turn 58",
-    cost: "$3.7531",
+    turn: "部署层",
+    badge: "Deployment · 进行中",
+    model: "工具选型、场景落地、流程改造",
+    follows: "衔接 认知层",
+    cost: "20课时",
     progress: "new",
     time: "1:08:17 PM",
     values: [
-      { tone: "new", label: "New input", value: "273,059" },
-      { tone: "output", label: "Output", value: "114" },
+      { tone: "new", label: "场景实操", value: "12" },
+      { tone: "output", label: "落地方案", value: "3" },
     ],
   },
   {
     kind: "mixed",
-    turn: "Turn 60",
-    badge: "Cache hit · 99%",
-    model: "GPT-5.6 Sol · OpenAI",
-    follows: "Follows Turn 59",
-    cost: "$0.3471",
+    turn: "赋能层",
+    badge: "Empowerment · 毕业即接单",
+    model: "团队培训、组织变革、持续迭代",
+    follows: "衔接 部署层 · 可入驻蹲窝儿",
+    cost: "16课时",
     progress: "mixed",
     time: "1:08:25 PM",
     values: [
-      { tone: "cached", label: "Cached input", value: "270,257" },
-      { tone: "new", label: "New input", value: "3,142" },
-      { tone: "output", label: "Output", value: "147" },
+      { tone: "cached", label: "团队共训", value: "6" },
+      { tone: "new", label: "组织方案", value: "2" },
+      { tone: "output", label: "持续陪跑", value: "∞" },
     ],
   },
 ];
@@ -124,13 +124,13 @@ export function CacheTurnsScene() {
         <div className="sd-animation__scene" style={SETTLED}>
           <div className="sd-smarter-composite">
             <div className="sd-turn-inspector-window" style={SETTLED}>
-              <section className="sd-turn-inspector" aria-label="Model turn inspector">
+              <section className="sd-turn-inspector" aria-label="FDE培训阶段面板">
                 {TURNS.map((turn) => (
                   <TurnCard key={turn.follows} turn={turn} />
                 ))}
               </section>
             </div>
-            <aside aria-label="Turn timeline" className="sd-turn-timeline" style={SETTLED}>
+            <aside aria-label="培训阶段时间线" className="sd-turn-timeline" style={SETTLED}>
               <span aria-hidden="true" className="sd-turn-timeline__rail" />
               {TURNS.map((turn, index) => (
                 <div
@@ -143,7 +143,7 @@ export function CacheTurnsScene() {
                   />
                   <span>
                     <strong>{turn.turn}</strong>
-                    Model output
+                    阶段考核
                   </span>
                   <code>{turn.time}</code>
                   <code>{turn.cost}</code>

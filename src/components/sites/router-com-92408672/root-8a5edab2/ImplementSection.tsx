@@ -7,35 +7,27 @@ import "./scenes.css";
 
 const ASSET_PREFIX = "/sites/router-com-92408672/root-8a5edab2";
 
-const INSTALL_COMMAND =
-  "curl -fsSL https://agents.ramp.com/install.sh | sh && ~/.local/bin/ramp router configure";
+const INSTALL_COMMAND = "AIWOWO@agent.qq.com";
 
 const FEATURES = [
-  { number: "01", label: "Every model behind one key" },
-  { number: "02", label: "Cut inference costs by 40%" },
-  { number: "03", label: "Scale to Trillions of tokens" },
+  { number: "2000+", label: "服务企业" },
+  { number: "20000㎡", label: "运营面积" },
+  { number: "16年", label: "企业服务沉淀" },
 ];
 
-interface Provider {
-  file: string;
-  alt: string;
-  width: number;
-  height: number;
-  logoWidth: string;
-  comingSoon?: boolean;
+interface Partner {
+  name: string;
+  sub?: string;
 }
 
-const PROVIDERS: Provider[] = [
-  { file: "anthropic.svg", alt: "Anthropic", width: 120.06, height: 13.837, logoWidth: "120.06px" },
-  { file: "openai.svg", alt: "OpenAI", width: 107.906, height: 29.0135, logoWidth: "107.906px" },
-  { file: "grok.svg", alt: "Grok", width: 88, height: 32, logoWidth: "88px" },
-  { file: "fireworks.svg", alt: "Fireworks", width: 120, height: 16, logoWidth: "120px" },
-  { file: "aws.svg", alt: "AWS", width: 37.649, height: 22.512, logoWidth: "37.649px", comingSoon: true },
-  { file: "google.svg", alt: "Google", width: 84.704, height: 27.883, logoWidth: "84.704px", comingSoon: true },
-  { file: "together-ai.svg", alt: "together.ai", width: 119, height: 26, logoWidth: "119px", comingSoon: true },
-  { file: "baseten.svg", alt: "Baseten", width: 119.984, height: 26.1806, logoWidth: "119.984px", comingSoon: true },
-  { file: "exa.svg", alt: "Exa", width: 80.905, height: 25.27, logoWidth: "80.905px" },
-  { file: "crusoe.svg", alt: "Crusoe", width: 111.271, height: 26.561, logoWidth: "111.271px", comingSoon: true },
+const PARTNERS: Partner[] = [
+  { name: "腾讯云", sub: "WorkBuddy二级代理" },
+  { name: "中国移动·移动云" },
+  { name: "清华继续教育学院" },
+  { name: "中国社科院城竞中心" },
+  { name: "金网络" },
+  { name: "歌华有线" },
+  { name: "谋信传媒" },
 ];
 
 function Tick({ style }: { style: CSSProperties }) {
@@ -94,25 +86,17 @@ function ProviderList({ hidden = false }: { hidden?: boolean }) {
       aria-hidden={hidden || undefined}
       className="flex shrink-0 items-center gap-[29px] lg:gap-14"
     >
-      {PROVIDERS.map((provider) => (
+      {PARTNERS.map((partner) => (
         <li
-          key={provider.file}
+          key={partner.name}
           className="flex shrink-0 flex-col items-center gap-[4.9px] lg:gap-[7px]"
         >
-          <span className="flex h-[22.4px] items-center lg:h-8">
-            <img
-              alt={provider.alt}
-              loading="lazy"
-              width={provider.width}
-              height={provider.height}
-              className="h-auto w-[calc(var(--logo-width)*0.7)] shrink-0 lg:w-[var(--logo-width)]"
-              style={{ color: "transparent", "--logo-width": provider.logoWidth } as CSSProperties}
-              src={`${ASSET_PREFIX}/images/providers/${provider.file}`}
-            />
+          <span className="flex h-[22.4px] items-center whitespace-nowrap text-[15px] font-medium tracking-[0.5px] text-gray-dark lg:h-8 lg:text-[21px]">
+            {partner.name}
           </span>
-          {provider.comingSoon ? (
-            <span className="text-[7px] text-gray-4 leading-[8.4px] uppercase lg:text-[10px] lg:leading-3">
-              Coming soon
+          {partner.sub ? (
+            <span className="text-[7px] text-gray-4 leading-[8.4px] lg:text-[10px] lg:leading-3">
+              {partner.sub}
             </span>
           ) : null}
         </li>
@@ -230,22 +214,21 @@ export function ImplementSection() {
               <div className="flex flex-col justify-center gap-[24.86px] px-4 pt-[27.77px] pb-8 lg:h-[413px] lg:w-[668px] lg:shrink-0 lg:gap-10 lg:p-20">
                 <div className="flex flex-col gap-[10.93px] lg:gap-6">
                   <p className="font-medium font-mono text-[14px] text-gray-6 uppercase leading-[19px] lg:leading-3">
-                    <span className="block lg:inline">Free routing through 2026</span>
+                    <span className="block lg:inline">2026–2028 政策红利期</span>
                     <span className="hidden lg:inline"> | </span>
-                    <span className="block lg:inline">$26 in model credits</span>
+                    <span className="block lg:inline">政策包最高10万/企业</span>
                   </p>
                   <p className="max-w-[496px] text-[22px] text-ink leading-6 lg:text-[28px] lg:leading-8">
-                    Router was built to reduce inference costs by matching every
-                    request to the lowest-cost model that meets your performance
-                    needs.
+                    蹲窝儿·AI任务撮合平台：企业发榜、多个AI Agent竞标、AI评审选优、
+                    按结果付费——把零散的AI需求，变成带赏金的悬赏榜。
                   </p>
                 </div>
                 <div className="flex flex-col gap-[12.43px] lg:gap-4">
-                  <p className="text-[12px] text-gray-6 leading-4">Copy for agent</p>
+                  <p className="text-[12px] text-gray-6 leading-4">联系我们 · 复制邮箱</p>
                   <div className="relative flex w-full max-w-[505px] items-center gap-3 overflow-hidden rounded-[6px] bg-surface-gray p-4">
                     <button
                       type="button"
-                      aria-label={`Copy install command: ${INSTALL_COMMAND}`}
+                      aria-label={`复制联系邮箱：${INSTALL_COMMAND}`}
                       onClick={handleCopy}
                       className="flex shrink-0 cursor-pointer items-center justify-center rounded-[5px] p-2 outline-none transition-colors duration-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink bg-gray-2 text-[#3d3b37] hover:bg-gray-3 active:bg-gray-4"
                     >
@@ -292,7 +275,7 @@ export function ImplementSection() {
                 >
                   <div className="rmah-cr__board">
                     <img
-                      alt="A Router CLI session with Switchyard enabled, comparing a $45.62 Router run against $297.85 for a generic frontier model"
+                      alt="蹲窝儿AI评审面板：按结果付费 ¥500，对比传统外包 ¥3000"
                       loading="lazy"
                       width={1932}
                       height={1245}
@@ -304,39 +287,39 @@ export function ImplementSection() {
                       <div className="rmah-cr__status">
                         <span className="rmah-cr__type rmah-cr__type--cli">CLI</span>
                         <span className="rmah-cr__type rmah-cr__type--enabled">
-                          Switchyard enabled
+                          AI评审已启用
                         </span>
                       </div>
                       <div className="rmah-cr__comparison rmah-cr__comparison--router">
                         <span className="rmah-cr__label rmah-cr__type rmah-cr__type--router">
-                          Router
+                          蹲窝儿
                         </span>
                         <span className="rmah-cr__bar">
                           <span className="rmah-cr__bar-fill" />
                         </span>
                         <span className="rmah-cr__price rmah-cr__type rmah-cr__type--router-price">
-                          $45.62
+                          ¥500
                         </span>
                       </div>
                       <div className="rmah-cr__comparison rmah-cr__comparison--frontier">
                         <span className="rmah-cr__label rmah-cr__type rmah-cr__type--frontier">
-                          Frontier (Generic)
+                          传统外包
                         </span>
                         <span className="rmah-cr__bar">
                           <span className="rmah-cr__bar-fill" />
                         </span>
                         <span className="rmah-cr__price rmah-cr__type rmah-cr__type--frontier-price">
-                          $297.85
+                          ¥3,000
                         </span>
                       </div>
                       <div className="rmah-cr__auto-mode">
                         <AutoModeIcon />
-                        <span className="rmah-cr__type rmah-cr__type--auto">auto mode on</span>
+                        <span className="rmah-cr__type rmah-cr__type--auto">按结果付费 on</span>
                       </div>
                       <p className="rmah-cr__hint rmah-cr__type rmah-cr__type--hint">
-                        {"(shift+tab to cycle) · "}
+                        {"(3个Agent并行竞标) · "}
                         <span className="rmah-cr__arrow">←</span>
-                        {" for agents"}
+                        {" 选优付款"}
                       </p>
                     </div>
                   </div>

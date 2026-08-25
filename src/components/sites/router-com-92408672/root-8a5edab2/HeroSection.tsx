@@ -6,7 +6,7 @@
 import Link from "next/link";
 import { Fragment, type CSSProperties } from "react";
 
-import { MenuIcon24, RouterWordmark } from "../shared/icons";
+import { AiwowoWordmark, MenuIcon24 } from "../shared/icons";
 
 const ASSETS = "/sites/router-com-92408672/root-8a5edab2/images";
 
@@ -21,10 +21,10 @@ function TickerRow() {
       {Array.from({ length: TICKER_PAIR_COUNT }).map((_, i) => (
         <Fragment key={i}>
           <span className="flex shrink-0 items-center border-gray-dark border-r-[0.5px] px-3 text-white">
-            <span className="whitespace-nowrap">$26 in model credits</span>
+            <span className="whitespace-nowrap">北京市OPC认证社区</span>
           </span>
           <span className="flex shrink-0 items-center border-gray-dark border-r-[0.5px] px-3 text-gray-dark">
-            <span className="whitespace-nowrap">Free routing through 2026</span>
+            <span className="whitespace-nowrap">2026–2028 OPC政策红利期</span>
           </span>
         </Fragment>
       ))}
@@ -60,9 +60,9 @@ export function HeroSection() {
             aria-hidden="true"
             className="pointer-events-none absolute bottom-0 left-[-2.083%] h-[calc(24.75cqw+10px)] w-[105.813%] whitespace-nowrap font-normal text-[39.102cqw] leading-none tracking-[-2.346cqw] mix-blend-plus-lighter select-none"
           >
-            <p className="absolute top-[-5.4194cqw] left-0 opacity-60 text-surface-gray blur-[0.9923cqw]">Router</p>
-            <p className="absolute top-[-5.4194cqw] left-0 opacity-60 text-surface-gray blur-[1.6901cqw] mix-blend-luminosity">Router</p>
-            <p className="absolute top-[-5.4194cqw] left-0 opacity-60 text-gray-1 blur-[0.8248cqw] mix-blend-plus-lighter [text-shadow:0_0_2.232cqw_white]">Router</p>
+            <p className="absolute top-[-5.4194cqw] left-0 opacity-60 text-surface-gray blur-[0.9923cqw]">艾窝窝</p>
+            <p className="absolute top-[-5.4194cqw] left-0 opacity-60 text-surface-gray blur-[1.6901cqw] mix-blend-luminosity">艾窝窝</p>
+            <p className="absolute top-[-5.4194cqw] left-0 opacity-60 text-gray-1 blur-[0.8248cqw] mix-blend-plus-lighter [text-shadow:0_0_2.232cqw_white]">艾窝窝</p>
           </div>
           <div className="absolute inset-x-0 bottom-0 h-[8.417%] bg-linear-to-b from-white/0 to-white lg:h-[8.417%]" />
         </div>
@@ -73,7 +73,7 @@ export function HeroSection() {
             aria-label="Current offers"
             className="relative flex h-[var(--announcement-height)] items-center overflow-hidden bg-black text-[10px] leading-none tracking-[0.18px] uppercase backdrop-blur-[50px]"
           >
-            <span className="sr-only">$26 in model credits. Free routing through 2026.</span>
+            <span className="sr-only">北京市OPC认证社区。2026–2028 OPC政策红利期。</span>
             <div className="flex w-full pl-1 font-mono lg:pl-[52px]">
               <TickerRow />
               <TickerRow />
@@ -89,22 +89,22 @@ export function HeroSection() {
           </aside>
           <div id="site-header" className="flex h-[60px] w-full items-center justify-between px-4 lg:px-16">
             <div className="flex items-center gap-[15px] lg:gap-6">
-              <Link aria-label="Router by Ramp home" className="text-ink-black h-[33.195px] w-[80.272px]" href="/">
-                <RouterWordmark className="w-auto h-full shrink-0" />
+              <Link aria-label="艾窝窝OPC社区首页" className="block h-[33.195px] text-ink-black" href="/">
+                <AiwowoWordmark className="h-full" textClassName="text-[17px]" />
               </Link>
             </div>
             <nav aria-label="Primary" className="flex items-center gap-5">
               <a
-                href="https://app.router.com"
+                href="#contact"
                 className="text-sm text-ink-black underline decoration-solid underline-offset-2 hover:no-underline"
               >
-                Login
+                联系我们
               </a>
               <div className="contents lg:hidden">
                 <button
                   type="button"
                   aria-expanded={false}
-                  aria-label="Open menu"
+                  aria-label="打开菜单"
                   className="-mr-1 flex size-8 items-center justify-center text-ink-black outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
                 >
                   <MenuIcon24 className="shrink-0" />
@@ -117,28 +117,30 @@ export function HeroSection() {
         {/* Hero copy + CTAs */}
         <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-center px-4 pt-[66px] text-center lg:px-16 lg:pt-[117.5px] lg:pb-0">
           <p className="font-medium font-mono text-[10px] text-ink leading-5 uppercase lg:text-[14px]">
-            router.com saves you time and money
+            北京市OPC认证社区 · CERTIFIED OPC COMMUNITY
           </p>
           <h1 className="mt-[12.58px] max-w-[530px] text-[2.5rem] leading-[1] tracking-[-0.4px] lg:mt-[19.04px] lg:text-[4rem] lg:tracking-[-0.64px]">
-            Cut inference costs in seconds.
+            给每个AI的梦想
+            <br />
+            一个窝
           </h1>
           <p className="mt-[11.71px] max-w-[536px] text-base leading-6 lg:mt-[16.21px]">
-            One endpoint, one bill, every model — cut your AI costs by 40% on average. The missing piece to maximize ROI.
+            孵化中外OPC（一人公司），以AI赋能企业服务生态，
+            <br className="hidden lg:inline" />
+            让超级个体从这里起飞。
           </p>
           <div className="mt-[18.01px] flex flex-wrap items-center justify-center gap-4 lg:mt-[26.01px]">
             <a
-              href="https://app.router.com"
+              href="#implement"
               className="inline-flex shrink-0 items-center justify-center rounded-none border border-transparent font-normal whitespace-nowrap transition-colors outline-none select-none focus-visible:ring-2 focus-visible:ring-ink/40 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-ink-black text-white hover:bg-ink-black/85 gap-1.5 px-4 text-sm h-[51px] lg:h-[42px]"
             >
-              Get the API Key
+              探索服务
             </a>
             <a
-              href="https://docs.router.com/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#community"
               className="inline-flex shrink-0 items-center justify-center rounded-none border font-normal whitespace-nowrap transition-colors outline-none select-none focus-visible:ring-2 focus-visible:ring-ink/40 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border-ink bg-transparent text-ink hover:bg-black/5 gap-1.5 px-4 text-sm h-[51px] lg:h-[42px]"
             >
-              Read the Docs
+              加入社群
             </a>
           </div>
         </div>

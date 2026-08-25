@@ -2,43 +2,39 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
-import { ArrowRight16 } from "@/components/sites/router-com-92408672/shared/icons";
+import { AiwowoGlyph, ArrowRight16 } from "@/components/sites/router-com-92408672/shared/icons";
 
-const IMG = "/sites/router-com-92408672/root-8a5edab2/images/quote";
-
-interface QuoteSlide {
-  logoSrc: string;
-  logoAlt: string;
+interface MilestoneSlide {
+  year: string;
   text: string;
-  headshotSrc: string;
   name: string;
   company: string;
 }
 
-const QUOTES: QuoteSlide[] = [
+const QUOTES: MilestoneSlide[] = [
   {
-    logoSrc: `${IMG}/delphi.svg`,
-    logoAlt: "Delphi",
-    text: "Choosing the right model makes a meaningful difference to our AI spend. We run billions of tokens through Router, and have reduced our model costs by 92%.",
-    headshotSrc: `${IMG}/valentin-de-matos.png`,
-    name: "Valentin De Matos",
-    company: "Delphi",
+    year: "2010",
+    text: "易得商务中心：从传统商务中心起步，扎根朝阳，服务中小企业。",
+    name: "易得商务中心",
+    company: "北京 · 朝阳",
   },
   {
-    logoSrc: `${IMG}/genius-ai.png`,
-    logoAlt: "Genius AI",
-    text: "Ramp Router has given us access to a safe one-stop-shop for model providers in a matter of minutes. I'm a big fan of the vision to help benchmark and manage costs as we go multi-model.",
-    headshotSrc: `${IMG}/braden-allchin.png`,
-    name: "Braden Allchin",
-    company: "genius ai",
+    year: "2015",
+    text: "联合办公转型：升级为联合办公+孵化器平台，获朝阳区荣誉。",
+    name: "联合办公 + 孵化器",
+    company: "朝阳区荣誉",
   },
   {
-    logoSrc: `${IMG}/arcanist.webp`,
-    logoAlt: "Arcanist",
-    text: "It's just dead-simple. Between Flex tier and Switchyard this is free money with 0 effort, and it's saving me the headache of having to think about constantly switching models.",
-    headshotSrc: `${IMG}/josiah-parappally.webp`,
-    name: "Josiah Parappally",
-    company: "Arcanist",
+    year: "2020",
+    text: "双认证孵化器：成为北京唯一获\"国际化\"+\"数字经济\"双认证的孵化器平台。",
+    name: "国际化 + 数字经济",
+    company: "市级双认证",
+  },
+  {
+    year: "2026",
+    text: "艾窝窝·AI赋能：创立艾窝窝品牌，获OPC认证社区，孵化中外一人公司。",
+    name: "艾窝窝 AI WOWO",
+    company: "北京市OPC认证社区",
   },
 ];
 
@@ -88,20 +84,20 @@ export function QuotesSection() {
   return (
     <section aria-labelledby="quotes-heading">
       <h2 id="quotes-heading" className="sr-only">
-        What teams say about Router
+        发展历程
       </h2>
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-16 py-16 lg:pt-0 lg:pb-32">
         <div className="flex flex-col gap-8 lg:gap-10">
           <section
             ref={scrollerRef}
             onScroll={updateEnds}
-            aria-label="Customer quotes"
+            aria-label="发展历程"
             tabIndex={0}
             className="-mr-4 flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink motion-safe:scroll-smooth touch-pan-y select-none lg:-mr-16"
           >
             {QUOTES.map((quote) => (
               <figure
-                key={quote.name}
+                key={quote.year}
                 className="group relative grid w-[calc(100%-37px)] shrink-0 snap-start gap-x-8 gap-y-[27.28px] border border-gray-3 bg-white px-[15px] py-[31px] lg:w-[calc(100%-4rem)] lg:grid-cols-[66px_minmax(0,976px)] lg:gap-x-[72px] lg:gap-y-8 lg:p-20"
               >
                 <span aria-hidden="true" className="pointer-events-none absolute -inset-px z-20">
@@ -123,28 +119,19 @@ export function QuotesSection() {
                   <span className="absolute bg-ink transition-transform duration-300 ease-out right-0 bottom-0 h-px w-full origin-right scale-x-0 group-hover:scale-x-100" />
                   <span className="absolute bg-ink transition-transform duration-300 ease-out bottom-0 left-0 h-full w-px origin-bottom scale-y-0 group-hover:scale-y-100" />
                 </span>
-                <img
-                  alt={quote.logoAlt}
-                  loading="lazy"
-                  width={66}
-                  height={66}
-                  className="size-[30px] object-contain lg:col-start-1 lg:row-start-1 lg:size-[66px]"
-                  style={{ color: "transparent" }}
-                  src={quote.logoSrc}
-                />
+                <span
+                  aria-hidden="true"
+                  className="flex h-[30px] items-center font-mono text-[22px] leading-none tracking-[0.5px] text-ink lg:col-start-1 lg:row-start-1 lg:h-[66px] lg:text-[34px]"
+                >
+                  {quote.year}
+                </span>
                 <blockquote className="relative text-xl leading-6 tracking-normal text-black lg:-top-1.5 lg:col-start-2 lg:row-start-1 lg:text-[28px] lg:leading-8">
                   {quote.text}
                 </blockquote>
                 <figcaption className="flex items-center gap-4 lg:col-start-2 lg:row-start-2 lg:gap-5">
-                  <img
-                    alt=""
-                    loading="lazy"
-                    width={64}
-                    height={64}
-                    className="size-12 shrink-0 border border-gray-3 object-cover lg:size-16"
-                    style={{ color: "transparent" }}
-                    src={quote.headshotSrc}
-                  />
+                  <span className="flex size-12 shrink-0 items-center justify-center border border-gray-3 bg-surface-gray lg:size-16">
+                    <AiwowoGlyph className="size-6 lg:size-8" />
+                  </span>
                   <span className="flex flex-col gap-3">
                     <span className="font-mono text-[14px] leading-4 tracking-[0.5px] uppercase text-ink">
                       {quote.name}
@@ -162,7 +149,7 @@ export function QuotesSection() {
             <button
               type="button"
               disabled={atStart}
-              aria-label="Show previous quote"
+              aria-label="上一阶段"
               onClick={() => scrollByCard(-1)}
               className={ARROW_BUTTON_CLASS}
             >
@@ -171,7 +158,7 @@ export function QuotesSection() {
             <button
               type="button"
               disabled={atEnd}
-              aria-label="Show next quote"
+              aria-label="下一阶段"
               onClick={() => scrollByCard(1)}
               className={ARROW_BUTTON_CLASS}
             >

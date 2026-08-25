@@ -2,18 +2,15 @@
 // Static server component. DOM mirrors sections/99-footer.html 1:1.
 import Link from "next/link";
 
-import {
-  PrivacyChoicesIcon,
-  RouterWordmark,
-} from "../shared/icons";
+import { AiwowoWordmark } from "../shared/icons";
 
 const FOOTER_NAV_LINKS = [
-  { label: "Router Documentation", href: "/docs" },
-  { label: "Token Spend Management", href: "https://ramp.com/ai-cost-monitoring" },
-  { label: "A.I. Index", href: "https://ramp.com/data/ai-index" },
-  { label: "Ramp Intelligence", href: "https://ramp.com/intelligence" },
-  { label: "Ramp Labs", href: "https://labs.ramp.com" },
-  { label: "Ramp SWE-Bench", href: "https://labs.ramp.com/swebench" },
+  { label: "OPC孵化", href: "#savings" },
+  { label: "蹲窝儿平台", href: "#implement" },
+  { label: "AI培训", href: "#savings" },
+  { label: "企业服务", href: "#savings" },
+  { label: "社群生态", href: "#community" },
+  { label: "联系我们", href: "#contact" },
 ] as const;
 
 export function SiteFooter() {
@@ -21,9 +18,9 @@ export function SiteFooter() {
     <footer className="flex flex-col items-start gap-[22px] bg-ink px-4 pt-8 pb-[27px] lg:items-end lg:gap-4 lg:px-16 lg:py-11">
       <div className="flex w-full flex-col items-start gap-[27px] lg:min-h-[24px] lg:flex-row lg:items-center lg:justify-between lg:gap-6">
         <div className="flex items-center gap-6">
-          <Link aria-label="Router by Ramp home" className="text-white" href="/">
-            <span className="relative block h-[33.195px] w-[80.272px]">
-              <RouterWordmark className="w-auto h-full shrink-0 text-white" />
+          <Link aria-label="艾窝窝OPC社区首页" className="text-white" href="/">
+            <span className="relative block h-[33.195px]">
+              <AiwowoWordmark className="h-full text-white" textClassName="text-[17px]" />
             </span>
           </Link>
         </div>
@@ -44,28 +41,20 @@ export function SiteFooter() {
         </nav>
       </div>
       <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[14px] text-gray-5 leading-5">
-        <span>© 2026 Ramp</span>
+        <span>© 2026 北京恒瑞永嘉资产管理有限公司</span>
+        <span>品牌“艾窝窝 / AI WOWO”</span>
+        <span>北京市OPC认证社区</span>
         <a
-          href="https://ramp.com/legal/privacy-terms/privacy-terms/router-privacy-notice"
-          rel="noopener noreferrer"
+          href="mailto:AIWOWO@agent.qq.com"
           className="underline underline-offset-2 transition-colors hover:text-white hover:no-underline"
         >
-          Privacy
+          AIWOWO@agent.qq.com
         </a>
         <a
-          href="https://ramp.com/legal/developer-terms/developer-terms/router-terms-of-service"
-          rel="noopener noreferrer"
+          href="tel:13701202210"
           className="underline underline-offset-2 transition-colors hover:text-white hover:no-underline"
         >
-          Terms
-        </a>
-        <a
-          href="/data-privacy-opt-out"
-          rel="noopener noreferrer"
-          className="underline underline-offset-2 transition-colors hover:text-white hover:no-underline flex items-center gap-2"
-        >
-          <span>Your Privacy Choices</span>
-          <PrivacyChoicesIcon />
+          13701202210
         </a>
       </div>
     </footer>

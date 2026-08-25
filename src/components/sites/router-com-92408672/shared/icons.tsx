@@ -122,3 +122,47 @@ export function PrivacyChoicesIcon(props: IconProps) {
     </svg>
   );
 }
+
+/** AI WOWO nest glyph — two purple uprights + red crossbar and dot (viewBox 0 0 42 42) */
+export function AiwowoGlyph(props: IconProps) {
+  return (
+    <svg viewBox="0 0 42 42" fill="none" aria-hidden="true" {...props}>
+      <rect x="4" y="4" width="9" height="34" rx="4.5" fill="#3A2163" />
+      <rect x="29" y="4" width="9" height="34" rx="4.5" fill="#3A2163" />
+      <rect x="10" y="17" width="22" height="7" rx="3.5" fill="#D91F2E" />
+      <circle cx="21" cy="9" r="5" fill="#D91F2E" />
+    </svg>
+  );
+}
+
+/** Monochrome variant of the nest glyph (inherits currentColor) for dark/watermark uses */
+export function AiwowoGlyphMono(props: IconProps) {
+  return (
+    <svg viewBox="0 0 42 42" fill="none" aria-hidden="true" {...props}>
+      <rect x="4" y="4" width="9" height="34" rx="4.5" fill="currentColor" />
+      <rect x="29" y="4" width="9" height="34" rx="4.5" fill="currentColor" />
+      <rect x="10" y="17" width="22" height="7" rx="3.5" fill="currentColor" />
+      <circle cx="21" cy="9" r="5" fill="currentColor" />
+    </svg>
+  );
+}
+
+/** Full wordmark: nest glyph + 艾窝窝OPC社区 text (text inherits currentColor) */
+export function AiwowoWordmark({
+  className,
+  textClassName = "",
+}: {
+  className?: string;
+  textClassName?: string;
+}) {
+  return (
+    <span className={`inline-flex items-center gap-2 ${className ?? ""}`}>
+      <AiwowoGlyph className="h-full w-auto shrink-0" />
+      <span
+        className={`whitespace-nowrap font-medium leading-none tracking-[0.5px] ${textClassName}`}
+      >
+        艾窝窝OPC社区
+      </span>
+    </span>
+  );
+}

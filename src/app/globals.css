@@ -137,9 +137,11 @@
    =================================================================== */
 
 @theme inline {
-  --font-sans: var(--font-lausanne), Arial, sans-serif;
+  --font-sans: var(--font-lausanne), var(--font-noto-sc), "PingFang SC",
+    "Microsoft YaHei", Arial, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo,
-    Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    Monaco, Consolas, "Liberation Mono", var(--font-noto-sc), "PingFang SC",
+    "Courier New", monospace;
 }
 
 @theme {
@@ -340,11 +342,11 @@
   --text-color-hushed-reverse: rgba(255, 255, 255, 0.6);
   --text-color-blaze: lab(59.4444% 49.7605 64.0391);
   --border-color-primary: lab(83.0178% 1.03405 2.01975);
-  --font-ibm-plex-mono: var(--font-plex-mono), ui-monospace, monospace;
+  --font-ibm-plex-mono: var(--font-plex-mono), var(--font-noto-sc), ui-monospace, monospace;
 }
 
 :root {
-  --font-ibm-plex-mono: var(--font-plex-mono), ui-monospace, monospace;
+  --font-ibm-plex-mono: var(--font-plex-mono), var(--font-noto-sc), ui-monospace, monospace;
 }
 
 /* ---- cascade entrance system (verbatim from router.com) ---- */

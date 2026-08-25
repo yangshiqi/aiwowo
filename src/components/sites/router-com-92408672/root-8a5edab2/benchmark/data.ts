@@ -86,12 +86,12 @@ export interface SummaryColumn {
 }
 
 export const SUMMARY_COLUMNS: SummaryColumn[] = [
-  { label: "Turns", barColor: "#8a7f3d" },
-  { label: "Turns/min", barColor: "#a9c3a2" },
-  { label: "Input tokens", barColor: "#5f8079" },
-  { label: "Output tokens", barColor: "#e0aebc" },
-  { label: "Output/turn", barColor: "#8b6f9e" },
-  { label: "Cost", barColor: "#4a9455" },
+  { label: "轮次", barColor: "#8a7f3d" },
+  { label: "轮次/分钟", barColor: "#a9c3a2" },
+  { label: "输入Token", barColor: "#5f8079" },
+  { label: "输出Token", barColor: "#e0aebc" },
+  { label: "输出/轮", barColor: "#8b6f9e" },
+  { label: "成本", barColor: "#4a9455" },
 ];
 
 export interface SummaryRow {

@@ -12,7 +12,7 @@ export function ScatterPanel() {
           viewBox="0 0 700 421"
           className="absolute inset-0 h-full w-full"
           role="img"
-          aria-label="Solve rate against cost (average), plotted per model"
+          aria-label="各基座模型的评分与单任务成本散点图"
           aria-describedby="benchmark-panel-summary"
         >
           <g className="stroke-gray-2" strokeWidth="0.748206">
@@ -54,8 +54,8 @@ export function ScatterPanel() {
             <text x="699" y="387.5" textAnchor="end">$3.00</text>
           </g>
           <g fontSize="12" className="fill-gray-6">
-            <text x="9" y="248" transform="rotate(-90 9 248)">Solve rate</text>
-            <text x="329" y="421" textAnchor="middle">Cost (Average)</text>
+            <text x="9" y="248" transform="rotate(-90 9 248)">评分</text>
+            <text x="329" y="421" textAnchor="middle">单任务成本（美元）</text>
           </g>
         </svg>
         <div aria-hidden="true" className="absolute inset-0">

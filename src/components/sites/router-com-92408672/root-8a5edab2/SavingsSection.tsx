@@ -4,7 +4,6 @@ import { useEffect, useId, useRef, useState, type ComponentType, type KeyboardEv
 import "./scenes.css";
 import { ArrowRight12 } from "@/components/sites/router-com-92408672/shared/icons";
 import { CornerTicks } from "./savings/CornerTicks";
-import { VideoLightbox } from "./savings/VideoLightbox";
 import { CostChartScene } from "./savings/CostChartScene";
 import { CacheTurnsScene } from "./savings/CacheTurnsScene";
 import { ModelMarketplaceScene } from "./savings/ModelMarketplaceScene";
@@ -16,7 +15,6 @@ import { ModelMarketplaceScene } from "./savings/ModelMarketplaceScene";
  */
 
 const ASSETS = "/sites/router-com-92408672/root-8a5edab2/images";
-const VIDEO_URL = "https://cdn.air.inc/41b456e8-8494-4461-af91-1757d8d0ad8e";
 
 interface FeatureTab {
   title: string;
@@ -26,49 +24,46 @@ interface FeatureTab {
 
 const TABS: FeatureTab[] = [
   {
-    title: "Automatic savings.",
-    body: "New cost-saving strategies roll into Ramp Router as they prove themselves. Your integration stays put.",
+    title: "OPC孵化服务。",
+    body: "一人公司注册、政策补贴对接、Token券/算力券申领、工位空间、财税合规——从0到1全程陪跑。",
     Panel: CostChartScene,
   },
   {
-    title: "Smarter defaults.",
-    body: "Router tests new models against real workloads, so the best fit becomes your default.",
+    title: "FDE·AI培训体系。",
+    body: "自研FDE企业AI培训体系，依托清华继续教育学院等渠道，从认知到落地，央国企/园区企业/创业者全覆盖。",
     Panel: CacheTurnsScene,
   },
   {
-    title: "More models. One endpoint.",
-    body: "Access closed and open-source models from vetted providers, all US-hosted with options for ZDR.",
+    title: "企业基础服务。",
+    body: "工商财税、资质许可、办公空间、法律咨询——16年企业服务经验，让中小企业少走弯路。",
     Panel: ModelMarketplaceScene,
   },
 ];
 
 const AUTO_ADVANCE_MS = 5000;
 
-function VideoThumbnailCard() {
+function PolicyCard() {
   return (
-    <VideoLightbox
-      href={VIDEO_URL}
-      poster={`${ASSETS}/integration/integration-video-still.webp`}
-      label="See how Router works"
+    <a
+      href="#community"
       className="relative flex h-[88px] w-full shrink-0 border border-gray-3 outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink lg:h-[87px] lg:max-w-[368px]"
     >
       <CornerTicks junctions={["tl", "tr", "bl", "br"]} />
-      <div className="relative w-32 shrink-0 overflow-hidden bg-surface-gray lg:w-36">
-        <img
-          src={`${ASSETS}/integration/integration-video-still.webp`}
-          alt=""
-          loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
+      <div className="relative flex w-32 shrink-0 items-center justify-center overflow-hidden bg-solar lg:w-36">
+        <span className="px-2 text-center font-mono text-[10px] leading-4 text-ink-black">
+          京经信发
+          <br />
+          〔2026〕34号
+        </span>
       </div>
       <div className="flex min-w-0 flex-col justify-center gap-0.5 py-3 pr-4 pl-6 lg:gap-2 lg:pl-8">
-        <p className="-mt-[6.58px] text-base leading-6 text-ink lg:mt-0">See how it works</p>
+        <p className="-mt-[6.58px] text-base leading-6 text-ink lg:mt-0">经信局OPC行动方案</p>
         <span className="flex items-center gap-[11px] text-sm leading-4 text-gray-6 lg:leading-5">
-          Watch the video
+          查看政策红利
           <ArrowRight12 className="shrink-0" />
         </span>
       </div>
-    </VideoLightbox>
+    </a>
   );
 }
 
@@ -131,16 +126,16 @@ export function SavingsSection() {
               id="automatic-savings-heading"
               className="max-w-[450px] text-[34px] leading-9 tracking-[-0.4px] text-ink lg:text-[48px] lg:leading-[48px] lg:tracking-[-0.64px]"
             >
-              Built for CTOs. <br />
-              Loved by CFOs.
+              从注册孵化，<br />
+              到AI落地。
             </h2>
             <p className="mt-[13.21px] max-w-[450px] text-[15px] leading-5 text-ink lg:mt-[10.42px] lg:max-w-[411px] lg:text-base lg:leading-6">
-              Engineering gets the best model for every workload.{" "}
+              依托16年企业服务底蕴与OPC认证社区资质，{" "}
               <br className="hidden lg:inline" />
-              Finance gets lower inference spend.
+              为一人公司与中小企业提供全生命周期赋能。
             </p>
           </div>
-          <VideoThumbnailCard />
+          <PolicyCard />
         </div>
         <div ref={stageRef} className="relative grid border border-gray-3">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0">
@@ -172,7 +167,7 @@ export function SavingsSection() {
         <div
           ref={tablistRef}
           role="tablist"
-          aria-label="What Router does"
+          aria-label="核心服务"
           onFocusCapture={() => setAuto(false)}
           className="relative grid border-r border-b border-l border-gray-3 lg:grid-cols-3"
         >

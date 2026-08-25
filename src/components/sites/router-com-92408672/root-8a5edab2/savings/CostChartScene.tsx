@@ -38,7 +38,7 @@ const BARS: CostBar[] = [
   { total: 70, flex: 73, canvasHeight: 107 },
 ];
 
-const Y_AXIS = ["$200", "$150", "$100", "$50", "$0"];
+const Y_AXIS = ["20万", "15万", "10万", "5万", "0"];
 
 const X_AXIS = [
   { label: "1/1", position: 0 },
@@ -159,8 +159,8 @@ export function CostChartScene() {
           <section className="router-as-chart-window" aria-labelledby={headingId}>
             <div className="router-as-chart-glow" aria-hidden="true" />
             <header className="router-as-chart-header" style={SETTLED}>
-              <h2 id={headingId}>Cost impact over time</h2>
-              <span>40% lower</span>
+              <h2 id={headingId}>入驻后综合创业成本走势</h2>
+              <span>政策包最高10万</span>
             </header>
             <div className="router-as-plot-region">
               <div className="router-as-grid-layer" aria-hidden="true">
@@ -195,15 +195,15 @@ export function CostChartScene() {
             <div aria-hidden="true" className="router-as-chart-legend" style={SETTLED}>
               <span>
                 <i className="router-as-legend-dot router-as-legend-dot--default" />
-                40% Default
+                自担成本
               </span>
               <span>
                 <i className="router-as-legend-dot router-as-legend-dot--flex" />
-                60% Flex
+                政策补贴
               </span>
             </div>
             <table className="router-as-visually-hidden">
-              <caption>Cost impact data across eighteen daily samples</caption>
+              <caption>十八个采样点的综合成本数据</caption>
               <thead>
                 <tr>
                   <th>Sample</th>

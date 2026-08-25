@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { RouterWordmark } from "@/components/sites/router-com-92408672/shared/icons";
+import { AiwowoWordmark } from "@/components/sites/router-com-92408672/shared/icons";
 
 export function FixedHeader() {
   const [visible, setVisible] = useState(false);
@@ -22,32 +22,32 @@ export function FixedHeader() {
       }`}
     >
       <div className="flex items-center gap-6">
-        <Link href="/" aria-label="Router by Ramp home" className="text-ink-black">
+        <Link href="/" aria-label="艾窝窝OPC社区首页" className="text-ink-black">
           <span className="relative block h-[33.195px] w-[80.272px]">
-            <RouterWordmark className="w-auto h-full shrink-0" />
+            <AiwowoWordmark className="h-full" textClassName="text-[17px]" />
           </span>
         </Link>
       </div>
       <div className="flex items-center gap-5">
         <a
-          href="https://app.router.com"
+          href="#contact"
           className="inline-flex shrink-0 items-center justify-center rounded-none border border-transparent font-normal whitespace-nowrap transition-colors outline-none select-none focus-visible:ring-2 focus-visible:ring-ink/40 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-ink-black text-white hover:bg-ink-black/85 h-[42px] gap-1.5 px-4 text-sm"
         >
-          Get the API Key
+          申请入驻
         </a>
         <a
-          href="https://docs.router.com/"
+          href="#community"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex shrink-0 items-center justify-center rounded-none border font-normal whitespace-nowrap transition-colors outline-none select-none focus-visible:ring-2 focus-visible:ring-ink/40 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border-ink bg-transparent text-ink hover:bg-black/5 h-[42px] gap-1.5 px-4 text-sm"
         >
-          Read the docs
+          加入社群
         </a>
         <a
-          href="https://app.router.com"
+          href="#contact"
           className="text-sm text-ink-black underline decoration-solid underline-offset-2 hover:no-underline"
         >
-          Login
+          联系我们
         </a>
       </div>
     </div>

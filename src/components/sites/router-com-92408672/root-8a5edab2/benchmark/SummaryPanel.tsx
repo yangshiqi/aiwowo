@@ -11,7 +11,7 @@ export function SummaryPanel() {
         <table role="table" className="block w-full border-collapse text-left lg:table">
           <thead role="rowgroup" className="sr-only lg:not-sr-only lg:sticky lg:top-0 lg:z-10 lg:table-header-group lg:bg-white">
             <tr role="row" className="border-b border-gray-2 text-xs text-gray-6">
-              <th scope="col" className="bg-white py-2 pr-3 font-normal">Model</th>
+              <th scope="col" className="bg-white py-2 pr-3 font-normal">基座模型</th>
               {SUMMARY_COLUMNS.map((column, columnIndex) => (
                 <th
                   key={column.label}
