@@ -128,3 +128,171 @@
     @apply font-sans;
   }
 }
+/* ===================================================================
+   router.com clone — design tokens (extracted via getComputedStyle)
+   =================================================================== */
+
+@theme inline {
+  --font-sans: var(--font-lausanne), Arial, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo,
+    Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@theme {
+  /* breakpoints (router.com overrides) */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-2xl: 1440px;
+
+  /* core palette */
+  --color-ink: #1a1919;
+  --color-ink-black: #0c0a08;
+  --color-primary-ink: #090909;
+  --color-hushed: rgba(9, 9, 9, 0.6);
+  --color-hushed-reverse: rgba(255, 255, 255, 0.6);
+  --color-gray-1: #f3f0ea;
+  --color-gray-2: #d7d4ce;
+  --color-gray-3: #bbb8b3;
+  --color-gray-4: #a09e98;
+  --color-gray-5: #86837e;
+  --color-gray-6: #6d6a65;
+  --color-gray-dark: #a39d99;
+  --color-gray-medium: lab(83.0178% 1.03405 2.01975);
+  --color-gray-light: lab(95.604% 0.426412 1.20401);
+  --color-rule: #d2cecb;
+  --color-solar: #e4f222;
+  --color-solar-light: lab(97.2856% -16.4927 62.0693);
+  --color-surface-gray: #f9f8f5;
+  --color-smolder: lab(18.8982% -12.4859 0.355625);
+  --color-spring: lab(54.2877% 2.64341 -46.1636);
+  --color-spring-light: lab(92.7546% -0.885487 -6.20667);
+  --color-blaze: lab(59.4444% 49.7605 64.0391);
+
+  /* black/white alpha scales (base rgb 33,33,33) */
+  --color-black-50: rgba(33, 33, 33, 0.05);
+  --color-black-100: rgba(33, 33, 33, 0.1);
+  --color-black-200: rgba(33, 33, 33, 0.2);
+  --color-black-400: rgba(33, 33, 33, 0.4);
+  --color-black-600: rgba(33, 33, 33, 0.6);
+  --color-black-800: rgba(33, 33, 33, 0.8);
+  --color-white-100: rgba(255, 255, 255, 0.1);
+  --color-white-200: rgba(255, 255, 255, 0.2);
+  --color-white-400: rgba(255, 255, 255, 0.4);
+  --color-white-600: rgba(255, 255, 255, 0.6);
+
+  /* font weights actually loaded */
+  --font-weight-book: 350;
+}
+
+:root {
+  --announcement-height: 34px;
+  --marquee-gap: 60px;
+}
+
+/* ---- page-wide keyframes (extracted verbatim from router.com) ---- */
+
+@keyframes announcement-ticker {
+  100% {
+    transform: translate(-100%);
+  }
+}
+
+@keyframes model-provider-marquee {
+  100% {
+    transform: translateX(calc(-50% - var(--marquee-gap)));
+  }
+}
+
+@keyframes tab-progress {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes toast-enter {
+  0% {
+    opacity: 0;
+    transform: translateX(calc(var(--toast-translate-x, 0%) + 50%));
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(var(--toast-translate-x, 0%));
+  }
+}
+
+@keyframes proof-route-drift {
+  100% {
+    stroke-dashoffset: calc(-1 * var(--proof-dash-cycle));
+  }
+}
+
+@keyframes arrow-slide {
+  0% {
+    opacity: 1;
+    transform: translate(0px);
+  }
+  20% {
+    opacity: 0;
+    transform: translate(8px);
+  }
+  40% {
+    opacity: 0;
+    transform: translate(-8px);
+  }
+  60% {
+    opacity: 0;
+    transform: translate(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px);
+  }
+}
+
+@keyframes caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes panel-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes panel-cascade {
+  0% {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.proof-route-dashed {
+  animation: 6s linear 0s infinite normal none running proof-route-drift;
+}
+.proof-route-dashed[data-reverse="true"] {
+  animation-direction: reverse;
+}
+@media (prefers-reduced-motion: reduce) {
+  .proof-route-dashed {
+    animation-play-state: paused;
+  }
+}

@@ -1,20 +1,84 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const lausanne = localFont({
+  src: [
+    {
+      path: "../../public/sites/router-com-92408672/root-8a5edab2/fonts/TWKLausanne-300.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/sites/router-com-92408672/root-8a5edab2/fonts/TWKLausanne-300Italic.woff2",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../../public/sites/router-com-92408672/root-8a5edab2/fonts/TWKLausanne-350.woff2",
+      weight: "350",
+      style: "normal",
+    },
+    {
+      path: "../../public/sites/router-com-92408672/root-8a5edab2/fonts/TWKLausanne-350Italic.woff2",
+      weight: "350",
+      style: "italic",
+    },
+    {
+      path: "../../public/sites/router-com-92408672/root-8a5edab2/fonts/TWKLausanne-400.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/sites/router-com-92408672/root-8a5edab2/fonts/TWKLausanne-400Italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../public/sites/router-com-92408672/root-8a5edab2/fonts/TWKLausanne-700.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/sites/router-com-92408672/root-8a5edab2/fonts/TWKLausanne-700Italic.woff2",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+  variable: "--font-lausanne",
+  fallback: ["Arial", "sans-serif"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
 });
 
 export const metadata: Metadata = {
-  title: "Website Clone",
-  description: "Pixel-perfect website clone",
+  title: "Ramp Router: The LLM Gateway That Cuts Inference Costs",
+  description:
+    "An LLM gateway that cuts inference costs by 40% on average. One endpoint for OpenAI, Anthropic, and open models – routed automatically. Free through 2026.",
+  icons: {
+    icon: "/sites/router-com-92408672/root-8a5edab2/seo/favicon.ico",
+    apple: "/sites/router-com-92408672/root-8a5edab2/seo/apple-icon.png",
+  },
+  openGraph: {
+    title: "Router by Ramp",
+    description:
+      "One endpoint, one bill, every model — cut your AI costs by 40% on average. The missing piece to maximize ROI.",
+    siteName: "Ramp Router",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/sites/router-com-92408672/root-8a5edab2/seo/og-3.webp",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -25,9 +89,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${lausanne.variable} ${plexMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-white text-ink">
+        {children}
+      </body>
     </html>
   );
 }
