@@ -43,6 +43,13 @@ def local_path(url: str) -> Path | None:
 
 html = DOM_FILE.read_text()
 
+# Strip any tool wrapper lines around the captured document.
+start = html.find("<!DOCTYPE")
+if start == -1:
+    start = html.find("<html")
+end = html.rfind("</html>")
+html = html[start : end + len("</html>")]
+
 # 1) Drop PerfOptimizer's paused inline styles so animations run in the export.
 html = re.sub(r"animation-play-state:\s*paused;?", "", html)
 
