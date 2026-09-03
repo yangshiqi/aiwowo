@@ -1,7 +1,8 @@
 "use client";
 
 import { useId, useState, type ReactNode } from "react";
-import { ChevronDown24 } from "@/components/sites/router-com-92408672/shared/icons";
+import { MorphIcon } from "morphicons/react";
+import { ChevronDown, ChevronUp } from "lucide";
 
 const linkClass = "underline underline-offset-2 hover:text-ink";
 
@@ -140,12 +141,12 @@ export function FaqSection() {
                       data-state={state}
                       data-orientation="vertical"
                       id={triggerId}
-                      className="flex flex-1 items-center justify-between text-balance px-0 py-4 text-start text-primary transition-all [&[data-state=open]>div>svg]:rotate-180"
+                      className="flex flex-1 items-center justify-between text-balance px-0 py-4 text-start text-primary transition-all"
                       onClick={() => setOpenIndex((prev) => (prev === index ? null : index))}
                     >
                       {item.question}
                       <div className="rounded-lg p-2">
-                        <ChevronDown24 className="box-content block size-5 shrink-0 transition-transform duration-150" />
+                        <MorphIcon icon={isOpen ? ChevronUp : ChevronDown} size={20} strokeWidth={2} reducedMotion="user" className="box-content block shrink-0" />
                       </div>
                     </button>
                   </h3>

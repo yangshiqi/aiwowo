@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChevronRight14 } from "@/components/sites/router-com-92408672/shared/icons";
+import { LucideGlyph } from "@/components/sites/router-com-92408672/shared/lucide-glyph";
+import { MOBILE_MENU_EVENT } from "@/components/sites/router-com-92408672/shared/morph-widgets";
+import { ChevronRight } from "lucide";
 
 // The captured element is the hamburger-controlled mobile menu (closed by
 // default). We attach to the hero nav's "Open menu" button rather than adding
@@ -10,20 +12,20 @@ export function MobileBottomBar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const buttons = Array.from(
-      document.querySelectorAll<HTMLButtonElement>('button[aria-label="打开菜单"]'),
-    );
-    const toggle = () => setOpen((previous) => !previous);
-    buttons.forEach((button) => button.addEventListener("click", toggle));
-    return () =>
-      buttons.forEach((button) => button.removeEventListener("click", toggle));
+    const onToggle = (event: Event) => {
+      const detail = (event as CustomEvent<{ open: boolean }>).detail;
+      setOpen(detail.open);
+    };
+    document.addEventListener(MOBILE_MENU_EVENT, onToggle);
+    return () => document.removeEventListener(MOBILE_MENU_EVENT, onToggle);
   }, []);
 
-  useEffect(() => {
-    document
-      .querySelectorAll('button[aria-label="打开菜单"]')
-      .forEach((button) => button.setAttribute("aria-expanded", String(open)));
-  }, [open]);
+  const close = () => {
+    setOpen(false);
+    document.dispatchEvent(
+      new CustomEvent(MOBILE_MENU_EVENT, { detail: { open: false, from: "menu" } }),
+    );
+  };
 
   return (
     <div
@@ -34,19 +36,19 @@ export function MobileBottomBar() {
     >
       <a
         href="#contact"
-        onClick={() => setOpen(false)}
+        onClick={close}
         className="flex h-16 items-center justify-between gap-4 border-b border-rule text-[18px] leading-6 text-ink outline-none transition-colors hover:text-ink-black focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink"
       >
         申请入驻
-        <ChevronRight14 className="shrink-0" />
+        <LucideGlyph icon={ChevronRight} size={14} className="shrink-0" />
       </a>
       <a
         href="#community"
-        onClick={() => setOpen(false)}
+        onClick={close}
         className="flex h-16 items-center justify-between gap-4 border-b border-rule text-[18px] leading-6 text-ink outline-none transition-colors hover:text-ink-black focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink"
       >
         加入社群
-        <ChevronRight14 className="shrink-0" />
+        <LucideGlyph icon={ChevronRight} size={14} className="shrink-0" />
       </a>
     </div>
   );

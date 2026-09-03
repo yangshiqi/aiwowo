@@ -6,7 +6,8 @@
 import Link from "next/link";
 import { Fragment, type CSSProperties } from "react";
 
-import { AiwowoWordmark, GitHubIcon, MenuIcon24 } from "../shared/icons";
+import { AiwowoWordmark, GitHubIcon } from "../shared/icons";
+import { MobileMenuButton } from "../shared/morph-widgets";
 
 const ASSETS = "/sites/router-com-92408672/root-8a5edab2/images";
 
@@ -96,14 +97,7 @@ export function HeroSection() {
                 <GitHubIcon className="size-5" />
               </a>
               <div className="contents lg:hidden">
-                <button
-                  type="button"
-                  aria-expanded={false}
-                  aria-label="打开菜单"
-                  className="-mr-1 flex size-8 items-center justify-center text-ink-black outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
-                >
-                  <MenuIcon24 className="shrink-0" />
-                </button>
+                <MobileMenuButton className="-mr-1 flex size-8 items-center justify-center text-ink-black outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink" />
               </div>
             </nav>
           </div>

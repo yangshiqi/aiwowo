@@ -11,8 +11,6 @@ const FOOTER_NAV_LINKS = [
   { label: "企业服务", href: "#savings" },
   { label: "社群生态", href: "#community" },
   { label: "联系我们", href: "#contact" },
-  // 友情链接:OPC一人城(独立聚合站;上线后替换为正式域名)
-  { label: "OPC一人城", href: "https://onepersoncity.example.com" },
 ] as const;
 
 export function SiteFooter() {

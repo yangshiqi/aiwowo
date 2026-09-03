@@ -2,7 +2,9 @@
 
 import type { CSSProperties } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { AutoModeIcon, CopyIcon12 } from "../shared/icons";
+import { AutoModeIcon } from "../shared/icons";
+import { MorphIcon } from "morphicons/react";
+import { Check, Copy } from "lucide";
 import "./scenes.css";
 
 const ASSET_PREFIX = "/sites/router-com-92408672/root-8a5edab2";
@@ -259,22 +261,7 @@ export function ImplementSection() {
                       onClick={handleCopy}
                       className="flex shrink-0 cursor-pointer items-center justify-center rounded-[5px] p-2 outline-none transition-colors duration-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink bg-gray-2 text-[#3d3b37] hover:bg-gray-3 active:bg-gray-4"
                     >
-                      {copied ? (
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          aria-hidden="true"
-                        >
-                          <path d="M2 6.5L4.8 9.3L10 3.5" />
-                        </svg>
-                      ) : (
-                        <CopyIcon12 />
-                      )}
+                      <MorphIcon icon={copied ? Check : Copy} size={12} strokeWidth={1.5} reducedMotion="user" />
                     </button>
                     <code className="min-w-0 whitespace-nowrap font-mono text-[12px] text-[#34373c] leading-[23.296px] tracking-[0.4px] lg:text-[14px]">
                       {INSTALL_COMMAND}

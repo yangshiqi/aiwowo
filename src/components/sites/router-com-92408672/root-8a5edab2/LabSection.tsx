@@ -2,10 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
-import {
-  ArrowRight12,
-  ArrowRight16,
-} from "@/components/sites/router-com-92408672/shared/icons";
+import { LucideGlyph } from "@/components/sites/router-com-92408672/shared/lucide-glyph";
+import { ArrowLeft, ArrowRight } from "lucide";
 
 interface LabPost {
   date: string;
@@ -127,7 +125,7 @@ function LabPostCard({ post }: { post: LabPost }) {
         className="flex items-center gap-[11px] text-base leading-6 text-ink"
       >
         了解活动
-        <ArrowRight12 className="shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-1" />
+        <LucideGlyph icon={ArrowRight} size={12} className="shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-1" />
       </p>
     </article>
   );
@@ -187,7 +185,7 @@ export function LabSection() {
               onClick={() => scrollByCard(-1)}
               className="flex size-8 cursor-pointer items-center justify-center bg-ink text-white outline-none transition-[background-color,opacity] hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink disabled:pointer-events-none disabled:bg-ink-black/6 disabled:text-gray-3"
             >
-              <ArrowRight16 />
+              <LucideGlyph icon={ArrowLeft} size={16} />
             </button>
             <button
               type="button"
@@ -196,7 +194,7 @@ export function LabSection() {
               onClick={() => scrollByCard(1)}
               className="flex size-8 cursor-pointer items-center justify-center bg-ink text-white outline-none transition-[background-color,opacity] hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink disabled:pointer-events-none disabled:bg-ink-black/6 disabled:text-gray-3"
             >
-              <ArrowRight16 className="-scale-x-100" />
+              <LucideGlyph icon={ArrowRight} size={16} />
             </button>
           </div>
         </div>

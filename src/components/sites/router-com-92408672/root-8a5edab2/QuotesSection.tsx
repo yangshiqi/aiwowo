@@ -2,7 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
-import { AiwowoGlyph, ArrowRight16 } from "@/components/sites/router-com-92408672/shared/icons";
+import { AiwowoGlyph } from "@/components/sites/router-com-92408672/shared/icons";
+import { LucideGlyph } from "@/components/sites/router-com-92408672/shared/lucide-glyph";
+import { ArrowLeft, ArrowRight } from "lucide";
 
 interface MilestoneSlide {
   year: string;
@@ -153,7 +155,7 @@ export function QuotesSection() {
               onClick={() => scrollByCard(-1)}
               className={ARROW_BUTTON_CLASS}
             >
-              <ArrowRight16 />
+              <LucideGlyph icon={ArrowLeft} size={16} />
             </button>
             <button
               type="button"
@@ -162,7 +164,7 @@ export function QuotesSection() {
               onClick={() => scrollByCard(1)}
               className={ARROW_BUTTON_CLASS}
             >
-              <ArrowRight16 className="-scale-x-100" />
+              <LucideGlyph icon={ArrowRight} size={16} />
             </button>
           </div>
         </div>

@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { AiwowoGlyph, CloseX16 } from "@/components/sites/router-com-92408672/shared/icons";
+import { AiwowoGlyph } from "@/components/sites/router-com-92408672/shared/icons";
+import { LucideGlyph } from "@/components/sites/router-com-92408672/shared/lucide-glyph";
+import { X } from "lucide";
 
 const ASSETS = "/sites/router-com-92408672/root-8a5edab2";
 
@@ -21,7 +23,7 @@ export function OfferToast() {
         onClick={() => setOpen(false)}
         className="absolute top-0 right-0 z-10 flex size-[26px] -translate-y-1/2 translate-x-1/2 cursor-pointer items-center justify-center rounded-full border border-solid border-primary bg-white transition-all duration-100 hover:scale-105 hover:bg-gray-light"
       >
-        <CloseX16 className="size-3" />
+        <LucideGlyph icon={X} size={12} className="size-3" />
       </button>
       <div className="flex w-85.75 lg:w-116.75">
         <div className="flex h-full w-57.75 flex-col gap-1 p-4.5 lg:w-74.75 lg:gap-4 lg:p-6">
