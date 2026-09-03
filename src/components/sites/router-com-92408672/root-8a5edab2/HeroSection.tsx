@@ -47,7 +47,7 @@ export function HeroSection() {
             className="absolute top-[-40%] left-[-5%] h-[160%] w-[110%] max-w-none opacity-[0.16] [filter:invert(21%)_sepia(94%)_saturate(1958%)_hue-rotate(208deg)_brightness(92%)]"
           />
           {/* 办公空间轴测图:作为右侧背景整体融合,完整显示 + 左缘柔化过渡到文字区 */}
-          <div className="absolute inset-y-0 right-0 hidden w-[64%] max-w-[1000px] lg:block">
+          <div className="absolute inset-y-0 right-[6%] hidden w-[64%] max-w-[1000px] lg:block">
             <img
               src={`${ASSETS}/hero/opc-hero-workspace.webp`}
               alt=""
@@ -114,7 +114,7 @@ export function HeroSection() {
         </div>
 
         {/* Hero copy + CTAs */}
-        <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-center px-4 pt-[66px] text-center lg:items-start lg:px-16 lg:pt-[160px] lg:text-left">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-center px-4 pt-[52px] text-center lg:items-start lg:px-16 lg:pt-[104px] lg:text-left">
           <p className="font-medium font-mono text-[12px] tracking-[0.12em] text-[#0040a8] leading-5 uppercase lg:text-[15px]">
             北京市OPC认证社区 · CERTIFIED OPC COMMUNITY
           </p>
