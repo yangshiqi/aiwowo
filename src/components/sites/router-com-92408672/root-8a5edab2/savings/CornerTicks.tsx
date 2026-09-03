@@ -16,7 +16,7 @@ type Junction =
   | "t-seam-left"
   | "t-seam-right";
 
-const TICK = "pointer-events-none absolute bg-gray-6";
+const TICK = "pointer-events-none absolute bg-blueprint";
 
 const horizontal: CSSProperties = { width: "10.87px", height: "1px" };
 const vertical: CSSProperties = { width: "1px", height: "10.87px" };

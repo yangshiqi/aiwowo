@@ -42,7 +42,7 @@ function Tick({ style }: { style: CSSProperties }) {
   return (
     <span
       aria-hidden="true"
-      className="pointer-events-none absolute bg-gray-6"
+      className="pointer-events-none absolute bg-blueprint"
       style={style}
     />
   );
@@ -224,7 +224,7 @@ export function ImplementSection() {
                     </>
                   ) : null}
                   <div className="flex items-center gap-3 text-ink">
-                    <span className="font-mono text-[14px] leading-[23.296px] tracking-[0.4px]">
+                    <span className="font-display text-[17px] font-bold leading-[23.296px] tracking-[0.02em] text-ink-black">
                       {feature.number}
                     </span>
                     <span className="text-base leading-6">{feature.label}</span>
@@ -301,15 +301,6 @@ export function ImplementSection() {
                   className={`rmah-cr ${terminalAnimated ? "rmah-cr--animated" : "rmah-cr--pending"}`}
                 >
                   <div className="rmah-cr__board">
-                    <img
-                      alt="蹲窝儿AI评审面板：按结果付费 ¥500，对比传统外包 ¥3000"
-                      loading="lazy"
-                      width={1932}
-                      height={1245}
-                      className="rmah-cr__background"
-                      style={{ color: "transparent" }}
-                      src={`${ASSET_PREFIX}/images/integration/code-response.webp`}
-                    />
                     <div className="rmah-cr__terminal" aria-hidden="true">
                       <div className="rmah-cr__status">
                         <span className="rmah-cr__type rmah-cr__type--cli">CLI</span>

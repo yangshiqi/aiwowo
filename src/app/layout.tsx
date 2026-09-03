@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Noto_Sans_SC } from "next/font/google";
+import { Barlow_Condensed, IBM_Plex_Mono, Noto_Sans_SC } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -64,6 +64,14 @@ const notoSansSC = Noto_Sans_SC({
   variable: "--font-noto-sc",
 });
 
+// Display face for the Warm Blueprint system: Latin headlines & numerals.
+// CJK glyphs fall through to Noto Sans SC 700 automatically.
+const barlow = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-barlow",
+});
+
 export const metadata: Metadata = {
   title: "艾窝窝OPC社区 | 给每个AI的梦想一个窝",
   description:
@@ -89,7 +97,7 @@ export default function RootLayout({
   return (
     <html
       lang="zh-CN"
-      className={`${lausanne.variable} ${plexMono.variable} ${notoSansSC.variable} h-full antialiased`}
+      className={`${lausanne.variable} ${plexMono.variable} ${notoSansSC.variable} ${barlow.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-ink">
         {children}

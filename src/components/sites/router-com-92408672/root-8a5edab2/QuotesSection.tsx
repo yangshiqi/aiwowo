@@ -105,7 +105,7 @@ export function QuotesSection() {
                     <span
                       key={index}
                       aria-hidden="true"
-                      className="pointer-events-none absolute bg-gray-6"
+                      className="pointer-events-none absolute bg-blueprint"
                       style={style}
                     />
                   ))}
@@ -121,7 +121,7 @@ export function QuotesSection() {
                 </span>
                 <span
                   aria-hidden="true"
-                  className="flex h-[30px] items-center font-mono text-[22px] leading-none tracking-[0.5px] text-ink lg:col-start-1 lg:row-start-1 lg:h-[66px] lg:text-[34px]"
+                  className="flex h-[30px] items-center font-display text-[26px] font-bold leading-none tracking-[0.02em] text-ink-black lg:col-start-1 lg:row-start-1 lg:h-[66px] lg:text-[42px]"
                 >
                   {quote.year}
                 </span>

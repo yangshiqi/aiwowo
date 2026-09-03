@@ -53,7 +53,7 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
+  --background: #f0e8e0;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -137,8 +137,10 @@
    =================================================================== */
 
 @theme inline {
-  --font-sans: var(--font-lausanne), var(--font-noto-sc), "PingFang SC",
-    "Microsoft YaHei", Arial, sans-serif;
+  --font-sans: var(--font-noto-sc), "PingFang SC", "Microsoft YaHei", Arial,
+    sans-serif;
+  --font-display: var(--font-barlow), var(--font-noto-sc), "PingFang SC",
+    sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo,
     Monaco, Consolas, "Liberation Mono", var(--font-noto-sc), "PingFang SC",
     "Courier New", monospace;
@@ -150,25 +152,32 @@
   --breakpoint-md: 768px;
   --breakpoint-2xl: 1440px;
 
-  /* core palette */
-  --color-ink: #1a1919;
-  --color-ink-black: #0c0a08;
-  --color-primary-ink: #090909;
-  --color-hushed: rgba(9, 9, 9, 0.6);
-  --color-hushed-reverse: rgba(255, 255, 255, 0.6);
-  --color-gray-1: #f3f0ea;
-  --color-gray-2: #d7d4ce;
-  --color-gray-3: #bbb8b3;
-  --color-gray-4: #a09e98;
-  --color-gray-5: #86837e;
-  --color-gray-6: #6d6a65;
-  --color-gray-dark: #a39d99;
-  --color-gray-medium: lab(83.0178% 1.03405 2.01975);
-  --color-gray-light: lab(95.604% 0.426412 1.20401);
-  --color-rule: #d2cecb;
-  --color-solar: #e4f222;
-  --color-solar-light: lab(97.2856% -16.4927 62.0693);
-  --color-surface-gray: #f9f8f5;
+  /* Warm Blueprint palette (mapped onto the original token names) */
+  --color-white: #f7f3ed; /* warm surface — replaces pure white site-wide */
+  --color-ink: #283038;
+  --color-ink-black: #0040a8; /* primary CTAs: blue ground, warm-white type */
+  --color-primary-ink: #283038;
+  --color-hushed: rgba(40, 48, 56, 0.66);
+  --color-hushed-reverse: rgba(247, 243, 237, 0.66);
+  --color-gray-1: #e9e2d9;
+  --color-gray-2: rgba(0, 64, 168, 0.2);
+  --color-gray-3: rgba(0, 64, 168, 0.28); /* card hairlines go blueprint */
+  --color-gray-4: #8b949c;
+  --color-gray-5: #66717a;
+  --color-gray-6: #66717a;
+  --color-gray-dark: #8b949c;
+  --color-gray-medium: rgba(0, 64, 168, 0.28);
+  --color-gray-light: #ede6dd;
+  --color-rule: rgba(0, 64, 168, 0.28);
+  --color-solar: #e85820; /* action accent is now blueprint orange */
+  --color-solar-light: #f4e9df;
+  --color-surface-gray: #f7f3ed;
+  --color-blueprint: rgba(0, 64, 168, 0.55); /* strong lines / corner ticks */
+  --color-opc-blue: #0040a8;
+  --color-opc-blue-dark: #003080;
+  --color-opc-blue-light: #1b82d1;
+  --color-opc-orange: #e85820;
+  --color-opc-paper: #f0e8e0;
   --color-smolder: lab(18.8982% -12.4859 0.355625);
   --color-spring: lab(54.2877% 2.64341 -46.1636);
   --color-spring-light: lab(92.7546% -0.885487 -6.20667);
@@ -336,12 +345,12 @@
 .cascade-item,[data-js="1"] [data-shown=true] .cascade-item{opacity:1;animation:none}
 /* ---- namespace-scoped tokens mirroring router.com (text-* vs border-*) ---- */
 @theme {
-  --text-color-primary: #090909;
-  --text-color-primary-reverse: #ffffff;
-  --text-color-hushed: rgba(9, 9, 9, 0.6);
-  --text-color-hushed-reverse: rgba(255, 255, 255, 0.6);
-  --text-color-blaze: lab(59.4444% 49.7605 64.0391);
-  --border-color-primary: lab(83.0178% 1.03405 2.01975);
+  --text-color-primary: #283038;
+  --text-color-primary-reverse: #f7f3ed;
+  --text-color-hushed: rgba(40, 48, 56, 0.66);
+  --text-color-hushed-reverse: rgba(247, 243, 237, 0.66);
+  --text-color-blaze: #c94716;
+  --border-color-primary: rgba(0, 64, 168, 0.28);
   --font-ibm-plex-mono: var(--font-plex-mono), var(--font-noto-sc), ui-monospace, monospace;
 }
 
@@ -381,4 +390,30 @@
   content: "";
   display: table;
   margin-top: calc(-1 * var(--trim-space));
+}
+
+
+/* ---- OPC Warm Blueprint layer ---- */
+main h1,
+main h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+main h3 {
+  font-weight: 600;
+}
+
+/* orange circular index — numbering / path nodes only */
+.opc-index {
+  display: inline-grid;
+  place-items: center;
+  width: 2.25rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  color: #f7f3ed;
+  background: var(--color-opc-orange);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1;
 }

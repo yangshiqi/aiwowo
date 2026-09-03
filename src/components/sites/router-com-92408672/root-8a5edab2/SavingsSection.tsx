@@ -49,8 +49,8 @@ function PolicyCard() {
       className="relative flex h-[88px] w-full shrink-0 border border-gray-3 outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink lg:h-[87px] lg:max-w-[368px]"
     >
       <CornerTicks junctions={["tl", "tr", "bl", "br"]} />
-      <div className="relative flex w-32 shrink-0 items-center justify-center overflow-hidden bg-solar lg:w-36">
-        <span className="px-2 text-center font-mono text-[10px] leading-4 text-ink-black">
+      <div className="relative flex w-32 shrink-0 items-center justify-center overflow-hidden bg-ink-black lg:w-36">
+        <span className="px-2 text-center font-mono text-[10px] leading-4 text-white">
           京经信发
           <br />
           〔2026〕34号
@@ -139,13 +139,7 @@ export function SavingsSection() {
         </div>
         <div ref={stageRef} className="relative grid border border-gray-3">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0">
-            <img
-              src={`${ASSETS}/savings/stage-texture.webp`}
-              alt=""
-              loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-white/50" />
+            <div className="absolute inset-0 bg-[#ede6dd]" />
             <div className="absolute inset-0 bg-[url('/sites/router-com-92408672/root-8a5edab2/images/savings/stage-grain.webp')] bg-[length:512px_512px] bg-top-left opacity-20" />
           </div>
           <CornerTicks junctions={["tl", "tr"]} />

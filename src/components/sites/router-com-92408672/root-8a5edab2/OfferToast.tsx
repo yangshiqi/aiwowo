@@ -13,7 +13,7 @@ export function OfferToast() {
   return (
     <aside
       aria-label="政策红利窗口期"
-      className="fixed bottom-5 left-1/2 z-50 [--toast-translate-x:-50%] animate-[toast-enter_200ms_ease-out_both] border border-gray-3 bg-white shadow-[0_4px_34px_rgba(0,0,0,0.15)] lg:right-5 lg:left-auto lg:[--toast-translate-x:0%]"
+      className="fixed bottom-5 left-1/2 z-50 [--toast-translate-x:-50%] animate-[toast-enter_200ms_ease-out_both] border border-gray-3 bg-white shadow-[0_4px_24px_rgba(0,64,168,0.14)] lg:right-5 lg:left-auto lg:[--toast-translate-x:0%]"
     >
       <button
         type="button"
@@ -41,13 +41,7 @@ export function OfferToast() {
           </div>
         </div>
         <div className="relative size-28 shrink-0 overflow-hidden border-l border-gray-3 lg:size-42">
-          <img
-            alt=""
-            loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover object-center"
-            src={`${ASSETS}/images/toast/gpt-sol-background.webp`}
-          />
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3.5 bg-white/50 lg:gap-4.5">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3.5 bg-white lg:gap-4.5">
             <AiwowoGlyph className="h-5.75 w-5.75 lg:h-7.5 lg:w-7.5" />
             <span className="px-1 text-center font-mono text-[10px] leading-3.75 text-[#101820] lg:text-xs lg:leading-4">
               京经信发〔2026〕34号

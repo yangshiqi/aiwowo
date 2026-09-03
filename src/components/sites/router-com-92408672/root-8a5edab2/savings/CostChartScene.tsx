@@ -112,12 +112,12 @@ function DitherBar({ bar }: { bar: CostBar }) {
         split,
         width,
         0.4,
-        "243, 240, 234",
+        "247, 243, 237",
         0.6,
         Math.round(stack.offsetLeft / 2),
         Math.round(stack.offsetTop / 2),
       );
-      paintDither(ctx, split, height, width, 0.8, "0, 0, 0", 0.5, 2, 1 - split);
+      paintDither(ctx, split, height, width, 0.8, "40, 48, 56", 0.22, 2, 1 - split);
     };
 
     draw();

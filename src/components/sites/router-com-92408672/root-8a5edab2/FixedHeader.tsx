@@ -22,7 +22,7 @@ export function FixedHeader() {
       }`}
     >
       <div className="flex items-center gap-6">
-        <Link href="/" aria-label="艾窝窝OPC社区首页" className="text-ink-black">
+        <Link href="/" aria-label="艾窝窝OPC社区首页" className="text-ink">
           <span className="relative block h-[33.195px] w-[80.272px]">
             <AiwowoWordmark className="h-full" textClassName="text-[17px]" />
           </span>
@@ -37,7 +37,7 @@ export function FixedHeader() {
         </a>
         <a
           href="#community"
-          className="inline-flex shrink-0 items-center justify-center rounded-none border font-normal whitespace-nowrap transition-colors outline-none select-none focus-visible:ring-2 focus-visible:ring-ink/40 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border-ink bg-transparent text-ink hover:bg-black/5 h-[42px] gap-1.5 px-4 text-sm"
+          className="inline-flex shrink-0 items-center justify-center rounded-none border font-normal whitespace-nowrap transition-colors outline-none select-none focus-visible:ring-2 focus-visible:ring-ink/40 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border-ink-black bg-transparent text-ink-black hover:bg-ink-black/5 h-[42px] gap-1.5 px-4 text-sm"
         >
           加入社群
         </a>

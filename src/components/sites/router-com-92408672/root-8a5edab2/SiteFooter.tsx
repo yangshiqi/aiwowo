@@ -15,12 +15,12 @@ const FOOTER_NAV_LINKS = [
 
 export function SiteFooter() {
   return (
-    <footer className="flex flex-col items-start gap-[22px] bg-ink px-4 pt-8 pb-[27px] lg:items-end lg:gap-4 lg:px-16 lg:py-11">
+    <footer className="flex flex-col items-start gap-[22px] border-t border-[rgba(0,64,168,0.55)] bg-[#f0e8e0] px-4 pt-8 pb-[27px] lg:items-end lg:gap-4 lg:px-16 lg:py-11">
       <div className="flex w-full flex-col items-start gap-[27px] lg:min-h-[24px] lg:flex-row lg:items-center lg:justify-between lg:gap-6">
         <div className="flex items-center gap-6">
-          <Link aria-label="艾窝窝OPC社区首页" className="text-white" href="/">
+          <Link aria-label="艾窝窝OPC社区首页" className="text-ink" href="/">
             <span className="relative block h-[33.195px]">
-              <AiwowoWordmark className="h-full text-white" textClassName="text-[17px]" />
+              <AiwowoWordmark className="h-full text-ink" textClassName="text-[17px]" />
             </span>
           </Link>
         </div>
@@ -33,7 +33,7 @@ export function SiteFooter() {
               key={link.label}
               href={link.href}
               rel="noopener noreferrer"
-              className="whitespace-nowrap text-[14px] text-white leading-5"
+              className="whitespace-nowrap text-[14px] text-ink-black leading-5 hover:underline"
             >
               {link.label}
             </a>
@@ -46,13 +46,13 @@ export function SiteFooter() {
         <span>北京市OPC认证社区</span>
         <a
           href="mailto:AIWOWO@agent.qq.com"
-          className="underline underline-offset-2 transition-colors hover:text-white hover:no-underline"
+          className="underline underline-offset-2 transition-colors hover:text-ink hover:no-underline"
         >
           AIWOWO@agent.qq.com
         </a>
         <a
           href="tel:13701202210"
-          className="underline underline-offset-2 transition-colors hover:text-white hover:no-underline"
+          className="underline underline-offset-2 transition-colors hover:text-ink hover:no-underline"
         >
           13701202210
         </a>

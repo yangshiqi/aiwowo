@@ -25,55 +25,43 @@ export function ProofSection() {
             <div className="grid lg:grid-cols-[421fr_891fr] [&>*]:min-w-0">
               <div className="relative flex flex-col bg-white px-6 py-8 sm:p-8 lg:p-12 border border-gray-3 min-h-[315px] lg:min-h-[404px]">
                 <span aria-hidden="true" className="pointer-events-none absolute -inset-px z-20">
-                  <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "10.87px", height: "1px", top: 0, left: 0 }} />
-                  <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "1px", height: "10.87px", top: 0, left: 0 }} />
+                  <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "10.87px", height: "1px", top: 0, left: 0 }} />
+                  <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "1px", height: "10.87px", top: 0, left: 0 }} />
                 </span>
                 <span className="contents lg:hidden">
                   <span aria-hidden="true" className="pointer-events-none absolute -inset-px z-20">
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "10.87px", height: "1px", top: 0, right: 0 }} />
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "1px", height: "10.87px", top: 0, right: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "10.87px", height: "1px", top: 0, right: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "1px", height: "10.87px", top: 0, right: 0 }} />
                   </span>
                 </span>
                 <div className="flex flex-1 flex-col justify-between gap-16">
                   <p className="font-mono text-[18px] leading-[13px] tracking-[-0.2px] uppercase sm:text-[14px] sm:leading-4 sm:tracking-[0.5px] text-gray-5">运营面积</p>
                   <div className="flex flex-col gap-6 sm:gap-4">
-                    <p className="leading-trim whitespace-nowrap text-[56px] leading-[1.00903em] tracking-[-0.0101em] text-ink min-[375px]:text-[68px] sm:text-[78px] sm:leading-[84px] sm:tracking-[-1.56px]">20000㎡</p>
+                    <p className="leading-trim whitespace-nowrap font-display font-bold text-[56px] leading-[1.00903em] tracking-[-0.0101em] text-ink min-[375px]:text-[68px] sm:text-[78px] sm:leading-[84px] sm:tracking-[-1.56px]">20000㎡</p>
                     <p className="font-mono text-[18px] leading-[13px] tracking-[-0.2px] uppercase sm:text-xs sm:leading-4 sm:font-medium sm:tracking-[0.5px] text-ink">双认证孵化器 · 2000+服务企业</p>
                   </div>
                 </div>
               </div>
-              <div className="relative flex flex-col justify-end text-white px-6 py-8 sm:p-8 lg:p-12 border border-gray-3 min-h-[315px] lg:min-h-[404px] border-t-0 lg:border-t lg:-ml-px">
+              <div className="relative flex flex-col justify-end bg-[#f7f3ed] text-ink px-6 py-8 sm:p-8 lg:p-12 border border-gray-3 min-h-[315px] lg:min-h-[404px] border-t-0 lg:border-t lg:-ml-px">
                 <span className="hidden lg:contents">
                   <span aria-hidden="true" className="pointer-events-none absolute -inset-px z-20">
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "21.74px", height: "1px", marginLeft: "-10.87px", top: 0, left: 0 }} />
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "1px", height: "10.87px", top: 0, left: 0 }} />
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "10.87px", height: "1px", top: 0, right: 0 }} />
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "1px", height: "10.87px", top: 0, right: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "21.74px", height: "1px", marginLeft: "-10.87px", top: 0, left: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "1px", height: "10.87px", top: 0, left: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "10.87px", height: "1px", top: 0, right: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "1px", height: "10.87px", top: 0, right: 0 }} />
                   </span>
                 </span>
                 <span className="contents lg:hidden">
                   <span aria-hidden="true" className="pointer-events-none absolute -inset-px z-20">
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "1px", height: "21.74px", marginTop: "-10.87px", top: 0, left: 0 }} />
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "10.87px", height: "1px", top: 0, left: 0 }} />
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "1px", height: "21.74px", marginTop: "-10.87px", top: 0, right: 0 }} />
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "10.87px", height: "1px", top: 0, right: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "1px", height: "21.74px", marginTop: "-10.87px", top: 0, left: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "10.87px", height: "1px", top: 0, left: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "1px", height: "21.74px", marginTop: "-10.87px", top: 0, right: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "10.87px", height: "1px", top: 0, right: 0 }} />
                   </span>
                 </span>
                 <span className="pointer-events-none absolute inset-0 z-0 block overflow-hidden">
-                  <img
-                    alt=""
-                    loading="lazy"
-                    className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none object-cover object-center"
-                    style={{ color: "transparent" }}
-                    src={`${ASSETS}/images/proof/flex-pricing-bg.webp`}
-                  />
                   <FlexPricingRoutes />
                 </span>
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] block h-[78%] backdrop-blur-[8px] [mask-image:linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.18)_28%,black_78%)]"
-                  style={{ background: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.12) 38%, rgba(0,0,0,0.48) 100%)" }}
-                />
                 <div className="relative z-10 flex max-w-[500px] flex-col gap-4 sm:gap-6">
                   <div className="flex flex-col gap-4 sm:gap-8">
                     <h3 className="leading-trim text-[22px] leading-6 sm:text-[28px] sm:leading-8">经信局34号文：OPC创新发展行动方案</h3>
@@ -94,28 +82,28 @@ export function ProofSection() {
             <div className="relative grid lg:-mt-px lg:grid-cols-[891fr_421fr] [&>*]:min-w-0">
               <span className="hidden lg:contents">
                 <span aria-hidden="true" className="pointer-events-none absolute inset-0 z-20">
-                  <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "1px", height: "21.74px", marginTop: "-10.87px", top: 0, left: 0 }} />
-                  <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "10.87px", height: "1px", top: 0, left: 0 }} />
-                  <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "1px", height: "21.74px", marginTop: "-10.87px", top: 0, right: 0 }} />
-                  <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "10.87px", height: "1px", top: 0, right: 0 }} />
+                  <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "1px", height: "21.74px", marginTop: "-10.87px", top: 0, left: 0 }} />
+                  <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "10.87px", height: "1px", top: 0, left: 0 }} />
+                  <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "1px", height: "21.74px", marginTop: "-10.87px", top: 0, right: 0 }} />
+                  <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "10.87px", height: "1px", top: 0, right: 0 }} />
                 </span>
               </span>
               <SwitchyardCard />
               <div className="relative flex flex-col bg-white px-6 py-8 sm:p-8 lg:p-12 border border-gray-3 min-h-[315px] lg:min-h-[404px] border-t-0 lg:border-t order-1 lg:order-none">
                 <span className="hidden lg:contents">
                   <span aria-hidden="true" className="pointer-events-none absolute -inset-px z-20">
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "21.74px", height: "1px", marginLeft: "-10.87px", bottom: 0, left: 0 }} />
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "1px", height: "10.87px", bottom: 0, left: 0 }} />
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "10.87px", height: "1px", bottom: 0, right: 0 }} />
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "1px", height: "10.87px", bottom: 0, right: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "21.74px", height: "1px", marginLeft: "-10.87px", bottom: 0, left: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "1px", height: "10.87px", bottom: 0, left: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "10.87px", height: "1px", bottom: 0, right: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "1px", height: "10.87px", bottom: 0, right: 0 }} />
                   </span>
                 </span>
                 <span className="contents lg:hidden">
                   <span aria-hidden="true" className="pointer-events-none absolute -inset-px z-20">
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "1px", height: "21.74px", marginTop: "-10.87px", top: 0, left: 0 }} />
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "10.87px", height: "1px", top: 0, left: 0 }} />
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "1px", height: "21.74px", marginTop: "-10.87px", top: 0, right: 0 }} />
-                    <span aria-hidden="true" className="pointer-events-none absolute bg-gray-6" style={{ width: "10.87px", height: "1px", top: 0, right: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "1px", height: "21.74px", marginTop: "-10.87px", top: 0, left: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "10.87px", height: "1px", top: 0, left: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "1px", height: "21.74px", marginTop: "-10.87px", top: 0, right: 0 }} />
+                    <span aria-hidden="true" className="pointer-events-none absolute bg-blueprint" style={{ width: "10.87px", height: "1px", top: 0, right: 0 }} />
                   </span>
                 </span>
                 <div className="flex flex-1 flex-col justify-between gap-8">

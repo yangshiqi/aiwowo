@@ -63,7 +63,7 @@ export function ContactSection() {
               <span
                 key={index}
                 aria-hidden="true"
-                className="pointer-events-none absolute bg-gray-6"
+                className="pointer-events-none absolute bg-blueprint"
                 style={style}
               />
             ))}

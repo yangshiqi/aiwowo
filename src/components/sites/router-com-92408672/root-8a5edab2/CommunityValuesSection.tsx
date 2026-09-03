@@ -74,7 +74,7 @@ export function CommunityValuesSection() {
               <span
                 key={index}
                 aria-hidden="true"
-                className="pointer-events-none absolute bg-gray-6"
+                className="pointer-events-none absolute bg-blueprint"
                 style={style}
               />
             ))}
@@ -91,9 +91,7 @@ export function CommunityValuesSection() {
                   index < 3 ? "lg:border-t-0" : ""
                 }`}
               >
-                <span className="font-mono text-[14px] leading-4 tracking-[0.4px] text-gray-4">
-                  {value.number}
-                </span>
+                <span className="opc-index">{Number(value.number)}</span>
                 <h3 className="text-[20px] leading-6 text-ink lg:text-[22px]">{value.title}</h3>
                 <p className="text-[15px] leading-5 text-hushed lg:text-base lg:leading-6">
                   {value.body}

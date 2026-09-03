@@ -92,7 +92,7 @@ function LabPostCard({ post }: { post: LabPost }) {
           <span
             key={i}
             aria-hidden="true"
-            className="pointer-events-none absolute bg-gray-6"
+            className="pointer-events-none absolute bg-blueprint"
             style={style}
           />
         ))}
@@ -175,7 +175,7 @@ export function LabSection() {
             className="-mr-4 flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink motion-safe:scroll-smooth touch-pan-y select-none lg:-mr-16 mt-7 gap-4 sm:mt-[55.3px] sm:gap-6 cursor-grab"
           >
             {LAB_POSTS.map((post) => (
-              <LabPostCard key={post.href} post={post} />
+              <LabPostCard key={post.title} post={post} />
             ))}
             <span aria-hidden="true" className="w-4 shrink-0 lg:w-16" />
           </section>

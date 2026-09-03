@@ -418,3 +418,149 @@
 .sd-timeline-dot--miss{background:#f16269;border-color:#ed6e6c3d}
 
 @media (prefers-reduced-motion:reduce){.sd-animation [style*=will-change]{will-change:auto!important}}
+/* ===================================================================
+   OPC Warm Blueprint retheme — scenes go light (paper / blue / orange)
+   =================================================================== */
+
+/* --- cost chart --- */
+.router-as-animation {
+  --router-as-chart: #f7f3ed;
+  --router-as-chart-text: #283038;
+  --router-as-chart-muted: #66717a;
+  --router-as-chart-legend: #66717a;
+  --router-as-default-bar: #b9c2cc;
+  --router-as-flex-bar-top: #0040a8;
+  --router-as-flex-bar-bottom: #1b82d1;
+  --router-as-positive-bg: #f4e9df;
+  --router-as-positive-border: rgba(232, 88, 32, 0.45);
+  --router-as-positive-text: #c94716;
+}
+.router-as-chart-window {
+  background: var(--router-as-chart);
+  border: 1px solid rgba(0, 64, 168, 0.28);
+  box-shadow: 0 12px 34px rgba(0, 64, 168, 0.1);
+}
+.router-as-chart-glow {
+  display: none;
+}
+.router-as-grid-line {
+  background: rgba(0, 64, 168, 0.18);
+}
+.router-as-legend-dot--default {
+  background: #b9c2cc;
+}
+.router-as-legend-dot--flex {
+  background: #0040a8;
+}
+
+/* --- CLI panel (rmah-cr) --- */
+.rmah-cr {
+  background: #ede6dd;
+}
+.rmah-cr__terminal {
+  background: #f7f3ed;
+  border-color: rgba(0, 64, 168, 0.4);
+}
+.rmah-cr__status {
+  color: #66717a;
+}
+.rmah-cr__status span:last-child {
+  color: #0040a8;
+}
+.rmah-cr__label,
+.rmah-cr__price {
+  color: #283038;
+}
+.rmah-cr__bar {
+  background: #e4dbd0;
+}
+.rmah-cr__bar-fill {
+  background: #0040a8;
+}
+.rmah-cr__comparison--frontier .rmah-cr__bar-fill {
+  background: #b9c2cc;
+}
+.rmah-cr__auto-mode {
+  color: #c94716;
+}
+.rmah-cr__hint {
+  color: #66717a;
+}
+.rmah-cr--pending .rmah-cr__type:before,
+.rmah-cr--animated .rmah-cr__type:before {
+  background: #f7f3ed; /* typing cover must match the terminal ground */
+}
+.rmah-cr--pending .rmah-cr__type:after,
+.rmah-cr--animated .rmah-cr__type:after {
+  background: #283038; /* caret */
+}
+
+/* --- FDE / turn cards (sd-*) --- */
+.sd-turn-inspector {
+  --sd-turn-bg: #f7f3ed;
+  --sd-turn-border: rgba(0, 64, 168, 0.28);
+  --sd-turn-badge: #ede6dd;
+  --sd-turn-text-primary: #283038;
+  --sd-turn-text-secondary: #66717a;
+  --sd-turn-cached: #0040a8;
+  --sd-turn-input: #e85820;
+  --sd-turn-output: #1b82d1;
+  --sd-turn-danger-surface: #f4e9df;
+  --sd-turn-danger: #c94716;
+  background: #f7f3ed;
+}
+.sd-turn-inspector-window {
+  box-shadow: 0 14px 40px rgba(0, 64, 168, 0.12);
+}
+
+/* --- marketplace / service-catalog panel (rmah-mm) --- */
+.rmah-mm__panel {
+  color: #283038;
+  background: #f7f3ed;
+  border-color: rgba(0, 64, 168, 0.4);
+  box-shadow: 0 12px 44px rgba(0, 64, 168, 0.1);
+}
+.rmah-mm__panel > header p {
+  color: #66717a;
+}
+.rmah-mm__search,
+.rmah-mm__sort,
+.rmah-mm__filter {
+  color: #283038;
+  background: #f0e8e0;
+  border-color: rgba(0, 64, 168, 0.28);
+}
+.rmah-mm__search {
+  color: #66717a;
+}
+.rmah-mm__search-glyph {
+  border-color: #66717a;
+}
+.rmah-mm__search-glyph::after {
+  background: #66717a;
+}
+.rmah-mm__filter-glyph i {
+  background: #283038;
+}
+.rmah-mm__chevron-glyph {
+  border-color: #66717a;
+}
+.rmah-mm__table {
+  border-color: rgba(0, 64, 168, 0.28);
+}
+.rmah-mm__table thead {
+  color: #66717a;
+  background: #ede6dd;
+}
+.rmah-mm__table td {
+  border-bottom-color: rgba(0, 64, 168, 0.14);
+}
+.rmah-mm__table code {
+  color: #66717a;
+}
+.rmah-mm__model-check {
+  background: #e4dbd0;
+}
+.rmah-mm__brand-mark {
+  color: #0040a8;
+}
