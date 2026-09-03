@@ -44,7 +44,7 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="pt-[60px] pb-16 lg:py-0">
+    <section id="contact" aria-labelledby="contact-heading" className="pt-[60px] pb-16 lg:pt-24 lg:pb-0">
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-16 lg:pb-32">
         <div className="flex flex-col gap-[19.5px] pb-8 lg:pb-[58px]">
           <h2
@@ -53,7 +53,7 @@ export function ContactSection() {
           >
             让对话开始。
           </h2>
-          <p className="max-w-[536px] text-[15px] leading-5 text-ink lg:text-base lg:leading-6">
+          <p className="max-w-none text-[15px] leading-5 text-ink lg:whitespace-nowrap lg:text-base lg:leading-6">
             无论你是想入驻的OPC创业者、寻求合作的企业伙伴，还是关注我们的朋友——我们都在。
           </p>
         </div>
