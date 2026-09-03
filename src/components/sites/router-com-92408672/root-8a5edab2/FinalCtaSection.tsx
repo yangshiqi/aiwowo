@@ -1,14 +1,9 @@
 // Final CTA — "准备好，入窝了吗？" (section 10)
-// Static server component; watermark is the AI WOWO nest glyph in solar.
-import { AiwowoGlyphOutline } from "../shared/icons";
-
+// Static server component; ground is the low-contrast blueprint line-art
+// (central blank area carries the copy).
 export function FinalCtaSection() {
   return (
-    <section className="relative overflow-hidden bg-[#f0e8e0] pt-[154.5px] pb-[132px] text-ink sm:pt-[259px] sm:pb-[235px]">
-      <AiwowoGlyphOutline
-        aria-hidden="true"
-        className="pointer-events-none absolute top-[-1px] left-[-86px] z-0 h-[495px] w-[508px] max-w-none select-none text-[rgba(0,64,168,0.30)] sm:top-[-181px] sm:left-1/2 sm:h-[1029px] sm:w-[1029px] sm:-translate-x-1/2"
-      />
+    <section className="relative overflow-hidden bg-[#f0e8e0] bg-[url('/sites/router-com-92408672/root-8a5edab2/images/opc/opc-background-blueprint.webp')] bg-cover bg-center pt-[154.5px] pb-[132px] text-ink sm:pt-[259px] sm:pb-[235px]">
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-16 relative z-10 flex flex-col items-center gap-[26.4px] text-center sm:gap-[47px]">
         <h2 className="text-[2.5rem] leading-[1] tracking-[0.03em] sm:text-[64px]">
           准备好，

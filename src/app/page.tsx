@@ -6,6 +6,8 @@ import { ImplementSection } from "@/components/sites/router-com-92408672/root-8a
 import { SavingsSection } from "@/components/sites/router-com-92408672/root-8a5edab2/SavingsSection";
 import { QuotesSection } from "@/components/sites/router-com-92408672/root-8a5edab2/QuotesSection";
 import { BenchmarkSection } from "@/components/sites/router-com-92408672/root-8a5edab2/benchmark/BenchmarkSection";
+import { FacilitiesStrip } from "@/components/sites/router-com-92408672/root-8a5edab2/FacilitiesStrip";
+import { GlobalBanner } from "@/components/sites/router-com-92408672/root-8a5edab2/GlobalBanner";
 import { ProofSection } from "@/components/sites/router-com-92408672/root-8a5edab2/ProofSection";
 import { LabSection } from "@/components/sites/router-com-92408672/root-8a5edab2/LabSection";
 import { FaqSection } from "@/components/sites/router-com-92408672/root-8a5edab2/FaqSection";
@@ -32,8 +34,10 @@ export default function Home() {
         <SavingsSection />
         <QuotesSection />
         <BenchmarkSection />
+        <FacilitiesStrip />
         <ProofSection />
         <CommunityValuesSection />
+        <GlobalBanner />
         <LabSection />
         <FaqSection />
         <ContactSection />
