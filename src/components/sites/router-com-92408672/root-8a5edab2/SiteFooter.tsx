@@ -5,14 +5,14 @@ import Link from "next/link";
 import { AiwowoWordmark } from "../shared/icons";
 
 const FOOTER_NAV_LINKS = [
-  { label: "OPC空间目录", href: "/spaces" },
-  { label: "政策库", href: "/policies" },
   { label: "OPC孵化", href: "#savings" },
   { label: "蹲窝儿平台", href: "#implement" },
   { label: "AI培训", href: "#savings" },
   { label: "企业服务", href: "#savings" },
   { label: "社群生态", href: "#community" },
   { label: "联系我们", href: "#contact" },
+  // 友情链接:OPC一人城(独立聚合站;上线后替换为正式域名)
+  { label: "OPC一人城", href: "https://onepersoncity.example.com" },
 ] as const;
 
 export function SiteFooter() {

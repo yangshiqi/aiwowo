@@ -33,22 +33,6 @@ export function MobileBottomBar() {
       }`}
     >
       <a
-        href="/spaces"
-        onClick={() => setOpen(false)}
-        className="flex h-16 items-center justify-between gap-4 border-b border-rule text-[18px] leading-6 text-ink outline-none transition-colors hover:text-ink-black focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink"
-      >
-        OPC空间目录
-        <ChevronRight14 className="shrink-0" />
-      </a>
-      <a
-        href="/policies"
-        onClick={() => setOpen(false)}
-        className="flex h-16 items-center justify-between gap-4 border-b border-rule text-[18px] leading-6 text-ink outline-none transition-colors hover:text-ink-black focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink"
-      >
-        政策库
-        <ChevronRight14 className="shrink-0" />
-      </a>
-      <a
         href="#contact"
         onClick={() => setOpen(false)}
         className="flex h-16 items-center justify-between gap-4 border-b border-rule text-[18px] leading-6 text-ink outline-none transition-colors hover:text-ink-black focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink"

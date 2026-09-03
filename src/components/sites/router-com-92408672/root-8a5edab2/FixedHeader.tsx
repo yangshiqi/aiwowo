@@ -41,12 +41,6 @@ export function FixedHeader() {
         >
           加入社群
         </a>
-        <a href="/spaces" className="text-sm text-ink hover:text-ink-black">
-          OPC空间
-        </a>
-        <a href="/policies" className="text-sm text-ink hover:text-ink-black">
-          政策库
-        </a>
         <a
           href="#contact"
           className="text-sm text-ink-black underline decoration-solid underline-offset-2 hover:no-underline"
