@@ -109,7 +109,12 @@ export function HeroSection() {
             北京市OPC认证社区 · CERTIFIED OPC COMMUNITY
           </p>
           <h1 className="mt-[14px] max-w-[640px] text-[2.75rem] leading-[1.12] tracking-[0.04em] lg:mt-[21px] lg:text-[4.75rem] lg:tracking-[0.05em]">
-            给每个AI的梦想
+            给每个
+            <span className="relative mx-[0.04em] inline-block px-[0.05em] align-baseline font-display text-[1.18em] font-bold tracking-[0]">
+              <span aria-hidden="true" className="absolute inset-x-[0.02em] bottom-[0.04em] h-[0.16em] bg-solar" />
+              <span className="relative">AI</span>
+            </span>
+            的梦想
             <br />
             一个
             <span className="relative mx-[0.04em] inline-block px-[0.05em]">

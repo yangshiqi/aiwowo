@@ -2,9 +2,10 @@
 
 // morphicons 交互图标:汉堡 Menu⇄X(经自定义事件与移动菜单同步)。
 // reducedMotion="user" 尊重系统减动效设置。
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MorphIcon } from "morphicons/react";
 import { Menu, X } from "lucide";
+import type { ComponentProps } from "react";
 
 export const MOBILE_MENU_EVENT = "aiwowo-menu-toggle";
 
@@ -39,5 +40,55 @@ export function MobileMenuButton({ className }: { className?: string }) {
     >
       <MorphIcon icon={open ? X : Menu} size={22} strokeWidth={1.5} reducedMotion="user" />
     </button>
+  );
+}
+
+type IconData = ComponentProps<typeof MorphIcon>["icon"];
+
+/** 跟随最近祖先(默认 li/卡片)的 hover/focus,在 base⇄alt 间形变的图标。 */
+export function MorphHoverIcon({
+  base,
+  alt,
+  size = 24,
+  strokeWidth = 1.5,
+  hostSelector = "li, a, button",
+  className,
+}: {
+  base: IconData;
+  alt: IconData;
+  size?: number;
+  strokeWidth?: number;
+  hostSelector?: string;
+  className?: string;
+}) {
+  const [active, setActive] = useState(false);
+  const anchorRef = useRef<HTMLSpanElement | null>(null);
+
+  useEffect(() => {
+    const host = anchorRef.current?.closest(hostSelector);
+    if (!host) return;
+    const on = () => setActive(true);
+    const off = () => setActive(false);
+    host.addEventListener("mouseenter", on);
+    host.addEventListener("mouseleave", off);
+    host.addEventListener("focusin", on);
+    host.addEventListener("focusout", off);
+    return () => {
+      host.removeEventListener("mouseenter", on);
+      host.removeEventListener("mouseleave", off);
+      host.removeEventListener("focusin", on);
+      host.removeEventListener("focusout", off);
+    };
+  }, [hostSelector]);
+
+  return (
+    <span ref={anchorRef} className={className}>
+      <MorphIcon
+        icon={active ? alt : base}
+        size={size}
+        strokeWidth={strokeWidth}
+        reducedMotion="user"
+      />
+    </span>
   );
 }

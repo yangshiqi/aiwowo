@@ -13,34 +13,56 @@ const CORNER_TICKS: CSSProperties[] = [
   { width: "1px", height: "10.87px", bottom: 0, right: 0 },
 ];
 
+import {
+  BadgePercent,
+  Dumbbell,
+  Globe,
+  GraduationCap,
+  Landmark,
+  Plane,
+  Presentation,
+  Sparkles,
+  TrendingUp,
+  Users,
+  UsersRound,
+  Wrench,
+} from "lucide";
+import { MorphHoverIcon } from "../shared/morph-widgets";
+
 const VALUES = [
   {
-    number: "01",
+    icon: Users,
+    iconAlt: UsersRound,
     title: "超级个体联盟",
     body: "汇聚中外OPC创业者，打破信息孤岛。一个人做公司不再孤单，社群里有同行者、有同行经验、有同行资源。",
   },
   {
-    number: "02",
+    icon: Dumbbell,
+    iconAlt: GraduationCap,
     title: "实战训练营",
     body: "AI技术专家+商业/创业/营销导师陪跑，形成“AI资源普惠—产品教学—专家陪跑—经验复制”全流程陪伴。",
   },
   {
-    number: "03",
+    icon: Landmark,
+    iconAlt: BadgePercent,
     title: "政策红利直通",
     body: "OPC认证社区直通经信局政策包：Token券、算力券、社区补贴（年最高200万）、算力补贴（年最高1000万）、数据沙盒减免50%。",
   },
   {
-    number: "04",
+    icon: Presentation,
+    iconAlt: TrendingUp,
     title: "路演融资舞台",
     body: "“创赢未来”OPC专场路演，通过项目最高1000万元资金支持。产业对接会常态化，近百家企业开放真实业务场景。",
   },
   {
-    number: "05",
+    icon: Wrench,
+    iconAlt: Sparkles,
     title: "AI工具普惠",
     body: "入驻OPC可申领WorkBuddy专属账号，每月免费获4000通用算力积分，覆盖文创/办公/开发全场景。腾讯云、移动云生态对接。",
   },
   {
-    number: "06",
+    icon: Globe,
+    iconAlt: Plane,
     title: "国际化窗口",
     body: "“国际化”认证孵化器底子，服务2000+中外企业。孵化中外OPC双向出海，跨境电商培训、跨境资源对接。",
   },
@@ -82,7 +104,7 @@ export function CommunityValuesSection() {
           <ul className="grid sm:grid-cols-2 lg:grid-cols-3">
             {VALUES.map((value, index) => (
               <li
-                key={value.number}
+                key={value.title}
                 className={`flex flex-col gap-3 border-gray-3 px-6 py-7 lg:px-10 lg:py-9 ${
                   index > 0 ? "border-t" : ""
                 } ${index % 2 === 1 ? "sm:border-l" : ""} ${
@@ -91,7 +113,9 @@ export function CommunityValuesSection() {
                   index < 3 ? "lg:border-t-0" : ""
                 }`}
               >
-                <span className="opc-index">{Number(value.number)}</span>
+                <span className="flex size-9 items-center justify-center rounded-full bg-solar text-white">
+                  <MorphHoverIcon base={value.icon} alt={value.iconAlt} size={20} strokeWidth={1.5} />
+                </span>
                 <h3 className="text-[20px] leading-6 text-ink lg:text-[22px]">{value.title}</h3>
                 <p className="text-[15px] leading-5 text-hushed lg:text-base lg:leading-6">
                   {value.body}
