@@ -5,6 +5,8 @@ import Link from "next/link";
 import { AiwowoWordmark } from "../shared/icons";
 
 const FOOTER_NAV_LINKS = [
+  { label: "OPC空间目录", href: "/spaces" },
+  { label: "政策库", href: "/policies" },
   { label: "OPC孵化", href: "#savings" },
   { label: "蹲窝儿平台", href: "#implement" },
   { label: "AI培训", href: "#savings" },

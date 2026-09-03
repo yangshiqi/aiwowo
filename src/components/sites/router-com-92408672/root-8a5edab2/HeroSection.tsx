@@ -81,6 +81,18 @@ export function HeroSection() {
             </div>
             <nav aria-label="Primary" className="flex items-center gap-5">
               <a
+                href="/spaces"
+                className="hidden text-sm text-ink hover:text-ink-black sm:block"
+              >
+                OPC空间
+              </a>
+              <a
+                href="/policies"
+                className="hidden text-sm text-ink hover:text-ink-black sm:block"
+              >
+                政策库
+              </a>
+              <a
                 href="#contact"
                 className="text-sm text-ink-black underline decoration-solid underline-offset-2 hover:no-underline"
               >
