@@ -196,7 +196,7 @@ export function ImplementSection() {
 
   return (
     <section id="implement">
-      <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-16 py-16 lg:py-32">
+      <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-16 py-16 lg:pt-16 lg:pb-32">
         <div className="relative flex flex-col gap-8 bg-white lg:gap-0 lg:border lg:border-gray-3">
           <span className="hidden lg:contents">
             <CornerTicks />

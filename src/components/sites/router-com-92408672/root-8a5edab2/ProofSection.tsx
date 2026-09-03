@@ -8,7 +8,7 @@ const ASSETS = "/sites/router-com-92408672/root-8a5edab2";
 export function ProofSection() {
   return (
     <section id="community" aria-labelledby="proof-heading">
-      <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-16 py-16 sm:pt-0 sm:pb-24 lg:pb-32">
+      <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-16 py-16 sm:pt-16 sm:pb-24 lg:pt-24 lg:pb-32">
         <div className="flex flex-col gap-[41px] sm:gap-16">
           <div className="flex max-w-[450px] flex-col gap-4 sm:gap-5">
             <h2

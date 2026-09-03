@@ -139,8 +139,8 @@ export function SavingsSection() {
         </div>
         <div ref={stageRef} className="relative grid border border-gray-3">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-[#ede6dd]" />
-            <div className="absolute inset-0 bg-[url('/sites/router-com-92408672/root-8a5edab2/images/savings/stage-grain.webp')] bg-[length:512px_512px] bg-top-left opacity-20" />
+            <div className="absolute inset-0 bg-[#f0e8e0]" />
+            <div className="absolute inset-0 bg-[url('/sites/router-com-92408672/root-8a5edab2/images/opc/opc-background-blueprint.webp')] bg-cover bg-center opacity-80" />
           </div>
           <CornerTicks junctions={["tl", "tr"]} />
           {TABS.map((tab, index) => (
