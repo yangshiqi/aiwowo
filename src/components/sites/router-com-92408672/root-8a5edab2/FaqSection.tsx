@@ -159,7 +159,7 @@ export function FaqSection() {
                       data-orientation="vertical"
                       className="overflow-hidden text-hushed"
                     >
-                      <div className="max-w-full space-y-2 text-balance pb-4 pt-0 lg:max-w-[62.5%]">
+                      <div className="max-w-full space-y-2 pb-4 pt-0 text-[15px] leading-6 lg:max-w-[860px] lg:text-base lg:leading-7">
                         {item.answer}
                       </div>
                     </div>
