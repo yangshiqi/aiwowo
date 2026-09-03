@@ -46,12 +46,11 @@ export function HeroSection() {
             alt=""
             className="absolute top-[-40%] left-[-5%] h-[160%] w-[110%] max-w-none opacity-[0.16] [filter:invert(21%)_sepia(94%)_saturate(1958%)_hue-rotate(208deg)_brightness(92%)]"
           />
-          <div
-            aria-hidden="true"
-            className="absolute bottom-[-0.14em] left-1/2 -translate-x-1/2 whitespace-nowrap font-display font-bold leading-none text-transparent select-none text-[30cqw] tracking-[0.02em] [-webkit-text-stroke:1.5px_rgba(0,64,168,0.22)]"
-          >
-            艾窝窝
-          </div>
+          <img
+            src={`${ASSETS}/hero/opc-hero-workspace.webp`}
+            alt=""
+            className="absolute right-[-6%] bottom-0 hidden h-auto w-[62%] max-w-[860px] select-none lg:block"
+          />
         </div>
 
         {/* Announcement ticker + in-flow nav */}
@@ -104,7 +103,7 @@ export function HeroSection() {
         </div>
 
         {/* Hero copy + CTAs */}
-        <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-center px-4 pt-[66px] text-center lg:px-16 lg:pt-[117.5px] lg:pb-0">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-col items-center px-4 pt-[66px] text-center lg:items-start lg:px-16 lg:pt-[160px] lg:text-left">
           <p className="font-medium font-mono text-[12px] tracking-[0.12em] text-[#0040a8] leading-5 uppercase lg:text-[15px]">
             北京市OPC认证社区 · CERTIFIED OPC COMMUNITY
           </p>
@@ -127,7 +126,7 @@ export function HeroSection() {
             <br className="hidden lg:inline" />
             让超级个体从这里起飞。
           </p>
-          <div className="mt-[18.01px] flex flex-wrap items-center justify-center gap-4 lg:mt-[26.01px]">
+          <div className="mt-[18.01px] flex flex-wrap items-center justify-center gap-4 lg:mt-[26.01px] lg:justify-start">
             <a
               href="#implement"
               className="inline-flex shrink-0 items-center justify-center rounded-none border border-transparent font-normal whitespace-nowrap transition-colors outline-none select-none focus-visible:ring-2 focus-visible:ring-ink/40 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-ink-black text-white hover:bg-ink-black/85 gap-1.5 px-4 text-sm h-[51px] lg:h-[42px]"
