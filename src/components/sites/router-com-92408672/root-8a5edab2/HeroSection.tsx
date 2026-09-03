@@ -46,11 +46,22 @@ export function HeroSection() {
             alt=""
             className="absolute top-[-40%] left-[-5%] h-[160%] w-[110%] max-w-none opacity-[0.16] [filter:invert(21%)_sepia(94%)_saturate(1958%)_hue-rotate(208deg)_brightness(92%)]"
           />
-          <img
-            src={`${ASSETS}/hero/opc-hero-workspace.webp`}
-            alt=""
-            className="absolute right-[-6%] bottom-0 hidden h-auto w-[62%] max-w-[860px] select-none lg:block"
-          />
+          {/* 办公空间轴测图:作为右侧背景整体融合,完整显示 + 左缘柔化过渡到文字区 */}
+          <div className="absolute inset-y-0 right-0 hidden w-[64%] max-w-[1000px] lg:block">
+            <img
+              src={`${ASSETS}/hero/opc-hero-workspace.webp`}
+              alt=""
+              className="absolute inset-0 h-full w-full object-contain object-right-bottom select-none"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 bg-linear-to-r from-[#f0e8e0] from-[2%] via-[#f0e8e0]/45 via-[26%] to-transparent to-[52%]"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute inset-x-0 bottom-0 h-[18%] bg-linear-to-t from-[#f0e8e0] to-transparent"
+            />
+          </div>
         </div>
 
         {/* Announcement ticker + in-flow nav */}
