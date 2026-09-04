@@ -48,3 +48,6 @@ next-env.d.ts
 # Local temp files
 temp/
 .gstack/
+
+# Generated single-file preview packages
+aiwowo-preview*.html
