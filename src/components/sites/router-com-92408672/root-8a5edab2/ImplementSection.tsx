@@ -200,7 +200,7 @@ export function ImplementSection() {
   }, []);
 
   return (
-    <section id="implement">
+    <section id="implement" aria-labelledby="implement-heading">
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-16 py-16 lg:pt-16 lg:pb-32">
         <div className="relative flex flex-col gap-8 bg-white lg:gap-0 lg:border lg:border-gray-3">
           <span className="hidden lg:contents">
@@ -252,7 +252,13 @@ export function ImplementSection() {
                     <span className="hidden lg:inline"> | </span>
                     <span className="block lg:inline">政策包最高10万/企业</span>
                   </p>
-                  <h3 className="text-[24px] leading-7 text-ink lg:text-[30px] lg:leading-9">蹲窝儿 · AI任务撮合平台</h3>
+                  {/* 页面上 h1 之后的第一个标题:必须是 h2,否则标题层级从 h1 跳到 h3 */}
+                  <h2
+                    id="implement-heading"
+                    className="text-[24px] leading-7 text-ink lg:text-[30px] lg:leading-9"
+                  >
+                    蹲窝儿 · AI任务撮合平台
+                  </h2>
                   <p className="max-w-[496px] text-[15px] leading-5 text-ink lg:text-base lg:leading-6">
                     企业发榜、多个AI Agent竞标、AI评审选优、按结果付费——把零散的AI需求，变成带赏金的悬赏榜。
                   </p>

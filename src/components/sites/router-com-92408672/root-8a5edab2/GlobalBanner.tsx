@@ -10,9 +10,21 @@ function Eyebrow() {
   );
 }
 
-function Heading() {
+// 标题只在移动端块里作为真正的 <h2>(带 id);桌面端叠加层用 <p aria-hidden> 复刻同样式,
+// 避免爬虫/代理看到两个重复的 h2。样式通过 font-display 显式指定,和 main h2 规则保持一致。
+function Heading({ visual = false }: { visual?: boolean }) {
+  const className = "font-display text-[26px] leading-[1.15] font-bold tracking-[0.03em] text-ink lg:text-[38px]";
+  if (visual) {
+    return (
+      <p aria-hidden="true" className={className}>
+        孵化中外OPC，
+        <br />
+        双向出海。
+      </p>
+    );
+  }
   return (
-    <h2 id="global-heading" className="text-[26px] leading-[1.15] tracking-[0.03em] text-ink lg:text-[38px]">
+    <h2 id="global-heading" className={className}>
       孵化中外OPC，
       <br />
       双向出海。
@@ -62,7 +74,7 @@ export function GlobalBanner() {
           {/* 桌面端叠加:左上留白 = 标题;顶部中间留白 = 正文 */}
           <div className="absolute top-[5.5%] left-[4.5%] hidden max-w-[360px] flex-col gap-3 lg:flex">
             <Eyebrow />
-            <Heading />
+            <Heading visual />
           </div>
           <div className="absolute top-[7.5%] left-[41%] hidden max-w-[330px] flex-col gap-3 lg:flex">
             <Body />

@@ -14,8 +14,6 @@ import { ModelMarketplaceScene } from "./savings/ModelMarketplaceScene";
  * the auto-advancing feature tablist (5s per tab, matching the original).
  */
 
-const ASSETS = "/sites/router-com-92408672/root-8a5edab2/images";
-
 interface FeatureTab {
   title: string;
   body: string;
