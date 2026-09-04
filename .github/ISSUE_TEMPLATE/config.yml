@@ -1,0 +1,9 @@
+# 关掉空白 issue,强制走上面两个模板,保证需求描述完整。
+blank_issues_enabled: false
+contact_links:
+  - name: 贡献流程与本地部署
+    url: https://github.com/yangshiqi/aiwowo/blob/master/README.md
+    about: 提 issue 前先读 README:提需求走 issue、改代码走 PR、本地如何初始化和启动。
+  - name: 面向 AI 代理的站点接口
+    url: https://aiwowo-website.vercel.app/agents
+    about: llms.txt、Markdown 内容协商、MCP 服务器等机器可读入口说明。
