@@ -1,0 +1,67 @@
+name: 需求 / 改动提议
+description: 提出新功能、内容调整或改进建议。请先开 issue 讨论,不要直接改 master。
+title: "[需求] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢参与。提交前请确认:
+
+        - 已经搜过现有 issue,没有重复。
+        - **不要直接提交代码到 `master`**(默认分支是 `master`,不是 `main`)。先在这里讨论清楚,再按 [README](https://github.com/yangshiqi/aiwowo/blob/master/README.md#2-改代码走-pull-request) 的流程开分支提 PR。
+
+  - type: textarea
+    id: background
+    attributes:
+      label: 背景
+      description: 为什么需要这个改动?解决谁的什么问题?
+      placeholder: 例如:代理抓取站点时找不到服务清单,只能靠解析首页 HTML。
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: 现状
+      description: 现在是什么行为?请附上页面路径或文件路径。
+      placeholder: |
+        例如:
+        - 页面:https://aiwowo-website.vercel.app/
+        - 文件:src/components/sites/router-com-92408672/root-8a5edab2/HeroSection.tsx
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望
+      description: 改完之后应该是什么样?越具体越好。
+      placeholder: 例如:新增 /services 页,并同步进 sitemap.xml 与 llms.txt 的链接清单。
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: 影响范围
+      description: 这个改动会碰到哪些部分?可多选。
+      multiple: true
+      options:
+        - 文案 / 内容(src/lib 下的单一来源)
+        - 视觉 / 版面(需附改动前后截图)
+        - 动效(需说明离屏暂停与 reduced-motion 处理)
+        - 机器可读接口(sitemap / llms.txt / MCP / 结构化数据)
+        - 构建 / 部署 / CI
+        - 依赖升级
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: 补充说明
+      description: 参考资料、截图、设计稿或其他上下文。
+    validations:
+      required: false

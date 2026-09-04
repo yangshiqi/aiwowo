@@ -1,0 +1,73 @@
+name: 问题反馈
+description: 报告页面错误、构建失败、样式异常或接口返回不对。
+title: "[问题] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提交前请确认:
+
+        - 已经搜过现有 issue,没有重复。
+        - **不要直接把修复推到 `master`**。先在这里记录问题,再按 [README](https://github.com/yangshiqi/aiwowo/blob/master/README.md#2-改代码走-pull-request) 的流程开分支提 PR。
+
+  - type: textarea
+    id: background
+    attributes:
+      label: 背景
+      description: 在做什么的时候遇到的?影响谁?
+      placeholder: "例如:代理带 Accept: text/markdown 请求页面时拿到的是 HTML。"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: 现状(实际行为)
+      description: 实际发生了什么?请贴出复现步骤、命令和完整报错。
+      placeholder: |
+        复现步骤:
+        1. curl -sI -H 'Accept: text/markdown' https://aiwowo-website.vercel.app/
+        2. 观察 Content-Type
+
+        实际输出:
+        ```
+        content-type: text/html; charset=utf-8
+        ```
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+      description: 正确的结果应该是什么?
+      placeholder: "例如:应返回 content-type: text/markdown; charset=utf-8。"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: 影响范围
+      description: 问题出在哪一块?可多选。
+      multiple: true
+      options:
+        - 页面渲染 / 样式
+        - 动效性能
+        - 机器可读接口(sitemap / llms.txt / MCP / 结构化数据)
+        - 构建失败
+        - CI 失败
+        - 部署 / 线上环境
+        - 其他
+    validations:
+      required: true
+
+  - type: input
+    id: env
+    attributes:
+      label: 环境
+      description: 本地还是线上?浏览器、Node 版本、设备宽度等。
+      placeholder: 例如:线上 https://aiwowo-website.vercel.app,Chrome 桌面 1440px
+    validations:
+      required: false
