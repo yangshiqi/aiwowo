@@ -8,12 +8,13 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        // 页面同时有 HTML 与 Markdown 两个变体,缓存必须按 Accept 分桶,
-        // 否则 CDN 可能把先落缓存的那个变体回给另一类请求。
+        // 页面同时有 HTML 与 Markdown 两个变体,缓存需按 Accept 分桶。
         //
-        // 注意:App Router 的 HTML 响应里 `Vary` 由 Next 自己写(rsc / next-router-*),
-        // 会覆盖这里配置的同名头;真正生效的是 vercel.json 里边缘层那份(含 Next 的
-        // 全部 token + Accept)。这里保留一份,让路由处理器与自托管场景也有兜底。
+        // 实测(Next 16 + Vercel):App Router 的函数响应里 `Vary` 由框架自己写
+        // (rsc / next-router-*),会覆盖这里和 vercel.json 配置的同名头 —— 其他自定义
+        // 头都能落地,唯独 Vary 不行。真正保证正确性的是 proxy.ts:它在缓存之前对每个
+        // 请求做一次协商,所以 HTML 变体的 Vary 缺 Accept 不会导致串味。
+        // 需要 Vary 的响应(各 .md 路由)在自己的 Response 里显式设置,能够生效。
         source: "/:path*",
         headers: [{ key: "Vary", value: "Accept" }],
       },
