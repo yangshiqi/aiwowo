@@ -91,7 +91,7 @@ export function ContactSection() {
                 </div>
               ))}
             </dl>
-            <div className="mt-auto border border-gray-2 bg-surface-gray p-4">
+            <div className="mt-2 border border-gray-2 bg-surface-gray p-4">
               <p className="font-mono text-[12px] leading-4 text-gray-6 uppercase">红利窗口期</p>
               <p className="mt-2 text-[14px] leading-5 text-ink">
                 2026–2028年是OPC政策红利期：注册宽松、税费优惠、准入门槛低。较早入场更有机会享受发展红利。

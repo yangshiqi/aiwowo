@@ -1,173 +1,97 @@
-"use client";
+import { CornerTicks } from "./savings/CornerTicks";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import type { CSSProperties } from "react";
-import { AiwowoGlyph } from "@/components/sites/router-com-92408672/shared/icons";
-import { LucideGlyph } from "@/components/sites/router-com-92408672/shared/lucide-glyph";
-import { ArrowLeft, ArrowRight } from "lucide";
+/**
+ * 发展历程 — 四段并排的静态时间轴(蓝图线 + 橙色节点),取代原来一次只露一条的轮播。
+ * 桌面端:一条横线贯穿四格顶部,节点落在线上;移动端:竖线在左侧,四格纵向堆叠。
+ */
 
-interface MilestoneSlide {
+interface Milestone {
   year: string;
+  title: string;
   text: string;
-  name: string;
-  company: string;
+  tag: string;
 }
 
-const QUOTES: MilestoneSlide[] = [
+const MILESTONES: Milestone[] = [
   {
     year: "2010",
-    text: "易得商务中心：从传统商务中心起步，扎根朝阳，服务中小企业。",
-    name: "易得商务中心",
-    company: "北京 · 朝阳",
+    title: "易得商务中心",
+    text: "从传统商务中心起步，扎根朝阳，服务中小企业。",
+    tag: "北京 · 朝阳",
   },
   {
     year: "2015",
-    text: "联合办公转型：升级为联合办公+孵化器平台，获朝阳区荣誉。",
-    name: "联合办公 + 孵化器",
-    company: "朝阳区荣誉",
+    title: "联合办公 + 孵化器",
+    text: "升级为联合办公+孵化器平台，获朝阳区荣誉。",
+    tag: "朝阳区荣誉",
   },
   {
     year: "2020",
-    text: "双认证孵化器：成为北京唯一获\"国际化\"+\"数字经济\"双认证的孵化器平台。",
-    name: "国际化 + 数字经济",
-    company: "市级双认证",
+    title: "双认证孵化器",
+    text: "成为北京唯一获“国际化”+“数字经济”双认证的孵化器平台。",
+    tag: "市级双认证",
   },
   {
     year: "2026",
-    text: "艾窝窝·AI赋能：创立艾窝窝品牌，获OPC认证社区，孵化中外一人公司。",
-    name: "艾窝窝 AI WOWO",
-    company: "北京市OPC认证社区",
+    title: "艾窝窝 · AI赋能",
+    text: "创立艾窝窝品牌，获OPC认证社区，孵化中外一人公司。",
+    tag: "北京市OPC认证社区",
   },
 ];
 
-const CORNER_TICKS: CSSProperties[] = [
-  { width: "10.87px", height: "1px", top: 0, left: 0 },
-  { width: "1px", height: "10.87px", top: 0, left: 0 },
-  { width: "10.87px", height: "1px", top: 0, right: 0 },
-  { width: "1px", height: "10.87px", top: 0, right: 0 },
-  { width: "10.87px", height: "1px", bottom: 0, left: 0 },
-  { width: "1px", height: "10.87px", bottom: 0, left: 0 },
-  { width: "10.87px", height: "1px", bottom: 0, right: 0 },
-  { width: "1px", height: "10.87px", bottom: 0, right: 0 },
-];
-
-const GAP_PX = 20; // gap-5 between slides
-
-const ARROW_BUTTON_CLASS =
-  "flex size-8 cursor-pointer items-center justify-center bg-ink text-white outline-none transition-[background-color,opacity] hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink disabled:pointer-events-none disabled:bg-ink-black/6 disabled:text-gray-3";
+/** 桌面横线距格子顶部的距离,节点与年份都以它对齐。 */
+const AXIS_TOP = 44;
 
 export function QuotesSection() {
-  const scrollerRef = useRef<HTMLElement>(null);
-  const [atStart, setAtStart] = useState(true);
-  const [atEnd, setAtEnd] = useState(false);
-
-  const updateEnds = useCallback(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const maxScroll = el.scrollWidth - el.clientWidth;
-    setAtStart(el.scrollLeft <= 1);
-    setAtEnd(el.scrollLeft >= maxScroll - 1);
-  }, []);
-
-  useEffect(() => {
-    updateEnds();
-    window.addEventListener("resize", updateEnds);
-    return () => window.removeEventListener("resize", updateEnds);
-  }, [updateEnds]);
-
-  const scrollByCard = useCallback((direction: 1 | -1) => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const card = el.querySelector("figure");
-    const cardWidth = card ? card.getBoundingClientRect().width : el.clientWidth;
-    el.scrollBy({ left: direction * (cardWidth + GAP_PX), behavior: "smooth" });
-  }, []);
-
   return (
-    <section aria-labelledby="quotes-heading">
-      <h2 id="quotes-heading" className="sr-only">
-        发展历程
-      </h2>
+    <section aria-labelledby="milestones-heading">
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-16 py-16 lg:pt-0 lg:pb-32">
-        <div className="flex flex-col gap-8 lg:gap-10">
-          <section
-            ref={scrollerRef}
-            onScroll={updateEnds}
-            aria-label="发展历程"
-            tabIndex={0}
-            className="-mr-4 flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink motion-safe:scroll-smooth touch-pan-y select-none lg:-mr-16"
-          >
-            {QUOTES.map((quote) => (
-              <figure
-                key={quote.year}
-                className="group relative grid w-[calc(100%-37px)] shrink-0 snap-start gap-x-8 gap-y-[27.28px] border border-gray-3 bg-white px-[15px] py-[31px] lg:w-[calc(100%-4rem)] lg:grid-cols-[66px_minmax(0,976px)] lg:gap-x-[72px] lg:gap-y-8 lg:p-20"
-              >
-                <span aria-hidden="true" className="pointer-events-none absolute -inset-px z-20">
-                  {CORNER_TICKS.map((style, index) => (
-                    <span
-                      key={index}
-                      aria-hidden="true"
-                      className="pointer-events-none absolute bg-blueprint"
-                      style={style}
-                    />
-                  ))}
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -inset-px z-10 motion-reduce:hidden"
-                >
-                  <span className="absolute bg-ink transition-transform duration-300 ease-out top-0 left-0 h-px w-full origin-left scale-x-0 group-hover:scale-x-100" />
-                  <span className="absolute bg-ink transition-transform duration-300 ease-out top-0 right-0 h-full w-px origin-top scale-y-0 group-hover:scale-y-100" />
-                  <span className="absolute bg-ink transition-transform duration-300 ease-out right-0 bottom-0 h-px w-full origin-right scale-x-0 group-hover:scale-x-100" />
-                  <span className="absolute bg-ink transition-transform duration-300 ease-out bottom-0 left-0 h-full w-px origin-bottom scale-y-0 group-hover:scale-y-100" />
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="flex h-[30px] items-center font-display text-[26px] font-bold leading-none tracking-[0.02em] text-ink-black lg:col-start-1 lg:row-start-1 lg:h-[66px] lg:text-[42px]"
-                >
-                  {quote.year}
-                </span>
-                <blockquote className="relative text-xl leading-6 tracking-normal text-black lg:-top-1.5 lg:col-start-2 lg:row-start-1 lg:text-[28px] lg:leading-8">
-                  {quote.text}
-                </blockquote>
-                <figcaption className="flex items-center gap-4 lg:col-start-2 lg:row-start-2 lg:gap-5">
-                  <span className="flex size-12 shrink-0 items-center justify-center border border-gray-3 bg-surface-gray lg:size-16">
-                    <AiwowoGlyph className="size-6 lg:size-8" />
-                  </span>
-                  <span className="flex flex-col gap-3">
-                    <span className="font-mono text-[14px] leading-4 tracking-[0.5px] uppercase text-ink">
-                      {quote.name}
-                    </span>
-                    <span className="font-mono text-[14px] leading-4 tracking-[0.5px] uppercase text-gray-5">
-                      {quote.company}
-                    </span>
-                  </span>
-                </figcaption>
-              </figure>
-            ))}
-            <span aria-hidden="true" className="w-4 shrink-0 lg:w-16" />
-          </section>
-          <div className="flex gap-2 self-start lg:self-end">
-            <button
-              type="button"
-              disabled={atStart}
-              aria-label="上一阶段"
-              onClick={() => scrollByCard(-1)}
-              className={ARROW_BUTTON_CLASS}
+        <div className="flex flex-col gap-[19.5px] pb-8 lg:flex-row lg:items-end lg:justify-between lg:gap-10 lg:pb-[58px]">
+          <div>
+            <h2
+              id="milestones-heading"
+              className="max-w-[450px] text-[34px] leading-9 tracking-[0.03em] text-ink lg:text-[48px] lg:leading-[48px] lg:tracking-[0.04em]"
             >
-              <LucideGlyph icon={ArrowLeft} size={16} />
-            </button>
-            <button
-              type="button"
-              disabled={atEnd}
-              aria-label="下一阶段"
-              onClick={() => scrollByCard(1)}
-              className={ARROW_BUTTON_CLASS}
-            >
-              <LucideGlyph icon={ArrowRight} size={16} />
-            </button>
+              从商务中心，
+              <br />
+              到AI社区。
+            </h2>
+            <p className="mt-[13.21px] max-w-[450px] text-[15px] leading-5 text-ink lg:mt-[10.42px] lg:text-base lg:leading-6">
+              十六年四个阶段，每一步都扎根朝阳、服务中小企业。
+            </p>
           </div>
+          <p className="font-mono text-[12px] tracking-[0.1em] text-gray-5 uppercase lg:text-[13px]">2010 — 2026 · 16年沉淀</p>
         </div>
+
+        <ol className="relative grid border border-gray-3 bg-white lg:grid-cols-4">
+          <CornerTicks junctions={["tl", "tr", "bl", "br"]} />
+          {MILESTONES.map((milestone, index) => (
+            <li
+              key={milestone.year}
+              className={`relative flex flex-col gap-3 py-8 pr-6 pl-14 lg:gap-4 lg:px-10 lg:pt-[76px] lg:pb-10${
+                index > 0 ? " border-t border-gray-3 lg:border-t-0 lg:border-l" : ""
+              }`}
+            >
+              {/* 桌面:横向时间轴 */}
+              <span aria-hidden="true" className="absolute left-0 hidden h-px w-full bg-blueprint lg:block" style={{ top: AXIS_TOP }} />
+              <span
+                aria-hidden="true"
+                className="absolute hidden size-3 rounded-full border-2 border-white bg-solar lg:block"
+                style={{ top: AXIS_TOP - 6, left: 40 - 6 }}
+              />
+              {/* 移动端:纵向时间轴 */}
+              <span aria-hidden="true" className="absolute top-0 left-6 h-full w-px bg-blueprint lg:hidden" />
+              <span aria-hidden="true" className="absolute top-[38px] left-[calc(1.5rem-5px)] size-[11px] rounded-full border-2 border-white bg-solar lg:hidden" />
+
+              <span className="font-display text-[34px] leading-none font-bold tracking-[0.02em] text-ink-black lg:text-[44px]">
+                {milestone.year}
+              </span>
+              <h3 className="text-[20px] leading-6 text-ink lg:text-[22px] lg:leading-7">{milestone.title}</h3>
+              <p className="text-[14px] leading-5 text-gray-6 lg:text-[15px] lg:leading-6">{milestone.text}</p>
+              <p className="mt-auto pt-1 font-mono text-[11px] leading-4 tracking-[0.5px] text-gray-5 uppercase">{milestone.tag}</p>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );

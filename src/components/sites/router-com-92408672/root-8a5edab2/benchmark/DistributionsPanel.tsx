@@ -63,9 +63,9 @@ export function DistributionsPanel() {
               <text x="47" y="373.5" textAnchor="end">0</text>
               <text x="47" y="192" textAnchor="end">3</text>
               <text x="47" y="10.5" textAnchor="end">5</text>
-              <text x="61" y="387.5" textAnchor="start">$0.01</text>
-              <text x="380" y="387.5" textAnchor="middle">$2.18</text>
-              <text x="699" y="387.5" textAnchor="end">$4.36</text>
+              <text x="61" y="387.5" textAnchor="start">¥0.07</text>
+              <text x="380" y="387.5" textAnchor="middle">¥15.3</text>
+              <text x="699" y="387.5" textAnchor="end">¥30.5</text>
             </g>
             <g fontSize="12" className="fill-gray-6">
               <text x="9" y="248" transform="rotate(-90 9 248)">频次</text>

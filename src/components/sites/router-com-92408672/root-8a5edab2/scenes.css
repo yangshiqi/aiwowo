@@ -351,6 +351,21 @@
 
 .sd-turn-card--mixed .sd-turn-card__follows{left:calc(315 * var(--sd-turn-unit))}
 
+/* 描述 · 时钟 · 衔接 排成一行:覆盖上面按英文长度写死的 left 值,避免中文重叠 */
+.sd-turn-card__line{position:absolute;top:calc(84 * var(--sd-turn-unit));left:calc(29 * var(--sd-turn-unit));right:calc(29 * var(--sd-turn-unit));display:flex;align-items:center;gap:calc(12 * var(--sd-turn-unit));white-space:nowrap;overflow:hidden}
+.sd-turn-card__line .sd-turn-card__model,.sd-turn-card__line .sd-turn-card__follows{position:static;top:auto;left:auto}
+.sd-turn-card__line .sd-turn-card__time-icon,.sd-turn-card--miss .sd-turn-card__line .sd-turn-card__time-icon,.sd-turn-card--mixed .sd-turn-card__line .sd-turn-card__time-icon{position:relative;top:auto;left:auto;flex:none;margin-left:calc(6 * var(--sd-turn-unit))}
+
+/* 徽标按中文内容自适应宽度(原站三种状态各写死一个 width) */
+.sd-turn-card .sd-turn-card__badge{width:auto;padding-right:calc(17 * var(--sd-turn-unit))}
+
+/* 指标行改为 flex 流式:标签与数值随内容排列,不再按英文长度写死每个 left */
+.sd-turn-card .sd-turn-card__metrics{inset:auto;top:calc(177 * var(--sd-turn-unit));left:calc(29 * var(--sd-turn-unit));right:calc(29 * var(--sd-turn-unit));height:calc(28 * var(--sd-turn-unit));display:flex;align-items:center;gap:calc(56 * var(--sd-turn-unit));white-space:nowrap;overflow:hidden}
+.sd-turn-card .sd-turn-card__metrics .sd-turn-card__metric{position:static;top:auto;left:auto;display:flex;align-items:center;gap:calc(16 * var(--sd-turn-unit))}
+.sd-turn-card .sd-turn-card__metric dt{display:flex;align-items:center;gap:calc(10 * var(--sd-turn-unit))}
+.sd-turn-card .sd-turn-card__metric .sd-turn-card__swatch{position:static;top:auto;left:auto;flex:none}
+.sd-turn-card .sd-turn-card__metric .sd-turn-card__metric-label,.sd-turn-card .sd-turn-card__metric .sd-turn-card__metric-value{position:static;top:auto;left:auto}
+
 .sd-turn-card__progress{top:calc(148 * var(--sd-turn-unit));left:calc(29 * var(--sd-turn-unit));width:calc(954.381 * var(--sd-turn-unit));height:calc(16 * var(--sd-turn-unit));border-radius:calc(8 * var(--sd-turn-unit));transform-origin:0;will-change:transform;position:absolute;overflow:hidden}
 
 .sd-turn-card__progress-cached,.sd-turn-card__progress-input{background:var(--sd-turn-cached);position:absolute;inset:0}

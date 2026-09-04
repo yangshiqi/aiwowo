@@ -85,11 +85,14 @@ function TurnCard({ turn }: { turn: Turn }) {
         <h2 className="sd-turn-card__title">{turn.turn}</h2>
         <div className="sd-turn-card__badge">{turn.badge}</div>
         <code className="sd-turn-card__cost">{turn.cost}</code>
-        <div className="sd-turn-card__model">{turn.model}</div>
-        <span aria-hidden="true" className="sd-turn-card__time-icon">
-          <i />
-        </span>
-        <div className="sd-turn-card__follows">{turn.follows}</div>
+        {/* 描述 · 时钟 · 衔接 —— 一行 flex,按中文实际宽度排列(原站为写死的绝对定位,中文会重叠) */}
+        <div className="sd-turn-card__line">
+          <div className="sd-turn-card__model">{turn.model}</div>
+          <span aria-hidden="true" className="sd-turn-card__time-icon">
+            <i />
+          </span>
+          <div className="sd-turn-card__follows">{turn.follows}</div>
+        </div>
         <div
           aria-hidden="true"
           className={`sd-turn-card__progress sd-turn-card__progress--${turn.progress}`}

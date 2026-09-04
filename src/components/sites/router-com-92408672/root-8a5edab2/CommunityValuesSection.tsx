@@ -77,7 +77,7 @@ const CERTIFICATIONS = [
 
 export function CommunityValuesSection() {
   return (
-    <section aria-labelledby="values-heading" className="pt-[60px] pb-16 sm:pt-0 sm:pb-24 lg:pb-32">
+    <section aria-labelledby="values-heading" className="pt-[60px] pb-16 sm:pt-0 sm:pb-24 lg:pb-24">
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-16">
         <div className="flex flex-col gap-[19.5px] pb-8 lg:pb-[58px]">
           <h2

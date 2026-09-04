@@ -45,17 +45,17 @@ export function ScatterPanel() {
             <text x="47" y="228.29999999999998" textAnchor="end">63%</text>
             <text x="47" y="300.9" textAnchor="end">54%</text>
             <text x="47" y="373.49999999999994" textAnchor="end">45%</text>
-            <text x="61" y="387.5" textAnchor="start">$0.00</text>
-            <text x="167.33333333333331" y="387.5" textAnchor="middle">$0.50</text>
-            <text x="273.66666666666663" y="387.5" textAnchor="middle">$1.00</text>
-            <text x="380" y="387.5" textAnchor="middle">$1.50</text>
-            <text x="486.3333333333333" y="387.5" textAnchor="middle">$2.00</text>
-            <text x="592.6666666666667" y="387.5" textAnchor="middle">$2.50</text>
-            <text x="699" y="387.5" textAnchor="end">$3.00</text>
+            <text x="61" y="387.5" textAnchor="start">¥0</text>
+            <text x="167.33333333333331" y="387.5" textAnchor="middle">¥3.5</text>
+            <text x="273.66666666666663" y="387.5" textAnchor="middle">¥7</text>
+            <text x="380" y="387.5" textAnchor="middle">¥10.5</text>
+            <text x="486.3333333333333" y="387.5" textAnchor="middle">¥14</text>
+            <text x="592.6666666666667" y="387.5" textAnchor="middle">¥17.5</text>
+            <text x="699" y="387.5" textAnchor="end">¥21</text>
           </g>
           <g fontSize="12" className="fill-gray-6">
             <text x="9" y="248" transform="rotate(-90 9 248)">评分</text>
-            <text x="329" y="421" textAnchor="middle">单任务成本（美元）</text>
+            <text x="329" y="421" textAnchor="middle">单任务成本（元）</text>
           </g>
         </svg>
         <div aria-hidden="true" className="absolute inset-0">

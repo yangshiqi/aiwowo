@@ -1,9 +1,14 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { CSSProperties } from "react";
 import { LucideGlyph } from "@/components/sites/router-com-92408672/shared/lucide-glyph";
 import { ArrowLeft, ArrowRight } from "lucide";
+import { CornerTicks } from "./savings/CornerTicks";
+
+/**
+ * 社区活动 — 八类常态化活动。桌面端 4×2 细线网格一次看全(不再轮播);
+ * 移动端保留横向滑动 + 箭头。卡片压缩为编号 / 频次 / 标题 / 两三行说明 / 链接。
+ */
 
 interface LabPost {
   date: string;
@@ -46,7 +51,7 @@ const LAB_POSTS: LabPost[] = [
     title: "OPC专场路演",
     href: "#contact",
     description:
-      "\u201c创赢未来\u201dOPC专场路演，通过项目最高可获1000万元资金支持，产业对接会常态化。",
+      "“创赢未来”OPC专场路演，通过项目最高可获1000万元资金支持，产业对接会常态化。",
   },
   {
     date: "近百家企业",
@@ -71,59 +76,37 @@ const LAB_POSTS: LabPost[] = [
   },
 ];
 
-const CORNER_TICK_STYLES: CSSProperties[] = [
-  { width: "10.87px", height: "1px", top: 0, left: 0 },
-  { width: "1px", height: "10.87px", top: 0, left: 0 },
-  { width: "10.87px", height: "1px", top: 0, right: 0 },
-  { width: "1px", height: "10.87px", top: 0, right: 0 },
-  { width: "10.87px", height: "1px", bottom: 0, left: 0 },
-  { width: "1px", height: "10.87px", bottom: 0, left: 0 },
-  { width: "10.87px", height: "1px", bottom: 0, right: 0 },
-  { width: "1px", height: "10.87px", bottom: 0, right: 0 },
-];
+const ARROW_BUTTON_CLASS =
+  "flex size-8 cursor-pointer items-center justify-center bg-ink text-white outline-none transition-[background-color,opacity] hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink disabled:pointer-events-none disabled:bg-ink-black/6 disabled:text-gray-3";
 
-function LabPostCard({ post }: { post: LabPost }) {
+function LabPostCard({ post, index }: { post: LabPost; index: number }) {
   return (
-    <article className="group relative flex min-h-[320px] w-[322px] shrink-0 snap-start flex-col justify-between gap-8 border border-gray-3 p-6 sm:min-h-[369px] sm:w-[380px] sm:p-8 lg:w-[421px]">
-      <span aria-hidden="true" className="pointer-events-none absolute -inset-px z-20">
-        {CORNER_TICK_STYLES.map((style, i) => (
-          <span
-            key={i}
-            aria-hidden="true"
-            className="pointer-events-none absolute bg-blueprint"
-            style={style}
-          />
-        ))}
-      </span>
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute -inset-px z-10 motion-reduce:hidden"
-      >
+    <article className="group relative flex min-h-[248px] w-[300px] shrink-0 snap-start flex-col gap-5 border border-gray-3 bg-white p-6 lg:min-h-[268px] lg:w-auto lg:border-0 lg:p-8">
+      {/* 悬停时四条墨线沿边框描出(仅 transform) */}
+      <span aria-hidden="true" className="pointer-events-none absolute -inset-px z-10 motion-reduce:hidden">
         <span className="absolute bg-ink transition-transform duration-300 ease-out top-0 left-0 h-px w-full origin-left scale-x-0 group-hover:scale-x-100" />
         <span className="absolute bg-ink transition-transform duration-300 ease-out top-0 right-0 h-full w-px origin-top scale-y-0 group-hover:scale-y-100" />
         <span className="absolute bg-ink transition-transform duration-300 ease-out right-0 bottom-0 h-px w-full origin-right scale-x-0 group-hover:scale-x-100" />
         <span className="absolute bg-ink transition-transform duration-300 ease-out bottom-0 left-0 h-full w-px origin-bottom scale-y-0 group-hover:scale-y-100" />
       </span>
-      <div className="flex flex-col gap-[19.28px] sm:gap-8">
-        <p className="font-mono text-[9.6px] leading-[12.8px] tracking-[0.4px] text-gray-5 uppercase sm:text-xs sm:leading-4 sm:tracking-[0.5px]">
-          {post.date}
-        </p>
-        <div className="flex flex-col gap-1.5 sm:gap-5">
-          <h3 className="text-xl leading-6 text-ink sm:text-2xl sm:leading-7">
-            <a
-              href={post.href}
-              className="outline-none after:absolute after:inset-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
-            >
-              {post.title}
-            </a>
-          </h3>
-          <p className="text-sm leading-5 text-gray-5">{post.description}</p>
-        </div>
+      <div className="flex items-baseline justify-between gap-3">
+        <span className="font-display text-[15px] leading-4 font-bold tracking-[0.04em] text-ink-black">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <p className="text-right font-mono text-[11px] leading-4 tracking-[0.5px] text-gray-5 uppercase">{post.date}</p>
       </div>
-      <p
-        aria-hidden="true"
-        className="flex items-center gap-[11px] text-base leading-6 text-ink"
-      >
+      <div className="flex flex-col gap-3">
+        <h3 className="text-[20px] leading-6 text-ink">
+          <a
+            href={post.href}
+            className="outline-none after:absolute after:inset-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+          >
+            {post.title}
+          </a>
+        </h3>
+        <p className="text-[14px] leading-5 text-gray-6">{post.description}</p>
+      </div>
+      <p aria-hidden="true" className="mt-auto flex items-center gap-[11px] text-[15px] leading-6 text-ink">
         了解活动
         <LucideGlyph icon={ArrowRight} size={12} className="shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-1" />
       </p>
@@ -159,41 +142,37 @@ export function LabSection() {
   }, []);
 
   return (
-    <section className="pt-[60px] pb-16 sm:pt-0 sm:pb-24 lg:pb-32">
+    <section aria-labelledby="lab-heading" className="pt-16 pb-16 sm:pt-24 sm:pb-24 lg:pt-24 lg:pb-32">
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-16">
         <div className="flex flex-col">
-          <h2 className="text-[28px] leading-7 tracking-[0.03em] text-ink sm:text-[40px] sm:leading-10 sm:tracking-[0.03em]">
-            社区活动
-          </h2>
-          <section
-            ref={scrollerRef}
-            onScroll={updateEnds}
-            aria-label="社区活动"
-            tabIndex={0}
-            className="-mr-4 flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink motion-safe:scroll-smooth touch-pan-y select-none lg:-mr-16 mt-7 gap-4 sm:mt-[55.3px] sm:gap-6 cursor-grab"
-          >
-            {LAB_POSTS.map((post) => (
-              <LabPostCard key={post.title} post={post} />
-            ))}
-            <span aria-hidden="true" className="w-4 shrink-0 lg:w-16" />
-          </section>
-          <div className="mt-8 flex shrink-0 items-center gap-2 self-start lg:mt-10 lg:self-end">
-            <button
-              type="button"
-              disabled={atStart}
-              aria-label="上一组活动"
-              onClick={() => scrollByCard(-1)}
-              className="flex size-8 cursor-pointer items-center justify-center bg-ink text-white outline-none transition-[background-color,opacity] hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink disabled:pointer-events-none disabled:bg-ink-black/6 disabled:text-gray-3"
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
+            <h2 id="lab-heading" className="text-[28px] leading-7 tracking-[0.03em] text-ink sm:text-[40px] sm:leading-10 sm:tracking-[0.03em]">
+              社区活动
+            </h2>
+            <p className="font-mono text-[12px] tracking-[0.1em] text-gray-5 uppercase lg:text-[13px]">8 类常态化活动 · 全年滚动</p>
+          </div>
+          <div className="relative mt-7 sm:mt-[55.3px]">
+            <span className="hidden lg:contents">
+              <CornerTicks junctions={["tl", "tr", "bl", "br"]} />
+            </span>
+            <section
+              ref={scrollerRef}
+              onScroll={updateEnds}
+              aria-label="社区活动"
+              tabIndex={0}
+              className="-mr-4 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ink motion-safe:scroll-smooth touch-pan-y select-none cursor-grab sm:gap-6 lg:mr-0 lg:grid lg:cursor-auto lg:grid-cols-4 lg:gap-px lg:overflow-visible lg:border lg:border-gray-3 lg:bg-gray-3"
             >
+              {LAB_POSTS.map((post, index) => (
+                <LabPostCard key={post.title} post={post} index={index} />
+              ))}
+              <span aria-hidden="true" className="w-4 shrink-0 lg:hidden" />
+            </section>
+          </div>
+          <div className="mt-8 flex shrink-0 items-center gap-2 self-start lg:hidden">
+            <button type="button" disabled={atStart} aria-label="上一组活动" onClick={() => scrollByCard(-1)} className={ARROW_BUTTON_CLASS}>
               <LucideGlyph icon={ArrowLeft} size={16} />
             </button>
-            <button
-              type="button"
-              disabled={atEnd}
-              aria-label="下一组活动"
-              onClick={() => scrollByCard(1)}
-              className="flex size-8 cursor-pointer items-center justify-center bg-ink text-white outline-none transition-[background-color,opacity] hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink disabled:pointer-events-none disabled:bg-ink-black/6 disabled:text-gray-3"
-            >
+            <button type="button" disabled={atEnd} aria-label="下一组活动" onClick={() => scrollByCard(1)} className={ARROW_BUTTON_CLASS}>
               <LucideGlyph icon={ArrowRight} size={16} />
             </button>
           </div>

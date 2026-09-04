@@ -126,8 +126,8 @@ export function ModelMarketplaceScene() {
                   类别 <SortGlyph />
                 </th>
                 <th scope="col">
-                  <SortGlyph descending />
                   办理周期
+                  <SortGlyph descending />
                 </th>
                 <th scope="col">
                   热度指数 <SortGlyph />

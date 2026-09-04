@@ -39,7 +39,8 @@ function Body() {
 export function GlobalBanner() {
   return (
     <section aria-labelledby="global-heading" className="bg-[#f0e8e0]">
-      <div className="mx-auto w-full max-w-[1440px] px-4 pb-16 lg:px-16 lg:pb-32">
+      {/* 底带上下内边距对称,插画在暖色带里垂直居中 */}
+      <div className="mx-auto w-full max-w-[1440px] px-4 py-16 lg:px-16 lg:py-24">
         {/* 移动端:文字在上,图在下 */}
         <div className="flex flex-col gap-3 pb-6 lg:hidden">
           <Eyebrow />
@@ -59,11 +60,11 @@ export function GlobalBanner() {
             className="aspect-[2/1] w-full object-cover object-[62%_center] select-none sm:aspect-[3/1] sm:object-center"
           />
           {/* 桌面端叠加:左上留白 = 标题;顶部中间留白 = 正文 */}
-          <div className="absolute top-[7%] left-[4.5%] hidden max-w-[360px] flex-col gap-3 lg:flex">
+          <div className="absolute top-[5.5%] left-[4.5%] hidden max-w-[360px] flex-col gap-3 lg:flex">
             <Eyebrow />
             <Heading />
           </div>
-          <div className="absolute top-[9%] left-[41%] hidden max-w-[330px] flex-col gap-3 lg:flex">
+          <div className="absolute top-[7.5%] left-[41%] hidden max-w-[330px] flex-col gap-3 lg:flex">
             <Body />
           </div>
         </div>

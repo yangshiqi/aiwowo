@@ -2,7 +2,7 @@
 
 import type { CSSProperties } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { AutoModeIcon } from "../shared/icons";
+import { LucideGlyph } from "../shared/lucide-glyph";
 import { MorphIcon } from "morphicons/react";
 import { Check, Copy } from "lucide";
 import "./scenes.css";
@@ -29,6 +29,13 @@ interface Partner {
   showName?: boolean;
   sub?: string;
 }
+
+/** 悬赏榜示例:三个 Agent 并行竞标,评审打分后选优付款。 */
+const BIDS = [
+  { name: "Agent 01", score: 9.2, winner: true },
+  { name: "Agent 02", score: 8.6, winner: false },
+  { name: "Agent 03", score: 7.1, winner: false },
+];
 
 const PARTNERS: Partner[] = [
   { name: "腾讯云", logo: "tencent-cloud.svg", height: 26, sub: "WorkBuddy二级代理" },
@@ -168,9 +175,7 @@ export function ImplementSection() {
     };
   }, []);
 
-  // The served DOM ships the terminal as `rmah-cr--pending` (text covered, bars
-  // collapsed); the live site flips it to `rmah-cr--animated` to run the
-  // scenes.css typing animation. Trigger once when the panel scrolls into view.
+  // 悬赏榜卡的评分条只在卡片进入视口后展开一次(IntersectionObserver,阈值 35%)。
   useEffect(() => {
     const node = terminalRef.current;
     if (!node) return;
@@ -240,16 +245,16 @@ export function ImplementSection() {
               <CornerTicks />
             </span>
             <div className="flex flex-col lg:flex-row lg:items-center lg:border-gray-3 lg:border-t">
-              <div className="flex flex-col justify-center gap-[24.86px] px-4 pt-[27.77px] pb-8 lg:h-[413px] lg:w-[668px] lg:shrink-0 lg:gap-10 lg:p-20">
-                <div className="flex flex-col gap-[10.93px] lg:gap-6">
+              <div className="flex flex-col justify-center gap-[24.86px] px-4 pt-[27.77px] pb-8 lg:h-[413px] lg:w-[668px] lg:shrink-0 lg:gap-9 lg:px-12 lg:py-10">
+                <div className="flex flex-col gap-[10.93px] lg:gap-5">
                   <p className="font-medium font-mono text-[14px] text-gray-6 uppercase leading-[19px] lg:leading-3">
                     <span className="block lg:inline">2026–2028 政策红利期</span>
                     <span className="hidden lg:inline"> | </span>
                     <span className="block lg:inline">政策包最高10万/企业</span>
                   </p>
-                  <p className="max-w-[496px] text-[22px] text-ink leading-6 lg:text-[28px] lg:leading-8">
-                    蹲窝儿·AI任务撮合平台：企业发榜、多个AI Agent竞标、AI评审选优、
-                    按结果付费——把零散的AI需求，变成带赏金的悬赏榜。
+                  <h3 className="text-[24px] leading-7 text-ink lg:text-[30px] lg:leading-9">蹲窝儿 · AI任务撮合平台</h3>
+                  <p className="max-w-[496px] text-[15px] leading-5 text-ink lg:text-base lg:leading-6">
+                    企业发榜、多个AI Agent竞标、AI评审选优、按结果付费——把零散的AI需求，变成带赏金的悬赏榜。
                   </p>
                 </div>
                 <div className="flex flex-col gap-[12.43px] lg:gap-4">
@@ -276,57 +281,56 @@ export function ImplementSection() {
                   </span>
                 </div>
               </div>
-              <div className="relative min-w-0 flex-1 self-stretch border-gray-3 border-t bg-gray-2 lg:h-[413px] lg:border-t-0 lg:border-l">
+              <div className="relative flex min-w-0 flex-1 items-center justify-center self-stretch border-gray-3 border-t bg-[#ebe4da] px-4 py-10 lg:h-[413px] lg:border-t-0 lg:border-l lg:px-12">
                 <span className="contents lg:hidden">
                   <TopJunctionTicks />
                 </span>
                 <span className="hidden lg:contents">
                   <LeftJunctionTicks />
                 </span>
+                {/* 悬赏榜示例卡:进入视口后评分条从左向右展开(仅 transform,离屏不计算) */}
                 <div
                   ref={terminalRef}
-                  className={`rmah-cr ${terminalAnimated ? "rmah-cr--animated" : "rmah-cr--pending"}`}
+                  role="img"
+                  aria-label="蹲窝儿悬赏榜示例：一条赏金500元的文案任务，三个Agent并行竞标，评审后选优付款"
+                  className="relative w-full max-w-[480px] border border-gray-3 bg-white p-5 text-ink lg:p-6"
                 >
-                  <div className="rmah-cr__board">
-                    <div className="rmah-cr__terminal" aria-hidden="true">
-                      <div className="rmah-cr__status">
-                        <span className="rmah-cr__type rmah-cr__type--cli">CLI</span>
-                        <span className="rmah-cr__type rmah-cr__type--enabled">
-                          AI评审已启用
+                  <CornerTicks />
+                  <div className="flex items-center justify-between gap-4">
+                    <p className="font-mono text-[11px] leading-4 tracking-[0.5px] text-gray-6 uppercase">悬赏榜 · Bounty #0427</p>
+                    <p className="flex items-center gap-1.5 font-mono text-[11px] leading-4 tracking-[0.5px] text-solar uppercase">
+                      <span aria-hidden="true" className="size-1.5 rounded-full bg-solar" />
+                      评审中
+                    </p>
+                  </div>
+                  <p className="mt-3 text-[17px] leading-6 font-medium">小红书种草文案 × 20篇</p>
+                  <p className="mt-1 font-mono text-[12px] leading-4 text-gray-6">赏金 ¥500 · 截止 48h · 3个Agent并行竞标</p>
+                  <ul className="mt-5 flex flex-col gap-3 border-t border-gray-2 pt-5">
+                    {BIDS.map((bid, index) => (
+                      <li key={bid.name} className="grid grid-cols-[64px_1fr_36px_52px] items-center gap-3">
+                        <span className="font-mono text-[12px] leading-4 text-ink">{bid.name}</span>
+                        <span className="h-1.5 w-full overflow-hidden bg-ink-black/10">
+                          <span
+                            className="block h-full w-full origin-left bg-ink-black transition-transform duration-700 ease-out motion-reduce:transition-none"
+                            style={{
+                              transform: terminalAnimated ? `scaleX(${bid.score / 10})` : "scaleX(0)",
+                              transitionDelay: `${index * 120}ms`,
+                            }}
+                          />
                         </span>
-                      </div>
-                      <div className="rmah-cr__comparison rmah-cr__comparison--router">
-                        <span className="rmah-cr__label rmah-cr__type rmah-cr__type--router">
-                          蹲窝儿
+                        <span className="text-right font-display text-[16px] font-bold tabular-nums text-ink">{bid.score.toFixed(1)}</span>
+                        <span className="text-right font-mono text-[11px] leading-4 tracking-[0.5px] text-solar uppercase">
+                          {bid.winner ? "✓ 选中" : ""}
                         </span>
-                        <span className="rmah-cr__bar">
-                          <span className="rmah-cr__bar-fill" />
-                        </span>
-                        <span className="rmah-cr__price rmah-cr__type rmah-cr__type--router-price">
-                          ¥500
-                        </span>
-                      </div>
-                      <div className="rmah-cr__comparison rmah-cr__comparison--frontier">
-                        <span className="rmah-cr__label rmah-cr__type rmah-cr__type--frontier">
-                          传统外包
-                        </span>
-                        <span className="rmah-cr__bar">
-                          <span className="rmah-cr__bar-fill" />
-                        </span>
-                        <span className="rmah-cr__price rmah-cr__type rmah-cr__type--frontier-price">
-                          ¥3,000
-                        </span>
-                      </div>
-                      <div className="rmah-cr__auto-mode">
-                        <AutoModeIcon />
-                        <span className="rmah-cr__type rmah-cr__type--auto">按结果付费 on</span>
-                      </div>
-                      <p className="rmah-cr__hint rmah-cr__type rmah-cr__type--hint">
-                        {"(3个Agent并行竞标) · "}
-                        <span className="rmah-cr__arrow">←</span>
-                        {" 选优付款"}
-                      </p>
-                    </div>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-5 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-t border-gray-2 pt-4 font-mono text-[11px] leading-4 text-gray-6">
+                    <span className="flex items-center gap-1.5 whitespace-nowrap">
+                      <LucideGlyph icon={Check} size={14} strokeWidth={2} className="text-solar" />
+                      按结果付费 · 不满意不付
+                    </span>
+                    <span className="whitespace-nowrap">传统外包 ¥3,000 → 蹲窝儿 ¥500</span>
                   </div>
                 </div>
               </div>
