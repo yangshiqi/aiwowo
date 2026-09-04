@@ -1,5 +1,8 @@
 // 出海横幅 — 3:1 全球连接插画(办公空间 → 行者 → 地球)。
-// 桌面端文案叠加在图的两块留白区:标题在左上、正文在顶部中间;移动端文字堆叠在图上方。
+//
+// 插画自带城市标注与经纬度(北京 / 温哥华 / 旧金山 / 纽约 / 洛杉矶),
+// 图面中上区域已被「中国北京」标签占用,所以桌面端只在左上那块干净留白里叠加
+// 眉题与标题,正文和链接放到图下方,避免压住画面自己的信息。
 const ASSETS = "/sites/router-com-92408672/root-8a5edab2/images/opc";
 
 function Eyebrow() {
@@ -65,20 +68,22 @@ export function GlobalBanner() {
         <div className="relative overflow-hidden border border-gray-3">
           <img
             src={`${ASSETS}/opc-banner-global.webp`}
-            alt="从艾窝窝办公空间出发,连接全球市场的示意图"
+            alt="从艾窝窝办公空间出发，经北京连接温哥华、旧金山、纽约、洛杉矶的全球市场示意图"
             width={2172}
             height={724}
             loading="lazy"
             className="aspect-[2/1] w-full object-cover object-[62%_center] select-none sm:aspect-[3/1] sm:object-center"
           />
-          {/* 桌面端叠加:左上留白 = 标题;顶部中间留白 = 正文 */}
-          <div className="absolute top-[5.5%] left-[4.5%] hidden max-w-[360px] flex-col gap-3 lg:flex">
+          {/* 桌面端叠加:只用左上那块干净留白(办公插画之上、城市标注之左) */}
+          <div className="absolute top-[4%] left-[4.5%] hidden max-w-[360px] flex-col gap-2 lg:flex">
             <Eyebrow />
             <Heading visual />
           </div>
-          <div className="absolute top-[7.5%] left-[41%] hidden max-w-[330px] flex-col gap-3 lg:flex">
-            <Body />
-          </div>
+        </div>
+
+        {/* 桌面端正文:移到图下方,避开插画自带的城市标注 */}
+        <div className="mt-6 hidden max-w-[640px] flex-col gap-3 lg:flex">
+          <Body />
         </div>
       </div>
     </section>
